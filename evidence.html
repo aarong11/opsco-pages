@@ -1,0 +1,649 @@
+<title>OpsCo FeatherLight</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+/* ------------------------------------------------------------------ tokens
+   One committed visual world: ink on dark glass. Every colour is painted
+   explicitly so the page holds on any host ground. */
+:root {
+  --ground:      #0D1014;
+  --panel:       #151A20;
+  --panel-2:     #1B222A;
+  --came:        #262E37;   /* the lead between panes: every hairline */
+  --ink:         #E8E3D9;   /* bone */
+  --ink-2:       #B4BCC5;
+  --muted:       #8B95A0;
+
+  --separation:  #6E82E8;   /* blue ink  — the accent */
+  --relief:      #D14257;   /* red ink   — refusals, held state */
+  --delivery:    #4CA87A;   /* green ink — passes, deliveries */
+
+  --step-1: 0.75rem;
+  --step0:  0.95rem;
+  --step1:  1.0625rem;
+  --step2:  1.375rem;
+  --step3:  1.875rem;
+  --step4:  2.625rem;
+  --step5:  clamp(2.75rem, 7vw, 4.5rem);
+
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --serif: "Spectral", Georgia, "Times New Roman", serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: var(--step1);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Faint glazing: two very low-opacity ink washes, so the ground is never flat. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(58rem 40rem at 12% -8%, rgba(110,130,232,0.10), transparent 68%),
+    radial-gradient(46rem 34rem at 96% 4%, rgba(209,66,87,0.055), transparent 70%);
+  z-index: 0;
+}
+
+.wrap { position: relative; z-index: 1; max-width: 68rem; margin: 0 auto; padding: 0 1.75rem; }
+.prose { max-width: 38rem; }
+
+h1, h2, h3 { font-weight: 600; text-wrap: balance; margin: 0; line-height: 1.18; }
+p { margin: 0; }
+
+a { color: var(--separation); text-decoration: none; border-bottom: 1px solid rgba(110,130,232,0.35); }
+a:hover { border-bottom-color: var(--separation); }
+a:focus-visible, code:focus-visible { outline: 2px solid var(--separation); outline-offset: 3px; }
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: var(--step-1);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.mono { font-family: var(--mono); }
+.num  { font-variant-numeric: tabular-nums; }
+
+/* --------------------------------------------------------------- masthead */
+.masthead { padding: 4.5rem 0 3rem; }
+.masthead h1 {
+  font-size: var(--step5);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  margin: 1.25rem 0 0;
+}
+.masthead h1 em { font-style: italic; color: var(--ink-2); }
+.standfirst { margin-top: 1.5rem; font-size: var(--step2); font-weight: 300; color: var(--ink-2); line-height: 1.45; max-width: 34rem; }
+
+.claim {
+  margin-top: 3rem;
+  border-left: 2px solid var(--separation);
+  padding: 0.25rem 0 0.25rem 1.75rem;
+  max-width: 40rem;
+}
+.claim p + p { margin-top: 0.9rem; }
+.claim .said { font-size: var(--step2); font-weight: 300; line-height: 1.5; }
+.claim .aside { color: var(--muted); font-size: var(--step0); }
+
+/* --------------------------------------------------------------- sections */
+section { padding: 4.5rem 0; border-top: 1px solid var(--came); }
+.sec-head { display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 2.5rem; }
+.sec-head h2 { font-size: var(--step3); font-weight: 400; letter-spacing: -0.01em; }
+.sec-head p { color: var(--ink-2); max-width: 38rem; }
+
+/* ------------------------------------------------------------- stat tiles */
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 1px; background: var(--came); border: 1px solid var(--came); }
+.tile { background: var(--panel); padding: 1.5rem 1.4rem; display: flex; flex-direction: column; gap: 0.4rem; }
+.tile .v { font-family: var(--mono); font-size: var(--step4); font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; line-height: 1; }
+.tile .k { font-family: var(--mono); font-size: var(--step-1); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.tile .n { font-size: var(--step0); color: var(--ink-2); }
+.v-pass { color: var(--delivery); }
+.v-sep  { color: var(--separation); }
+
+/* ------------------------------------------------------------------ chart */
+figure { margin: 2.75rem 0 0; }
+figcaption { font-family: var(--mono); font-size: var(--step-1); color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1.1rem; }
+.bars { display: flex; flex-direction: column; gap: 2px; }
+.bar-row { display: grid; grid-template-columns: 11rem 1fr 3.5rem; align-items: center; gap: 1rem; padding: 0.3rem 0; }
+.bar-row .label { font-family: var(--mono); font-size: var(--step0); color: var(--ink-2); }
+.bar-track { height: 0.85rem; background: var(--panel-2); border-radius: 2px; }
+.bar-fill { height: 100%; background: var(--separation); border-radius: 0 4px 4px 0; }
+.bar-row .count { font-family: var(--mono); font-size: var(--step0); text-align: right; font-variant-numeric: tabular-nums; color: var(--ink); }
+.chart-note { margin-top: 1.1rem; font-size: var(--step0); color: var(--muted); }
+
+/* ------------------------------------------------------------------ table */
+.table-scroll { overflow-x: auto; margin-top: 2.5rem; border: 1px solid var(--came); }
+table { border-collapse: collapse; width: 100%; font-family: var(--mono); font-size: var(--step0); }
+th, td { text-align: left; padding: 0.6rem 1rem; border-bottom: 1px solid var(--came); white-space: nowrap; }
+thead th { font-size: var(--step-1); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); font-weight: 500; background: var(--panel); }
+tbody tr:last-child td { border-bottom: none; }
+td.n { text-align: right; font-variant-numeric: tabular-nums; }
+td.mod { color: var(--ink-2); }
+
+/* ------------------------------------------------------------------ console */
+.console {
+  margin-top: 2.5rem;
+  background: #090C0F;
+  border: 1px solid var(--came);
+  padding: 1.4rem 1.5rem;
+  overflow-x: auto;
+  font-family: var(--mono);
+  font-size: 0.84rem;
+  line-height: 1.75;
+  color: var(--ink-2);
+}
+.console .pass { color: var(--delivery); }
+.console .rule { color: var(--came); }
+.console .fin  { color: var(--ink); }
+
+/* --------------------------------------------------------------- scenarios */
+.scenarios { display: grid; grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr)); gap: 1px; background: var(--came); border: 1px solid var(--came); margin-top: 2.5rem; }
+.scn { background: var(--panel); padding: 1.5rem 1.4rem; display: flex; flex-direction: column; gap: 0.6rem; }
+.scn .id { font-family: var(--mono); font-size: var(--step-1); letter-spacing: 0.14em; color: var(--separation); }
+.scn h3 { font-size: var(--step1); font-weight: 600; }
+.scn p { font-size: var(--step0); color: var(--ink-2); line-height: 1.6; }
+.scn .shape { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); border-top: 1px solid var(--came); padding-top: 0.7rem; margin-top: auto; line-height: 1.6; }
+
+/* ------------------------------------------------------------------- code */
+pre {
+  margin: 2rem 0 0;
+  background: var(--panel);
+  border: 1px solid var(--came);
+  border-left: 2px solid var(--separation);
+  padding: 1.25rem 1.4rem;
+  overflow-x: auto;
+  font-family: var(--mono);
+  font-size: 0.84rem;
+  line-height: 1.7;
+  color: var(--ink-2);
+}
+pre .c { color: var(--muted); font-style: italic; }
+pre .r { color: var(--relief); }
+pre .g { color: var(--delivery); }
+code { font-family: var(--mono); font-size: 0.88em; color: var(--ink); background: var(--panel-2); padding: 0.08em 0.35em; border-radius: 2px; }
+
+/* ------------------------------------------------------------------- inks */
+.inks { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1px; background: var(--came); border: 1px solid var(--came); margin-top: 2.5rem; }
+.ink-card { background: var(--panel); padding: 1.5rem 1.4rem; display: flex; flex-direction: column; gap: 0.7rem; }
+.swatch { height: 2.75rem; border: 1px solid var(--came); }
+.ink-card .role { font-family: var(--mono); font-size: var(--step-1); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.ink-card .sku { font-family: var(--mono); font-size: var(--step0); color: var(--ink); }
+.ink-card p { font-size: var(--step0); color: var(--ink-2); line-height: 1.6; }
+
+/* ---------------------------------------------------------------- absences */
+.absences { list-style: none; padding: 0; margin: 2.25rem 0 0; display: flex; flex-direction: column; gap: 1.5rem; max-width: 42rem; }
+.absences li { border-left: 2px solid var(--relief); padding-left: 1.5rem; }
+.absences h3 { font-size: var(--step1); font-weight: 600; margin-bottom: 0.4rem; }
+.absences p { font-size: var(--step0); color: var(--ink-2); }
+
+/* ------------------------------------------------------------------ notes */
+.note { margin-top: 2rem; border: 1px solid var(--came); background: var(--panel); padding: 1.4rem 1.5rem; max-width: 42rem; }
+.note .eyebrow { display: block; margin-bottom: 0.6rem; }
+.note p { font-size: var(--step0); color: var(--ink-2); }
+.note p + p { margin-top: 0.8rem; }
+
+footer { border-top: 1px solid var(--came); padding: 3rem 0 5rem; color: var(--muted); font-size: var(--step0); }
+footer p + p { margin-top: 0.6rem; }
+
+@media (max-width: 40rem) {
+  .bar-row { grid-template-columns: 8.5rem 1fr 2.75rem; gap: 0.65rem; }
+  .masthead { padding: 3.5rem 0 2.5rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* ------------------------------------------------------------------- nav */
+nav.site { position: relative; z-index: 1; border-bottom: 1px solid var(--came); }
+nav.site .inner { max-width: 68rem; margin: 0 auto; padding: 1.1rem 1.75rem; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: baseline; }
+nav.site .brand { font-family: var(--mono); font-size: var(--step0); letter-spacing: .1em; text-transform: uppercase; color: var(--ink); border: 0; margin-right: auto; }
+nav.site a { font-family: var(--mono); font-size: var(--step-1); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); border: 0; }
+nav.site a:hover { color: var(--ink); }
+nav.site a[aria-current="page"] { color: var(--separation); }
+</style>
+
+<nav class="site"><div class="inner"><a class="brand" href="index.html">OpsCo</a><a href="index.html">Onboarding</a><a href="ceremonies.html">Ceremonies</a><a href="audit.html">Audit index</a><a href="design.html">Design guide</a><a href="evidence.html" aria-current="page">Evidence</a></div></nav>
+<div class="wrap">
+
+  <header class="masthead">
+    <span class="eyebrow">OpsCo · evidence build · <span data-gen="total">281</span> tests passing</span>
+    <h1>FeatherLight <em>separation attestations</em></h1>
+    <p class="standfirst">
+      Conflict-aware dispatch, contract governance, and signed separation proofs for a
+      regional franchise operation. This page is the test evidence, run against the
+      code in this repository.
+    </p>
+
+    <div class="claim">
+      <p class="said">You cannot prove two people did not interact. You can prove this:</p>
+      <p>
+        Across the whole exposure window — run time <em>plus scratch tail</em> — no
+        principal holding a registered conflict against this work held any access path
+        to it, and no worker under a restriction was placed where that restriction
+        mattered. Here are the grant paths, the evidence refs, the policy version, and
+        a signature.
+      </p>
+      <p class="aside">
+        Deterministic, replayable, and it survives being contested. Non-repudiation
+        taken where it is actually available — the access-control and roster layer —
+        rather than at the behavioural layer, where it never will be.
+      </p>
+    </div>
+  </header>
+
+  <!-- ============================================================ suite -->
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow">The suite</span>
+      <h2>What is under test</h2>
+      <p>
+        <span data-gen="modules">5</span> modules, <span data-gen="total">281</span>
+        tests, standard library plus <code>cryptography</code> for Ed25519. Every figure
+        below is written into this page by <code>tools/build_docs.py</code> from an
+        actual run, and CI fails if the page and the code disagree.
+      </p>
+    </div>
+
+    <div class="tiles">
+      <div class="tile">
+        <span class="k">Tests passing</span>
+        <span class="v v-pass num" data-gen="total">281</span>
+        <span class="n">0 failures, 0 errors</span>
+      </div>
+      <div class="tile">
+        <span class="k">Rehearsal controls</span>
+        <span class="v v-pass num" data-gen="controls">8 / 8</span>
+        <span class="n">Every red-team scenario fired</span>
+      </div>
+      <div class="tile">
+        <span class="k">Attestation chain</span>
+        <span class="v v-sep num" data-gen="entries">11</span>
+        <span class="n">Signed entries, chain verifies</span>
+      </div>
+      <div class="tile">
+        <span class="k">Test classes</span>
+        <span class="v num" data-gen="classes">37</span>
+        <span class="n">Each holding down one rule</span>
+      </div>
+    </div>
+
+    <figure>
+      <figcaption>Tests by module</figcaption>
+      <div class="bars"><!-- gen:bars -->
+        <div class="bar-row">
+          <span class="label">test_governance</span>
+          <div class="bar-track"><div class="bar-fill" style="width:100.0%"></div></div>
+          <span class="count">149</span>
+        </div>
+        <div class="bar-row">
+          <span class="label">test_service</span>
+          <div class="bar-track"><div class="bar-fill" style="width:41.6%"></div></div>
+          <span class="count">62</span>
+        </div>
+        <div class="bar-row">
+          <span class="label">test_opsco</span>
+          <div class="bar-track"><div class="bar-fill" style="width:16.8%"></div></div>
+          <span class="count">25</span>
+        </div>
+        <div class="bar-row">
+          <span class="label">test_consumables</span>
+          <div class="bar-track"><div class="bar-fill" style="width:15.4%"></div></div>
+          <span class="count">23</span>
+        </div>
+        <div class="bar-row">
+          <span class="label">test_analysis</span>
+          <div class="bar-track"><div class="bar-fill" style="width:14.8%"></div></div>
+          <span class="count">22</span>
+        </div>
+      <!-- /gen:bars --></div>
+      <p class="chart-note">
+        Governance carries most of the weight because most of the risk is there — the
+        rules that refuse things, rather than the plumbing that carries them.
+      </p>
+    </figure>
+
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr><th>Test class</th><th>Module</th><th class="n">Tests</th><th>What it holds down</th></tr>
+        </thead>
+        <tbody><!-- gen:table -->
+          <tr><td>Contracts</td><td class="mod">governance</td><td class="n">20</td><td>Work packages, quiet periods, ambiguity handling</td></tr>
+          <tr><td>Dispatch</td><td class="mod">service</td><td class="n">17</td><td>Ticket queue, offers, published rate cards</td></tr>
+          <tr><td>Arbitration</td><td class="mod">governance</td><td class="n">14</td><td>Pool disputes, the non-party rule</td></tr>
+          <tr><td>Equity</td><td class="mod">governance</td><td class="n">14</td><td>Blind-trust vesting on delivery events</td></tr>
+          <tr><td>Api</td><td class="mod">service</td><td class="n">13</td><td>HTTP surface and its refusals</td></tr>
+          <tr><td>Sharing</td><td class="mod">governance</td><td class="n">13</td><td>Cross-book sharing and audit rights</td></tr>
+          <tr><td>StandingWatch</td><td class="mod">governance</td><td class="n">13</td><td>Corroborated availability, payable overlap</td></tr>
+          <tr><td>Identity</td><td class="mod">governance</td><td class="n">11</td><td>Misidentification shield — one subject or a refusal</td></tr>
+          <tr><td>Web</td><td class="mod">service</td><td class="n">9</td><td>No-JS interface</td></tr>
+          <tr><td>Windows</td><td class="mod">governance</td><td class="n">9</td><td>Queue windows and rest periods</td></tr>
+          <tr><td>Auth</td><td class="mod">service</td><td class="n">8</td><td>Roles, sessions, effective grants</td></tr>
+          <tr><td>Ceremonies</td><td class="mod">governance</td><td class="n">8</td><td>Shared ceremonies, conflict-aware invitation</td></tr>
+          <tr><td>Custody</td><td class="mod">governance</td><td class="n">8</td><td>The triad, collapsed by common control</td></tr>
+          <tr><td>GrantResolution</td><td class="mod">opsco</td><td class="n">8</td><td>Nested groups, standing exceptions, break-glass</td></tr>
+          <tr><td>Movements</td><td class="mod">consumables</td><td class="n">8</td><td>Derived balances, off-spec stock refused at issue</td></tr>
+          <tr><td>Pseudonyms</td><td class="mod">governance</td><td class="n">8</td><td>Reversible handles, small-cell suppression</td></tr>
+          <tr><td>Scheduling</td><td class="mod">opsco</td><td class="n">8</td><td>Admissible windows, including the scratch tail</td></tr>
+          <tr><td>ApiGovernance</td><td class="mod">service</td><td class="n">7</td><td>Governance endpoints and their guards</td></tr>
+          <tr><td>Cover</td><td class="mod">governance</td><td class="n">7</td><td>Follow-up cover and relief</td></tr>
+          <tr><td>IndependentInvention</td><td class="mod">governance</td><td class="n">7</td><td>Blinded replication certificates</td></tr>
+          <tr><td>Rebate</td><td class="mod">analysis</td><td class="n">7</td><td>Load-shifting rebate</td></tr>
+          <tr><td>PairedLiabilities</td><td class="mod">governance</td><td class="n">6</td><td>Third-party payment and set-off</td></tr>
+          <tr><td>TaxFunding</td><td class="mod">governance</td><td class="n">6</td><td>ITEPA s222 deadline on the charge</td></tr>
+          <tr><td>Attestation</td><td class="mod">opsco</td><td class="n">5</td><td>Hash chain, Ed25519, replay</td></tr>
+          <tr><td>Barrier</td><td class="mod">governance</td><td class="n">5</td><td>Information barrier</td></tr>
+          <tr><td>ThesisTest</td><td class="mod">analysis</td><td class="n">5</td><td>Stratified permutation test vs. known ground truth</td></tr>
+          <tr><td>Transport</td><td class="mod">service</td><td class="n">5</td><td>Message bus</td></tr>
+          <tr><td>InkBudget</td><td class="mod">consumables</td><td class="n">4</td><td>Ink budget derived from the stock ledger</td></tr>
+          <tr><td>Integrity</td><td class="mod">analysis</td><td class="n">4</td><td>Work-pool integrity signals</td></tr>
+          <tr><td>Readiness</td><td class="mod">consumables</td><td class="n">4</td><td>Room ready per client, per spec version</td></tr>
+          <tr><td>Settlement</td><td class="mod">consumables</td><td class="n">4</td><td>Consumption and invoice reconciliation</td></tr>
+          <tr><td>BurstDetection</td><td class="mod">analysis</td><td class="n">3</td><td>Bursts over the job ledger</td></tr>
+          <tr><td>Conflicts</td><td class="mod">opsco</td><td class="n">3</td><td>Declared conflict graph</td></tr>
+          <tr><td>HttpSmoke</td><td class="mod">service</td><td class="n">3</td><td>Server comes up and answers</td></tr>
+          <tr><td>Primitives</td><td class="mod">analysis</td><td class="n">3</td><td>Windowing and coarsening</td></tr>
+          <tr><td>Specs</td><td class="mod">consumables</td><td class="n">3</td><td>Immutable published brand specs</td></tr>
+          <tr><td>Burden</td><td class="mod">opsco</td><td class="n">1</td><td>Which party carries the constrained shift</td></tr>
+        <!-- /gen:table --></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ======================================================== rehearsal -->
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow">Sprint 07 rehearsal</span>
+      <h2>Eight scenarios, invented on purpose</h2>
+      <p>
+        You cannot build a detector without generating the shape it is meant to catch.
+        <code>example_simulation.py</code> builds a throwaway synthetic network, drives
+        the real modules through eight scripted scenarios, and asserts that each control
+        fires. It exits non-zero if any detector stays silent or the chain fails to
+        verify, so it works as a guard against a future change quietly disarming a
+        control. Every actor in it is invented; mixing a real record into the rehearsal
+        would be a boundary breach, not a richer test.
+      </p>
+    </div>
+
+    <div class="console"><!-- gen:console -->
+<span class="fin">Sprint 07 Rehearsal — seed 2607</span>
+<span class="rule">==================================================================</span>
+[<span class="pass">PASS</span>] S1  clean replication vests
+[<span class="pass">PASS</span>] S2  provenance forgery blocked
+[<span class="pass">PASS</span>] S3  replication contamination
+[<span class="pass">PASS</span>] S4  conflict ceremony refused
+[<span class="pass">PASS</span>] S5  custody drift
+[<span class="pass">PASS</span>] S6  small-cell suppression
+[<span class="pass">PASS</span>] S7  tax-funding overdue
+[<span class="pass">PASS</span>] S8  covert timing cannot form
+<span class="rule">==================================================================</span>
+<span class="fin">8/8 controls fired as required</span>
+<span class="fin">attestation chain verifies: yes  (11 signed entries)</span>
+    <!-- /gen:console --></div>
+
+    <div class="scenarios">
+      <div class="scn">
+        <span class="id">S1</span>
+        <h3>Clean replication vests</h3>
+        <p>The reference shape. A delivery event against a published rule version vests units into the blind trust.</p>
+        <span class="shape">clean path vests 100 units on a delivery event</span>
+      </div>
+      <div class="scn">
+        <span class="id">S2</span>
+        <h3>Provenance forgery blocked</h3>
+        <p>A contribution claimed without an independent-invention certificate. The combine is refused, and unlocked only by a genuine matching blinded replication.</p>
+        <span class="shape">combine refused with no certificate; unlocked by a matching blinded replication</span>
+      </div>
+      <div class="scn">
+        <span class="id">S3</span>
+        <h3>Replication contamination</h3>
+        <p>A roster move mid-window puts the replicator inside the original team. The breach is permanent and the delivery is marked not independent.</p>
+        <span class="shape">breach recorded; delivery marked not independent</span>
+      </div>
+      <div class="scn">
+        <span class="id">S4</span>
+        <h3>Conflict ceremony refused</h3>
+        <p>A second invitation would place two parties to a conflict in one room. The refusal names the evidence ref, never the reason.</p>
+        <span class="shape">second invite refused, naming evidence ref not the reason</span>
+      </div>
+      <div class="scn">
+        <span class="id">S5</span>
+        <h3>Custody drift</h3>
+        <p>Three parties look separate by name. One controller change collapses the triad — caught on common control, not on names.</p>
+        <span class="shape">triad clean, then one controller change collapses it</span>
+      </div>
+      <div class="scn">
+        <span class="id">S6</span>
+        <h3>Small-cell suppression</h3>
+        <p>A group of one identifies its member exactly. It is dropped — and because the table total is published, the smallest survivor goes with it.</p>
+        <span class="shape">group of 1 dropped; smallest survivor dropped too</span>
+      </div>
+      <div class="scn">
+        <span class="id">S7</span>
+        <h3>Tax funding overdue</h3>
+        <p>A charge on acquisition not made good inside the ITEPA s222 window surfaces against the beneficiary rather than going quiet.</p>
+        <span class="shape">unmade-good charge past the s222 deadline surfaces</span>
+      </div>
+      <div class="scn">
+        <span class="id">S8</span>
+        <h3>Covert timing cannot form</h3>
+        <p>The negative-space case. There is no self-selection in allocation, so there is no variable to steer — no behavioural sniffer, a structural answer.</p>
+        <span class="shape">allocation order == wait order; no residual for a timing channel</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================= examples -->
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow">Worked examples</span>
+      <h2>Refusals, where they happen</h2>
+      <p>
+        Most of this system is made of things it will not do, and the interesting
+        question is always <em>when</em> it declines. Approval checked at audit means
+        the work already went out.
+      </p>
+    </div>
+
+    <div class="prose">
+      <p style="margin-top:1.5rem; color: var(--ink-2);">
+        A client brand spec names the ink, paper and printer stock that may be used to
+        produce for them. Off-spec stock is refused at the moment it would leave the
+        shelf — not in a month-end exception report.
+      </p>
+    </div>
+
+<pre><span class="c"># tests/test_consumables.py :: Movements</span>
+consumables.publish_spec(conn, "CLIENT-A", "v1", [
+    ("ink",   "INK-CRIMSON"),
+    ("ink",   "INK-VERDE"),
+    ("paper", "PAPER-90GSM"),
+], "brand-lead")
+
+consumables.move(conn, "LOT-B1", "ROOM-A", "receipt", 500,
+                 "storeman", order_ref="PO-1")
+
+consumables.move(conn, "LOT-B1", "ROOM-A", "issue", 10,
+                 "printer", client="CLIENT-A")
+<span class="r">StockError: INK-INDIGO is not on the approved list for CLIENT-A
+           — refused at issue, not at audit</span></pre>
+
+    <div class="prose">
+      <p style="margin-top:2rem; color: var(--ink-2);">
+        Readiness is a property of a room <em>and</em> a client at a moment. One shared
+        room is ready for one client and not another; that is the ordinary case rather
+        than the exception.
+      </p>
+    </div>
+
+<pre>consumables.room_ready(conn, "ROOM-A", "CLIENT-A")
+<span class="g">→ ROOM-A not ready for CLIENT-A: missing INK-VERDE</span>
+
+<span class="c"># balances are derived from movements and only from movements.</span>
+<span class="c"># there is deliberately no set_balance(): a stock figure that can be</span>
+<span class="c"># typed in can be made to agree with whatever the settlement wanted,</span>
+<span class="c"># and the movement rows would still look perfectly clean.</span></pre>
+  </section>
+
+  <!-- ============================================================== ink -->
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow">Ink as a ledger</span>
+      <h2>A colour you cannot account for does not render</h2>
+      <p>
+        Cuneiform tallies, Mayan accounting, and modern lab stock control all share one
+        property: the record exists because the thing moved. The consumables ledger
+        keeps that property, and then hands it to the visual layer — three inks, each
+        spendable only against real attested stock.
+      </p>
+    </div>
+
+    <div class="inks">
+      <div class="ink-card">
+        <div class="swatch" style="background:#D14257"></div>
+        <span class="role">Relief</span>
+        <span class="sku">INK-CRIMSON</span>
+        <p>Cover and relief ceremonies. Spend it down to zero and the warm panes collapse to grisaille — the throttle nobody could explain becomes a hue you can prove was absent.</p>
+      </div>
+      <div class="ink-card">
+        <div class="swatch" style="background:#4CA87A"></div>
+        <span class="role">Delivery</span>
+        <span class="sku">INK-VERDE</span>
+        <p>Delivery events against a published vesting rule. A joint colour needs both underlying events between the same identities, so a pane cannot show a ceremony that did not happen.</p>
+      </div>
+      <div class="ink-card">
+        <div class="swatch" style="background:#6E82E8"></div>
+        <span class="role">Separation</span>
+        <span class="sku">INK-INDIGO</span>
+        <p>Held separations and refusals, drawn as heavy lead came. The negative space is the evidence: a refusal leaves a mark rather than a gap.</p>
+      </div>
+    </div>
+
+<pre><span class="c"># tests/test_consumables.py :: InkBudget</span>
+<span class="c"># test_not_enough_red_ink_is_a_ledger_fact</span>
+
+consumables.ink_budget(conn, "ROOM-A", ROLES)
+<span class="g">→ {"relief": 300.0, "delivery": 200.0, "separation": 0.0}</span>
+
+<span class="c"># issue the crimson down to nothing …</span>
+consumables.ink_budget(conn, "ROOM-A", ROLES)["relief"]
+<span class="r">→ 0.0</span>   <span class="c"># the picture goes cold, because the stores say so</span></pre>
+
+    <p class="chart-note" style="max-width:38rem">
+      The budget is derived, never passed in. A budget supplied by hand would let the
+      picture claim a ceremony the stores cannot account for, which is the one thing
+      the whole device exists to prevent.
+    </p>
+  </section>
+
+  <!-- ========================================================= absences -->
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow">Recorded absences</span>
+      <h2>What is deliberately not here</h2>
+      <p>
+        Written down because the absences are design decisions, and a future reader
+        should be able to see they were reasoned rather than overlooked. The full
+        argument for each is in <code>LAW.md §7</code>.
+      </p>
+    </div>
+
+    <ul class="absences">
+      <li>
+        <h3>No tradeable index over separation state</h3>
+        <p>
+          An underlying nobody outside the organisation can verify cannot settle and
+          cannot be disputed, and it puts one party in the position of sole data source
+          and interested trader. If the signal worked, it would work because it encodes
+          non-public information about who has been told what — and it would make
+          identifiable employees the underlying of a traded product.
+        </p>
+      </li>
+      <li>
+        <h3>No payment routing that obscures the payer</h3>
+        <p>
+          Blinded agent selection, per-transaction agent choice, name-collision
+          ambiguity. That is layering, and it is the exact inverse of the
+          non-repudiation this system exists to provide.
+        </p>
+      </li>
+      <li>
+        <h3>No covert-lifestyle inference</h3>
+        <p>
+          Shared religious institution, co-residence history, unobserved shared
+          locations. The reduced form that survived is declared and public-record
+          affiliation overlap, which does the same detection job on defensible data.
+        </p>
+      </li>
+      <li>
+        <h3>No clinical content crossing the Feather boundary</h3>
+        <p>
+          Consent for medical annotation does not extend to any of this, and no HIPAA
+          permitted-use category fits. Egress is an allowlist, deny-by-default.
+        </p>
+      </li>
+      <li>
+        <h3>No re-dating of settled periods</h3>
+        <p>
+          A settled period is corrected by an adjustment carrying its own date, never by
+          rewriting the original. The correction is part of the record.
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ============================================================== run -->
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow">Reproduce it</span>
+      <h2>Run the evidence yourself</h2>
+      <p>Standard library, plus <code>cryptography</code> for Ed25519. No services required.</p>
+    </div>
+
+<pre>python -m unittest discover -s tests -t .   <span class="c"># <span data-gen="total">281</span> tests</span>
+python example_simulation.py                <span class="c"># the eight scenarios</span>
+python example.py                           <span class="c"># scheduling and attestation</span>
+python example_thesis.py                    <span class="c"># thesis test vs. known ground truth</span>
+
+python -m service.app seed                  <span class="c"># demo data</span>
+python -m service.app serve                 <span class="c"># 127.0.0.1:8080, no-JS interface</span></pre>
+
+    <div class="note">
+      <span class="eyebrow">Interoperability note</span>
+      <p>
+        This is OpsCo's own account of its own work. Where it sits next to attested-
+        identity and portable-memory infrastructure, the seam is the same in both
+        directions: a claim about <em>who</em> did something is only worth what its
+        provenance is worth, and a claim about <em>who could not have</em> is only worth
+        what the grant resolution behind it is worth. Both are proofs about access, made
+        before anyone knew there would be a dispute.
+      </p>
+      <p>
+        Nothing here implies a partnership, endorsement, or shared operation with any
+        other project or provider. Compatibility is an observation about the model, not
+        a relationship claim.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p><span class="mono">OpsCo FeatherLight</span> — UK operational scope. See <code>SCOPE.md</code>, which is part of the design rather than a disclaimer.</p>
+    <p>Nothing on this page is legal advice. The controls described need a DPIA, a named human decision-maker, and an appeal route before they touch a live record.</p>
+    <p>Figures read from a suite run on this repository. No live records, no real people.</p>
+  </footer>
+
+</div>

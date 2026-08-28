@@ -1,0 +1,366 @@
+<title>Ceremonies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root {
+  --ground:#0D1014; --panel:#151A20; --panel-2:#1B222A; --came:#262E37;
+  --ink:#E8E3D9; --ink-2:#B4BCC5; --muted:#8B95A0;
+  --separation:#6E82E8; --relief:#D14257; --delivery:#4CA87A;
+  --step-1:0.75rem; --step0:0.95rem; --step1:1.0625rem; --step2:1.375rem;
+  --step3:1.875rem; --step4:2.625rem; --step5:clamp(2.5rem,6vw,3.9rem);
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --serif:"Spectral",Georgia,"Times New Roman",serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--serif);
+  font-size:var(--step1);line-height:1.65;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(58rem 40rem at 12% -8%,rgba(110,130,232,.10),transparent 68%),
+             radial-gradient(46rem 34rem at 96% 4%,rgba(209,66,87,.055),transparent 70%)}
+.wrap{position:relative;z-index:1;max-width:68rem;margin:0 auto;padding:0 1.75rem}
+h1,h2,h3{font-weight:600;text-wrap:balance;margin:0;line-height:1.18}
+p{margin:0}
+a{color:var(--separation);text-decoration:none;border-bottom:1px solid rgba(110,130,232,.35)}
+a:hover{border-bottom-color:var(--separation)}
+a:focus-visible{outline:2px solid var(--separation);outline-offset:3px}
+.eyebrow{font-family:var(--mono);font-size:var(--step-1);letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted)}
+.mono{font-family:var(--mono)}
+.num{font-variant-numeric:tabular-nums}
+
+nav.site{position:relative;z-index:1;border-bottom:1px solid var(--came)}
+nav.site .inner{max-width:68rem;margin:0 auto;padding:1.1rem 1.75rem;display:flex;
+  flex-wrap:wrap;gap:1.5rem;align-items:baseline}
+nav.site .brand{font-family:var(--mono);font-size:var(--step0);letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink);border:0;margin-right:auto}
+nav.site a{font-family:var(--mono);font-size:var(--step-1);letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);border:0}
+nav.site a:hover{color:var(--ink)}
+nav.site a[aria-current="page"]{color:var(--separation)}
+
+header.page{padding:4.5rem 0 3rem}
+header.page h1{font-size:var(--step5);font-weight:300;letter-spacing:-.02em;margin:1.1rem 0 0}
+header.page h1 em{font-style:italic;color:var(--ink-2)}
+.standfirst{margin-top:1.4rem;font-size:var(--step2);font-weight:300;color:var(--ink-2);
+  line-height:1.45;max-width:36rem}
+
+section{padding:4rem 0;border-top:1px solid var(--came)}
+.sec-head{display:flex;flex-direction:column;gap:.8rem;margin-bottom:2.25rem}
+.sec-head h2{font-size:var(--step3);font-weight:400;letter-spacing:-.01em}
+.sec-head p{color:var(--ink-2);max-width:38rem}
+.prose{max-width:38rem;color:var(--ink-2)}
+.prose p+p{margin-top:1rem}
+.prose strong{color:var(--ink);font-weight:600}
+
+.claim{border-left:2px solid var(--separation);padding:.25rem 0 .25rem 1.6rem;max-width:40rem}
+.claim p+p{margin-top:.9rem}
+.claim .said{font-size:var(--step2);font-weight:300;line-height:1.5}
+.claim .aside{color:var(--muted);font-size:var(--step0)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(17rem,1fr));gap:1px;
+  background:var(--came);border:1px solid var(--came)}
+.cell{background:var(--panel);padding:1.5rem 1.4rem;display:flex;flex-direction:column;gap:.6rem}
+.cell h3{font-size:var(--step1);font-weight:600}
+.cell p{font-size:var(--step0);color:var(--ink-2);line-height:1.6}
+.cell .role{font-family:var(--mono);font-size:var(--step-1);letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted)}
+.cell .foot{font-family:var(--mono);font-size:.78rem;color:var(--muted);
+  border-top:1px solid var(--came);padding-top:.7rem;margin-top:auto;line-height:1.6}
+
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:1px;
+  background:var(--came);border:1px solid var(--came)}
+.tile{background:var(--panel);padding:1.5rem 1.4rem;display:flex;flex-direction:column;gap:.4rem}
+.tile .v{font-family:var(--mono);font-size:var(--step4);font-weight:500;letter-spacing:-.03em;
+  font-variant-numeric:tabular-nums;line-height:1}
+.tile .k{font-family:var(--mono);font-size:var(--step-1);letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted)}
+.tile .n{font-size:var(--step0);color:var(--ink-2)}
+.v-pass{color:var(--delivery)} .v-sep{color:var(--separation)} .v-rel{color:var(--relief)}
+
+.table-scroll{overflow-x:auto;border:1px solid var(--came)}
+table{border-collapse:collapse;width:100%;font-family:var(--mono);font-size:var(--step0)}
+th,td{text-align:left;padding:.6rem 1rem;border-bottom:1px solid var(--came);white-space:nowrap}
+thead th{font-size:var(--step-1);letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);font-weight:500;background:var(--panel)}
+tbody tr:last-child td{border-bottom:none}
+td.n{text-align:right;font-variant-numeric:tabular-nums}
+td.mod{color:var(--ink-2)}
+td.hash{color:var(--muted);font-size:.8rem}
+
+pre{margin:0;background:var(--panel);border:1px solid var(--came);
+  border-left:2px solid var(--separation);padding:1.2rem 1.35rem;overflow-x:auto;
+  font-family:var(--mono);font-size:.84rem;line-height:1.7;color:var(--ink-2)}
+pre .c{color:var(--muted);font-style:italic}
+pre .r{color:var(--relief)} pre .g{color:var(--delivery)}
+code{font-family:var(--mono);font-size:.88em;color:var(--ink);background:var(--panel-2);
+  padding:.08em .35em;border-radius:2px}
+
+.mod-card{background:var(--panel);border:1px solid var(--came);padding:1.6rem 1.5rem;
+  display:flex;flex-direction:column;gap:1rem}
+.mod-card .head{display:flex;flex-wrap:wrap;gap:.75rem;align-items:baseline}
+.mod-card .path{font-family:var(--mono);font-size:var(--step1);color:var(--ink)}
+.mod-card .meta{font-family:var(--mono);font-size:var(--step-1);color:var(--muted);
+  margin-left:auto;font-variant-numeric:tabular-nums}
+.mod-card .doc{color:var(--ink-2);font-size:var(--step0);max-width:44rem}
+.syms{display:flex;flex-direction:column;gap:.5rem;border-top:1px solid var(--came);padding-top:1rem}
+.sym{display:grid;grid-template-columns:minmax(0,22rem) 1fr;gap:1rem;align-items:baseline}
+.sym .sig{font-family:var(--mono);font-size:.84rem;color:var(--ink);overflow-wrap:anywhere}
+.sym .sig .kw{color:var(--separation)}
+.sym .sum{font-size:var(--step0);color:var(--muted);line-height:1.5}
+.mods{display:flex;flex-direction:column;gap:1px;background:var(--came);border:1px solid var(--came)}
+
+figure{margin:0}
+figcaption{font-family:var(--mono);font-size:var(--step-1);color:var(--muted);
+  letter-spacing:.06em;text-transform:uppercase;margin-bottom:1rem}
+.swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:1px;
+  background:var(--came);border:1px solid var(--came)}
+.sw{background:var(--panel);padding:1.2rem}
+.sw .chip{height:3rem;border:1px solid var(--came);margin-bottom:.8rem}
+.sw .nm{font-family:var(--mono);font-size:var(--step0);color:var(--ink)}
+.sw .hx{font-family:var(--mono);font-size:var(--step-1);color:var(--muted)}
+.sw .use{font-size:var(--step0);color:var(--ink-2);margin-top:.4rem;line-height:1.5}
+
+.scale{display:flex;flex-direction:column;gap:1rem;border:1px solid var(--came);
+  background:var(--panel);padding:1.5rem}
+.scale div{display:flex;gap:1.25rem;align-items:baseline;border-bottom:1px solid var(--came);
+  padding-bottom:.9rem}
+.scale div:last-child{border-bottom:0;padding-bottom:0}
+.scale .tok{font-family:var(--mono);font-size:var(--step-1);color:var(--muted);min-width:6rem}
+
+.stack{display:flex;flex-direction:column;gap:2rem}
+.stack-sm{display:flex;flex-direction:column;gap:1.25rem}
+.rules{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:1.4rem;max-width:42rem}
+.rules li{border-left:2px solid var(--relief);padding-left:1.4rem}
+.rules h3{font-size:var(--step1);font-weight:600;margin-bottom:.35rem}
+.rules p{font-size:var(--step0);color:var(--ink-2)}
+.rules.good li{border-left-color:var(--delivery)}
+
+.note{border:1px solid var(--came);background:var(--panel);padding:1.35rem 1.45rem;max-width:44rem}
+.note .eyebrow{display:block;margin-bottom:.55rem}
+.note p{font-size:var(--step0);color:var(--ink-2)}
+.note p+p{margin-top:.75rem}
+
+svg .stroke{stroke:var(--came);fill:none;stroke-width:1.5}
+svg .lbl{fill:var(--ink-2);font-family:var(--mono);font-size:11px}
+svg .lbl-mut{fill:var(--muted);font-family:var(--mono);font-size:10px}
+svg .node{fill:var(--panel-2);stroke:var(--came);stroke-width:1.5}
+
+footer{border-top:1px solid var(--came);padding:3rem 0 5rem;color:var(--muted);font-size:var(--step0)}
+footer p+p{margin-top:.6rem}
+@media (max-width:44rem){.sym{grid-template-columns:1fr;gap:.2rem}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+<nav class="site"><div class="inner"><a class="brand" href="index.html">OpsCo</a><a href="index.html">Onboarding</a><a href="ceremonies.html" aria-current="page">Ceremonies</a><a href="audit.html">Audit index</a><a href="design.html">Design guide</a><a href="evidence.html">Evidence</a></div></nav>
+<div class="wrap">
+<header class="page">
+  <span class="eyebrow">Ceremonies</span>
+  <h1>Named interactions, and <em>what each one refuses</em></h1>
+  <p class="standfirst">
+    A ceremony is an interaction the system recognises by name, evaluates against a
+    published rule, and records. Each is defined as much by what it declines as by what it
+    permits.
+  </p>
+</header>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">Reading these</span>
+    <h2>Guarantee, then refusal</h2>
+    <p>The refusal line is the more useful half. A control that never declines anything is
+       not a control, and the shape of what it declines is what tells you whether it is
+       pointed at the right thing.</p></div>
+  <div class="stack"><div class="mod-card">
+  <div class="head"><span class="path">Dispatch offer</span>
+    <span class="meta">dispatch</span></div>
+  <p class="doc">A ticket is offered to a worker for a window.</p>
+  <figure style="margin:.5rem 0 1rem">
+<svg viewBox="0 0 460 150" width="100%" height="150" role="img"
+     aria-label="The exposure window covers run time plus the scratch tail">
+  <text class="lbl" x="0" y="30">job</text>
+  <rect x="70" y="18" width="200" height="16" fill="#6E82E8" rx="2"/>
+  <rect x="270" y="18" width="90" height="16" fill="#6E82E8" opacity=".45" rx="2"/>
+  <text class="lbl-mut" x="150" y="52">run time</text>
+  <text class="lbl-mut" x="285" y="52">scratch tail</text>
+
+  <path class="stroke" d="M70 66 L70 78 L360 78 L360 66" stroke="#4CA87A"/>
+  <text class="lbl" x="215" y="96" text-anchor="middle" fill="#4CA87A">exposure window</text>
+
+  <text class="lbl-mut" x="0" y="128">
+    the tail is where these controls usually leak: outputs sit in scratch after the job ends
+  </text>
+</svg></figure>
+  <div class="syms">
+    <div class="sym"><span class="sig"><span class="kw">guarantees</span></span>
+      <span class="sum">The window is admissible across run time and scratch tail; the worker holds no registered conflict against the work; rest periods and queue windows are satisfied.</span></div>
+    <div class="sym"><span class="sig"><span class="kw">refuses</span></span>
+      <span class="sum">Offering by wait order only. There is no self-selection, so there is no variable a participant could steer to signal through the queue.</span></div>
+  </div>
+</div><div class="mod-card">
+  <div class="head"><span class="path">Custody triad</span>
+    <span class="meta">custody</span></div>
+  <p class="doc">Three parties hold separate roles over one asset.</p>
+  <figure style="margin:.5rem 0 1rem">
+<svg viewBox="0 0 420 190" width="100%" height="190" role="img"
+     aria-label="Three custody parties; two share a controller, collapsing the triad">
+  <line class="stroke" x1="70" y1="120" x2="210" y2="55"/>
+  <line class="stroke" x1="210" y1="55" x2="350" y2="120"/>
+  <line class="stroke" x1="70" y1="120" x2="350" y2="120"/>
+  <circle class="node" cx="70" cy="120" r="26"/>
+  <circle class="node" cx="210" cy="55" r="26"/>
+  <circle class="node" cx="350" cy="120" r="26"/>
+  <text class="lbl" x="70" y="124" text-anchor="middle">A</text>
+  <text class="lbl" x="210" y="59" text-anchor="middle">B</text>
+  <text class="lbl" x="350" y="124" text-anchor="middle">C</text>
+  <path d="M70 152 L70 170 L350 170 L350 152" fill="none"
+        stroke="#D14257" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text class="lbl-mut" x="210" y="186" text-anchor="middle" fill="#D14257">
+    same controller — triad collapses
+  </text>
+</svg></figure>
+  <div class="syms">
+    <div class="sym"><span class="sig"><span class="kw">guarantees</span></span>
+      <span class="sum">Separation is evaluated on common control, not on names. Three differently-named parties under one controller are one party.</span></div>
+    <div class="sym"><span class="sig"><span class="kw">refuses</span></span>
+      <span class="sum">A triad that was clean at dispatch and is not at delivery. Controller changes are re-evaluated, not assumed stable.</span></div>
+  </div>
+</div><div class="mod-card">
+  <div class="head"><span class="path">Corroborated watch</span>
+    <span class="meta">watch</span></div>
+  <p class="doc">Availability, held with an independent second watcher.</p>
+  <figure style="margin:.5rem 0 1rem">
+<svg viewBox="0 0 460 180" width="100%" height="180" role="img"
+     aria-label="Two partial watchers over an eight hour window; payable period is their union">
+  <text class="lbl-mut" x="0" y="14">window 08:00 — 16:00</text>
+  <rect x="0" y="24" width="440" height="10" fill="#1B222A"/>
+
+  <text class="lbl" x="0" y="62">watcher A</text>
+  <rect x="80" y="52" width="220" height="14" fill="#6E82E8" rx="2"/>
+  <text class="lbl-mut" x="308" y="63">08:00 — 12:00</text>
+
+  <text class="lbl" x="0" y="96">watcher B</text>
+  <rect x="190" y="86" width="250" height="14" fill="#6E82E8" rx="2"/>
+  <text class="lbl-mut" x="120" y="97" text-anchor="end">10:00 — 16:00</text>
+
+  <text class="lbl" x="0" y="136">payable</text>
+  <rect x="80" y="126" width="360" height="14" fill="#4CA87A" rx="2"/>
+  <text class="lbl-mut" x="0" y="164">
+    union of independent overlap — 8h, not 10h. Nobody is paid twice for one window.
+  </text>
+</svg></figure>
+  <div class="syms">
+    <div class="sym"><span class="sig"><span class="kw">guarantees</span></span>
+      <span class="sum">Pay follows the part of the window a partner actually overlapped — not the part they were assigned. Agents count as watchers and face the same independence test.</span></div>
+    <div class="sym"><span class="sig"><span class="kw">refuses</span></span>
+      <span class="sum">Paying per observation. A register whose contributors are paid to find things fills up with things; a quiet watch is a complete watch.</span></div>
+  </div>
+</div><div class="mod-card">
+  <div class="head"><span class="path">Independent invention</span>
+    <span class="meta">invention</span></div>
+  <p class="doc">A contribution combines only against a blinded replication.</p>
+  <figure style="margin:.5rem 0 1rem">
+<svg viewBox="0 0 460 170" width="100%" height="170" role="img"
+     aria-label="A contribution and a blinded replication combine only when the certificate matches">
+  <rect class="node" x="0" y="30" width="130" height="46" rx="3"/>
+  <text class="lbl" x="65" y="52" text-anchor="middle">contribution</text>
+  <text class="lbl-mut" x="65" y="66" text-anchor="middle">team 1</text>
+
+  <rect class="node" x="0" y="100" width="130" height="46" rx="3"/>
+  <text class="lbl" x="65" y="122" text-anchor="middle">replication</text>
+  <text class="lbl-mut" x="65" y="136" text-anchor="middle">blinded, team 2</text>
+
+  <path class="stroke" d="M130 53 L200 53 L200 88"/>
+  <path class="stroke" d="M130 123 L200 123 L200 88"/>
+  <rect class="node" x="200" y="66" width="110" height="46" rx="3"/>
+  <text class="lbl" x="255" y="88" text-anchor="middle">certificate</text>
+  <text class="lbl-mut" x="255" y="102" text-anchor="middle">matches?</text>
+
+  <path class="stroke" d="M310 89 L360 89"/>
+  <rect x="360" y="66" width="100" height="46" rx="3" fill="#151A20" stroke="#4CA87A" stroke-width="1.5"/>
+  <text class="lbl" x="410" y="88" text-anchor="middle" fill="#4CA87A">combine</text>
+  <text class="lbl-mut" x="410" y="102" text-anchor="middle">vests</text>
+</svg></figure>
+  <div class="syms">
+    <div class="sym"><span class="sig"><span class="kw">guarantees</span></span>
+      <span class="sum">The certificate is the replication. A contribution with no matching independent result does not combine and does not vest.</span></div>
+    <div class="sym"><span class="sig"><span class="kw">refuses</span></span>
+      <span class="sum">Provenance by assertion. &#x27;Worked with&#x27;, &#x27;was linked to&#x27; and &#x27;contributed&#x27; are three different claims and the system will not let the third read as the first.</span></div>
+  </div>
+</div><div class="mod-card">
+  <div class="head"><span class="path">Conflict-aware invitation</span>
+    <span class="meta">ceremonies</span></div>
+  <p class="doc">A shared ceremony is convened with a guest list.</p>
+  
+  <div class="syms">
+    <div class="sym"><span class="sig"><span class="kw">guarantees</span></span>
+      <span class="sum">An invitation that would place two parties to a registered conflict in one room is refused, and the refusal names the evidence reference.</span></div>
+    <div class="sym"><span class="sig"><span class="kw">refuses</span></span>
+      <span class="sum">Disclosing why. The refusal never states the reason, who registered it, or anything about the other party — that is what makes it usable in front of both.</span></div>
+  </div>
+</div><div class="mod-card">
+  <div class="head"><span class="path">Ink and pane</span>
+    <span class="meta">consumables</span></div>
+  <p class="doc">A ceremony state is rendered as a checksum pane.</p>
+  <figure style="margin:.5rem 0 1rem">
+<svg viewBox="0 0 460 175" width="100%" height="175" role="img"
+     aria-label="Three ink balances from the stock ledger drive which colours a pane may use">
+  <text class="lbl-mut" x="0" y="14">stock ledger balance → pane palette</text>
+
+  <text class="lbl" x="0" y="46">relief</text>
+  <rect x="80" y="34" width="0" height="14" fill="#D14257" rx="2"/>
+  <rect x="80" y="34" width="300" height="14" fill="none" stroke="#262E37" rx="2"/>
+  <text class="lbl-mut" x="390" y="46" fill="#D14257">0 — exhausted</text>
+
+  <text class="lbl" x="0" y="80">delivery</text>
+  <rect x="80" y="68" width="180" height="14" fill="#4CA87A" rx="2"/>
+  <rect x="80" y="68" width="300" height="14" fill="none" stroke="#262E37" rx="2"/>
+  <text class="lbl-mut" x="390" y="80">180</text>
+
+  <text class="lbl" x="0" y="114">separation</text>
+  <rect x="80" y="102" width="240" height="14" fill="#6E82E8" rx="2"/>
+  <rect x="80" y="102" width="300" height="14" fill="none" stroke="#262E37" rx="2"/>
+  <text class="lbl-mut" x="390" y="114">240</text>
+
+  <text class="lbl-mut" x="0" y="152">
+    with relief at zero the warm panes render cold — the throttle nobody could explain
+  </text>
+  <text class="lbl-mut" x="0" y="166">becomes a hue you can prove was absent.</text>
+</svg></figure>
+  <div class="syms">
+    <div class="sym"><span class="sig"><span class="kw">guarantees</span></span>
+      <span class="sum">A colour may only be used where the ledger accounts for the ink. The budget is derived from stock movements and cannot be supplied by hand.</span></div>
+    <div class="sym"><span class="sig"><span class="kw">refuses</span></span>
+      <span class="sum">Decorative colour. A pane that could show a hue the stores cannot account for would forge exactly the provenance it exists to prove.</span></div>
+  </div>
+</div></div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">Worked example</span>
+    <h2>Why the watch pays eight hours, not ten</h2></div>
+  <div class="prose">
+    <p>Two watchers cover an eight-hour window. A works 08:00–12:00, B works 10:00–16:00.
+      Between them they log ten watcher-hours, and the window is corroborated for eight of
+      them — from 08:00, when A starts with B not yet on, there is no independent second
+      watcher until 10:00.</p>
+    <p>The payable period is the union of the intervals where an <strong>independent</strong>
+      partner was actually on. It is not the sum of the hours worked, and it is not the
+      hours assigned. A partner who logs off early ends the payable period early for
+      everyone on that watch.</p>
+    <p>That last consequence is a real exposure and it points the wrong way: a worker may
+      still be on when pay stops, because a third party logged off. Availability that is
+      unpaid for that reason is still likely working time. The system surfaces an
+      uncorroborated watch while it is open so it can be closed or re-partnered in the
+      moment — whether the uncorroborated remainder must be paid anyway is a question for
+      counsel, not for the scheduler.</p>
+  </div>
+</section>
+</div>
+<footer><div class="wrap">
+<p><span class="mono">OpsCo</span> — UK operational scope. This site is generated from a
+private repository; the source is not published. See the
+<a href="audit.html">audit index</a> for how to verify that what is described here is
+what is running.</p>
+<p>Nothing on this site is legal advice. No client is named anywhere on it, and no live
+record, real person, or production figure appears on it.</p>
+<p class="mono">build 2026.08</p>
+</div></footer>

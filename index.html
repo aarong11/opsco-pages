@@ -1,0 +1,310 @@
+<title>OpsCo Operational Controls</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root {
+  --ground:#0D1014; --panel:#151A20; --panel-2:#1B222A; --came:#262E37;
+  --ink:#E8E3D9; --ink-2:#B4BCC5; --muted:#8B95A0;
+  --separation:#6E82E8; --relief:#D14257; --delivery:#4CA87A;
+  --step-1:0.75rem; --step0:0.95rem; --step1:1.0625rem; --step2:1.375rem;
+  --step3:1.875rem; --step4:2.625rem; --step5:clamp(2.5rem,6vw,3.9rem);
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --serif:"Spectral",Georgia,"Times New Roman",serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--serif);
+  font-size:var(--step1);line-height:1.65;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(58rem 40rem at 12% -8%,rgba(110,130,232,.10),transparent 68%),
+             radial-gradient(46rem 34rem at 96% 4%,rgba(209,66,87,.055),transparent 70%)}
+.wrap{position:relative;z-index:1;max-width:68rem;margin:0 auto;padding:0 1.75rem}
+h1,h2,h3{font-weight:600;text-wrap:balance;margin:0;line-height:1.18}
+p{margin:0}
+a{color:var(--separation);text-decoration:none;border-bottom:1px solid rgba(110,130,232,.35)}
+a:hover{border-bottom-color:var(--separation)}
+a:focus-visible{outline:2px solid var(--separation);outline-offset:3px}
+.eyebrow{font-family:var(--mono);font-size:var(--step-1);letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted)}
+.mono{font-family:var(--mono)}
+.num{font-variant-numeric:tabular-nums}
+
+nav.site{position:relative;z-index:1;border-bottom:1px solid var(--came)}
+nav.site .inner{max-width:68rem;margin:0 auto;padding:1.1rem 1.75rem;display:flex;
+  flex-wrap:wrap;gap:1.5rem;align-items:baseline}
+nav.site .brand{font-family:var(--mono);font-size:var(--step0);letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink);border:0;margin-right:auto}
+nav.site a{font-family:var(--mono);font-size:var(--step-1);letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);border:0}
+nav.site a:hover{color:var(--ink)}
+nav.site a[aria-current="page"]{color:var(--separation)}
+
+header.page{padding:4.5rem 0 3rem}
+header.page h1{font-size:var(--step5);font-weight:300;letter-spacing:-.02em;margin:1.1rem 0 0}
+header.page h1 em{font-style:italic;color:var(--ink-2)}
+.standfirst{margin-top:1.4rem;font-size:var(--step2);font-weight:300;color:var(--ink-2);
+  line-height:1.45;max-width:36rem}
+
+section{padding:4rem 0;border-top:1px solid var(--came)}
+.sec-head{display:flex;flex-direction:column;gap:.8rem;margin-bottom:2.25rem}
+.sec-head h2{font-size:var(--step3);font-weight:400;letter-spacing:-.01em}
+.sec-head p{color:var(--ink-2);max-width:38rem}
+.prose{max-width:38rem;color:var(--ink-2)}
+.prose p+p{margin-top:1rem}
+.prose strong{color:var(--ink);font-weight:600}
+
+.claim{border-left:2px solid var(--separation);padding:.25rem 0 .25rem 1.6rem;max-width:40rem}
+.claim p+p{margin-top:.9rem}
+.claim .said{font-size:var(--step2);font-weight:300;line-height:1.5}
+.claim .aside{color:var(--muted);font-size:var(--step0)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(17rem,1fr));gap:1px;
+  background:var(--came);border:1px solid var(--came)}
+.cell{background:var(--panel);padding:1.5rem 1.4rem;display:flex;flex-direction:column;gap:.6rem}
+.cell h3{font-size:var(--step1);font-weight:600}
+.cell p{font-size:var(--step0);color:var(--ink-2);line-height:1.6}
+.cell .role{font-family:var(--mono);font-size:var(--step-1);letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted)}
+.cell .foot{font-family:var(--mono);font-size:.78rem;color:var(--muted);
+  border-top:1px solid var(--came);padding-top:.7rem;margin-top:auto;line-height:1.6}
+
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:1px;
+  background:var(--came);border:1px solid var(--came)}
+.tile{background:var(--panel);padding:1.5rem 1.4rem;display:flex;flex-direction:column;gap:.4rem}
+.tile .v{font-family:var(--mono);font-size:var(--step4);font-weight:500;letter-spacing:-.03em;
+  font-variant-numeric:tabular-nums;line-height:1}
+.tile .k{font-family:var(--mono);font-size:var(--step-1);letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted)}
+.tile .n{font-size:var(--step0);color:var(--ink-2)}
+.v-pass{color:var(--delivery)} .v-sep{color:var(--separation)} .v-rel{color:var(--relief)}
+
+.table-scroll{overflow-x:auto;border:1px solid var(--came)}
+table{border-collapse:collapse;width:100%;font-family:var(--mono);font-size:var(--step0)}
+th,td{text-align:left;padding:.6rem 1rem;border-bottom:1px solid var(--came);white-space:nowrap}
+thead th{font-size:var(--step-1);letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);font-weight:500;background:var(--panel)}
+tbody tr:last-child td{border-bottom:none}
+td.n{text-align:right;font-variant-numeric:tabular-nums}
+td.mod{color:var(--ink-2)}
+td.hash{color:var(--muted);font-size:.8rem}
+
+pre{margin:0;background:var(--panel);border:1px solid var(--came);
+  border-left:2px solid var(--separation);padding:1.2rem 1.35rem;overflow-x:auto;
+  font-family:var(--mono);font-size:.84rem;line-height:1.7;color:var(--ink-2)}
+pre .c{color:var(--muted);font-style:italic}
+pre .r{color:var(--relief)} pre .g{color:var(--delivery)}
+code{font-family:var(--mono);font-size:.88em;color:var(--ink);background:var(--panel-2);
+  padding:.08em .35em;border-radius:2px}
+
+.mod-card{background:var(--panel);border:1px solid var(--came);padding:1.6rem 1.5rem;
+  display:flex;flex-direction:column;gap:1rem}
+.mod-card .head{display:flex;flex-wrap:wrap;gap:.75rem;align-items:baseline}
+.mod-card .path{font-family:var(--mono);font-size:var(--step1);color:var(--ink)}
+.mod-card .meta{font-family:var(--mono);font-size:var(--step-1);color:var(--muted);
+  margin-left:auto;font-variant-numeric:tabular-nums}
+.mod-card .doc{color:var(--ink-2);font-size:var(--step0);max-width:44rem}
+.syms{display:flex;flex-direction:column;gap:.5rem;border-top:1px solid var(--came);padding-top:1rem}
+.sym{display:grid;grid-template-columns:minmax(0,22rem) 1fr;gap:1rem;align-items:baseline}
+.sym .sig{font-family:var(--mono);font-size:.84rem;color:var(--ink);overflow-wrap:anywhere}
+.sym .sig .kw{color:var(--separation)}
+.sym .sum{font-size:var(--step0);color:var(--muted);line-height:1.5}
+.mods{display:flex;flex-direction:column;gap:1px;background:var(--came);border:1px solid var(--came)}
+
+figure{margin:0}
+figcaption{font-family:var(--mono);font-size:var(--step-1);color:var(--muted);
+  letter-spacing:.06em;text-transform:uppercase;margin-bottom:1rem}
+.swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:1px;
+  background:var(--came);border:1px solid var(--came)}
+.sw{background:var(--panel);padding:1.2rem}
+.sw .chip{height:3rem;border:1px solid var(--came);margin-bottom:.8rem}
+.sw .nm{font-family:var(--mono);font-size:var(--step0);color:var(--ink)}
+.sw .hx{font-family:var(--mono);font-size:var(--step-1);color:var(--muted)}
+.sw .use{font-size:var(--step0);color:var(--ink-2);margin-top:.4rem;line-height:1.5}
+
+.scale{display:flex;flex-direction:column;gap:1rem;border:1px solid var(--came);
+  background:var(--panel);padding:1.5rem}
+.scale div{display:flex;gap:1.25rem;align-items:baseline;border-bottom:1px solid var(--came);
+  padding-bottom:.9rem}
+.scale div:last-child{border-bottom:0;padding-bottom:0}
+.scale .tok{font-family:var(--mono);font-size:var(--step-1);color:var(--muted);min-width:6rem}
+
+.stack{display:flex;flex-direction:column;gap:2rem}
+.stack-sm{display:flex;flex-direction:column;gap:1.25rem}
+.rules{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:1.4rem;max-width:42rem}
+.rules li{border-left:2px solid var(--relief);padding-left:1.4rem}
+.rules h3{font-size:var(--step1);font-weight:600;margin-bottom:.35rem}
+.rules p{font-size:var(--step0);color:var(--ink-2)}
+.rules.good li{border-left-color:var(--delivery)}
+
+.note{border:1px solid var(--came);background:var(--panel);padding:1.35rem 1.45rem;max-width:44rem}
+.note .eyebrow{display:block;margin-bottom:.55rem}
+.note p{font-size:var(--step0);color:var(--ink-2)}
+.note p+p{margin-top:.75rem}
+
+svg .stroke{stroke:var(--came);fill:none;stroke-width:1.5}
+svg .lbl{fill:var(--ink-2);font-family:var(--mono);font-size:11px}
+svg .lbl-mut{fill:var(--muted);font-family:var(--mono);font-size:10px}
+svg .node{fill:var(--panel-2);stroke:var(--came);stroke-width:1.5}
+
+footer{border-top:1px solid var(--came);padding:3rem 0 5rem;color:var(--muted);font-size:var(--step0)}
+footer p+p{margin-top:.6rem}
+@media (max-width:44rem){.sym{grid-template-columns:1fr;gap:.2rem}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+<nav class="site"><div class="inner"><a class="brand" href="index.html">OpsCo</a><a href="index.html" aria-current="page">Onboarding</a><a href="ceremonies.html">Ceremonies</a><a href="audit.html">Audit index</a><a href="design.html">Design guide</a><a href="evidence.html">Evidence</a></div></nav>
+<div class="wrap">
+<header class="page">
+  <span class="eyebrow">OpsCo · operational controls · onboarding</span>
+  <h1>Proof about <em>access</em>, not about people</h1>
+  <p class="standfirst">
+    We run controls over shared compute and shared premises: who may do which work, in
+    which window, and what evidence exists afterwards. This site is the public account of
+    how that works.
+  </p>
+</header>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">The claim</span>
+    <h2>What we will and will not say</h2></div>
+  <div class="claim">
+    <p class="said">You cannot prove two people did not interact. You can prove this:</p>
+    <p>Across the whole exposure window — run time <em>plus scratch tail</em> — no principal
+       holding a registered conflict against this work held any access path to it, and no
+       worker under a restriction was placed where that restriction mattered. Here are the
+       grant paths, the evidence refs, the policy version, and a signature.</p>
+    <p class="aside">Non-repudiation taken where it is actually available — the
+       access-control and roster layer — rather than at the behavioural layer, where it
+       never will be.</p>
+  </div>
+  <figure style="margin-top:2.5rem">
+<svg viewBox="0 0 460 150" width="100%" height="150" role="img"
+     aria-label="The exposure window covers run time plus the scratch tail">
+  <text class="lbl" x="0" y="30">job</text>
+  <rect x="70" y="18" width="200" height="16" fill="#6E82E8" rx="2"/>
+  <rect x="270" y="18" width="90" height="16" fill="#6E82E8" opacity=".45" rx="2"/>
+  <text class="lbl-mut" x="150" y="52">run time</text>
+  <text class="lbl-mut" x="285" y="52">scratch tail</text>
+
+  <path class="stroke" d="M70 66 L70 78 L360 78 L360 66" stroke="#4CA87A"/>
+  <text class="lbl" x="215" y="96" text-anchor="middle" fill="#4CA87A">exposure window</text>
+
+  <text class="lbl-mut" x="0" y="128">
+    the tail is where these controls usually leak: outputs sit in scratch after the job ends
+  </text>
+</svg></figure>
+</section>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">What we do</span>
+    <h2>Four things, and they share one spine</h2>
+    <p>Every one of them ends in a signed, replayable record written before anyone knew
+       there would be a dispute. That ordering is the entire product.</p></div>
+  <div class="grid">
+    <div class="cell"><span class="role">01</span><h3>Conflict-aware scheduling</h3>
+      <p>Whether a job may run in a window, given registered conflicts and effective access
+         grants. Nominal roles are not the input — resolved grants are, including nested
+         groups, standing exceptions and break-glass.</p>
+      <span class="foot">emits a signed attestation per decision</span></div>
+    <div class="cell"><span class="role">02</span><h3>Separation attestation</h3>
+      <p>Append-only, hash-chained, Ed25519-signed decision log, replayable against a
+         pinned policy version. Built to survive being contested two years later.</p>
+      <span class="foot">verify without our cooperation</span></div>
+    <div class="cell"><span class="role">03</span><h3>Metering and settlement</h3>
+      <p>Consumption tagged at submission, allocated monthly, reconciled against the
+         invoice. Consumables the same way: balances derived from movements, never set.</p>
+      <span class="foot">open books — every member sees the same figures</span></div>
+    <div class="cell"><span class="role">04</span><h3>Re-identification risk</h3>
+      <p>Residual identifier detection, quasi-identifier scoring, linkage detection and
+         deduplication. Runs inside the controller's boundary; only scores and remediation
+         tickets leave.</p>
+      <span class="foot">the data does not come to us</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">How work reaches you</span>
+    <h2>One queue, two tracks</h2>
+    <p>Work arrives as a ticket priced from a published rate card by
+       <code>(code, skill, band)</code>. The same rate applies to everyone on the ticket.
+       There is no discretionary component and no negotiated rate.</p></div>
+  <div class="grid">
+    <div class="cell"><span class="role">rehearsal</span><h3>Synthetic, graded, paid</h3>
+      <p>Cases generated from the same task families the live queue emits, with ground
+         truth held separately. Graded blind, against a rubric published to you before you
+         start.</p>
+      <span class="foot">paid at the same band rate as live work</span></div>
+    <div class="cell"><span class="role">live</span><h3>Real work, four eyes</h3>
+      <p>Offered only where you are qualified for that task family. Qualification is
+         mechanical and published: a count, a rolling median, no unresolved flags, a named
+         signature, expiring annually.</p>
+      <span class="foot">first 20 tickets carry a second signature</span></div>
+  </div>
+  <div class="prose" style="margin-top:2rem">
+    <p><strong>Rehearsal is paid at the same rate as live.</strong> A discounted training
+       track is an inducement to accept a worse rate, and it gives the organisation a
+       standing reason to keep people in rehearsal. The graded corpus has value — it is
+       what lets us show that our auditors are calibrated.</p>
+    <p><strong>Refusal is a correct answer.</strong> On a graded case whose honest
+       conclusion is “this cannot be assessed on the evidence provided”, that answer scores
+       full marks. A rubric that only rewards findings trains people to find things.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">What we decline</span>
+    <h2>Recorded absences</h2>
+    <p>Written down because they are design decisions rather than gaps. If you are asked
+       for any of these, the answer is already on this page and you can point at it.</p></div>
+  <ul class="rules">
+    <li><h3>No tradeable instrument over separation state</h3>
+      <p>An underlying nobody outside the organisation can verify cannot settle and cannot
+         be disputed, and it would make identifiable people the underlying of a traded
+         product.</p></li>
+    <li><h3>No payment routing that obscures the payer</h3>
+      <p>Blinded agent selection and name-collision ambiguity are layering, and the exact
+         inverse of the non-repudiation we exist to provide.</p></li>
+    <li><h3>No behavioural leak detection on staff</h3>
+      <p>No scoring of response latency, register, or terminology drift. The base rate is
+         poor and the false positives land on real careers.</p></li>
+    <li><h3>No covert-lifestyle inference</h3>
+      <p>What survives is declared and public-record affiliation overlap, which does the
+         same detection job on defensible data.</p></li>
+    <li><h3>No clinical content crossing the annotation boundary</h3>
+      <p>Consent for medical annotation does not extend to operational analysis. Egress is
+         an allowlist, deny-by-default.</p></li>
+  </ul>
+</section>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">Where to go next</span><h2>The rest of this site</h2></div>
+  <div class="grid">
+    <div class="cell"><h3><a href="ceremonies.html">Ceremonies</a></h3>
+      <p>The named interactions the system recognises, what each one guarantees, and what
+         it refuses.</p></div>
+    <div class="cell"><h3><a href="audit.html">Audit index</a></h3>
+      <p>31 modules by name, purpose and public surface, with a SHA-256 per file
+         and a root digest you can recompute.</p></div>
+    <div class="cell"><h3><a href="design.html">Design guide</a></h3>
+      <p>The ink palette and what each colour is allowed to mean, the type scale, and the
+         writing rules for refusals.</p></div>
+    <div class="cell"><h3><a href="evidence.html">Evidence</a></h3>
+      <p>The test suite and the eight red-team scenarios, with figures written by the build
+         rather than typed.</p></div>
+  </div>
+  <div class="note" style="margin-top:2.5rem">
+    <span class="eyebrow">Root digest · 2026.08</span>
+    <p class="mono" style="overflow-wrap:anywhere;color:var(--ink)">aabc9c6a8f86452d4d86be60c6d57ad91541a7fc0d962b491aa065547629089a</p>
+    <p>Every page on this site is generated from the private source. This digest covers
+       the modules described in the audit index.</p>
+  </div>
+</section>
+</div>
+<footer><div class="wrap">
+<p><span class="mono">OpsCo</span> — UK operational scope. This site is generated from a
+private repository; the source is not published. See the
+<a href="audit.html">audit index</a> for how to verify that what is described here is
+what is running.</p>
+<p>Nothing on this site is legal advice. No client is named anywhere on it, and no live
+record, real person, or production figure appears on it.</p>
+<p class="mono">build 2026.08</p>
+</div></footer>

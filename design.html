@@ -1,0 +1,267 @@
+<title>Design Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root {
+  --ground:#0D1014; --panel:#151A20; --panel-2:#1B222A; --came:#262E37;
+  --ink:#E8E3D9; --ink-2:#B4BCC5; --muted:#8B95A0;
+  --separation:#6E82E8; --relief:#D14257; --delivery:#4CA87A;
+  --step-1:0.75rem; --step0:0.95rem; --step1:1.0625rem; --step2:1.375rem;
+  --step3:1.875rem; --step4:2.625rem; --step5:clamp(2.5rem,6vw,3.9rem);
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --serif:"Spectral",Georgia,"Times New Roman",serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--serif);
+  font-size:var(--step1);line-height:1.65;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(58rem 40rem at 12% -8%,rgba(110,130,232,.10),transparent 68%),
+             radial-gradient(46rem 34rem at 96% 4%,rgba(209,66,87,.055),transparent 70%)}
+.wrap{position:relative;z-index:1;max-width:68rem;margin:0 auto;padding:0 1.75rem}
+h1,h2,h3{font-weight:600;text-wrap:balance;margin:0;line-height:1.18}
+p{margin:0}
+a{color:var(--separation);text-decoration:none;border-bottom:1px solid rgba(110,130,232,.35)}
+a:hover{border-bottom-color:var(--separation)}
+a:focus-visible{outline:2px solid var(--separation);outline-offset:3px}
+.eyebrow{font-family:var(--mono);font-size:var(--step-1);letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted)}
+.mono{font-family:var(--mono)}
+.num{font-variant-numeric:tabular-nums}
+
+nav.site{position:relative;z-index:1;border-bottom:1px solid var(--came)}
+nav.site .inner{max-width:68rem;margin:0 auto;padding:1.1rem 1.75rem;display:flex;
+  flex-wrap:wrap;gap:1.5rem;align-items:baseline}
+nav.site .brand{font-family:var(--mono);font-size:var(--step0);letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink);border:0;margin-right:auto}
+nav.site a{font-family:var(--mono);font-size:var(--step-1);letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);border:0}
+nav.site a:hover{color:var(--ink)}
+nav.site a[aria-current="page"]{color:var(--separation)}
+
+header.page{padding:4.5rem 0 3rem}
+header.page h1{font-size:var(--step5);font-weight:300;letter-spacing:-.02em;margin:1.1rem 0 0}
+header.page h1 em{font-style:italic;color:var(--ink-2)}
+.standfirst{margin-top:1.4rem;font-size:var(--step2);font-weight:300;color:var(--ink-2);
+  line-height:1.45;max-width:36rem}
+
+section{padding:4rem 0;border-top:1px solid var(--came)}
+.sec-head{display:flex;flex-direction:column;gap:.8rem;margin-bottom:2.25rem}
+.sec-head h2{font-size:var(--step3);font-weight:400;letter-spacing:-.01em}
+.sec-head p{color:var(--ink-2);max-width:38rem}
+.prose{max-width:38rem;color:var(--ink-2)}
+.prose p+p{margin-top:1rem}
+.prose strong{color:var(--ink);font-weight:600}
+
+.claim{border-left:2px solid var(--separation);padding:.25rem 0 .25rem 1.6rem;max-width:40rem}
+.claim p+p{margin-top:.9rem}
+.claim .said{font-size:var(--step2);font-weight:300;line-height:1.5}
+.claim .aside{color:var(--muted);font-size:var(--step0)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(17rem,1fr));gap:1px;
+  background:var(--came);border:1px solid var(--came)}
+.cell{background:var(--panel);padding:1.5rem 1.4rem;display:flex;flex-direction:column;gap:.6rem}
+.cell h3{font-size:var(--step1);font-weight:600}
+.cell p{font-size:var(--step0);color:var(--ink-2);line-height:1.6}
+.cell .role{font-family:var(--mono);font-size:var(--step-1);letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted)}
+.cell .foot{font-family:var(--mono);font-size:.78rem;color:var(--muted);
+  border-top:1px solid var(--came);padding-top:.7rem;margin-top:auto;line-height:1.6}
+
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:1px;
+  background:var(--came);border:1px solid var(--came)}
+.tile{background:var(--panel);padding:1.5rem 1.4rem;display:flex;flex-direction:column;gap:.4rem}
+.tile .v{font-family:var(--mono);font-size:var(--step4);font-weight:500;letter-spacing:-.03em;
+  font-variant-numeric:tabular-nums;line-height:1}
+.tile .k{font-family:var(--mono);font-size:var(--step-1);letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted)}
+.tile .n{font-size:var(--step0);color:var(--ink-2)}
+.v-pass{color:var(--delivery)} .v-sep{color:var(--separation)} .v-rel{color:var(--relief)}
+
+.table-scroll{overflow-x:auto;border:1px solid var(--came)}
+table{border-collapse:collapse;width:100%;font-family:var(--mono);font-size:var(--step0)}
+th,td{text-align:left;padding:.6rem 1rem;border-bottom:1px solid var(--came);white-space:nowrap}
+thead th{font-size:var(--step-1);letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);font-weight:500;background:var(--panel)}
+tbody tr:last-child td{border-bottom:none}
+td.n{text-align:right;font-variant-numeric:tabular-nums}
+td.mod{color:var(--ink-2)}
+td.hash{color:var(--muted);font-size:.8rem}
+
+pre{margin:0;background:var(--panel);border:1px solid var(--came);
+  border-left:2px solid var(--separation);padding:1.2rem 1.35rem;overflow-x:auto;
+  font-family:var(--mono);font-size:.84rem;line-height:1.7;color:var(--ink-2)}
+pre .c{color:var(--muted);font-style:italic}
+pre .r{color:var(--relief)} pre .g{color:var(--delivery)}
+code{font-family:var(--mono);font-size:.88em;color:var(--ink);background:var(--panel-2);
+  padding:.08em .35em;border-radius:2px}
+
+.mod-card{background:var(--panel);border:1px solid var(--came);padding:1.6rem 1.5rem;
+  display:flex;flex-direction:column;gap:1rem}
+.mod-card .head{display:flex;flex-wrap:wrap;gap:.75rem;align-items:baseline}
+.mod-card .path{font-family:var(--mono);font-size:var(--step1);color:var(--ink)}
+.mod-card .meta{font-family:var(--mono);font-size:var(--step-1);color:var(--muted);
+  margin-left:auto;font-variant-numeric:tabular-nums}
+.mod-card .doc{color:var(--ink-2);font-size:var(--step0);max-width:44rem}
+.syms{display:flex;flex-direction:column;gap:.5rem;border-top:1px solid var(--came);padding-top:1rem}
+.sym{display:grid;grid-template-columns:minmax(0,22rem) 1fr;gap:1rem;align-items:baseline}
+.sym .sig{font-family:var(--mono);font-size:.84rem;color:var(--ink);overflow-wrap:anywhere}
+.sym .sig .kw{color:var(--separation)}
+.sym .sum{font-size:var(--step0);color:var(--muted);line-height:1.5}
+.mods{display:flex;flex-direction:column;gap:1px;background:var(--came);border:1px solid var(--came)}
+
+figure{margin:0}
+figcaption{font-family:var(--mono);font-size:var(--step-1);color:var(--muted);
+  letter-spacing:.06em;text-transform:uppercase;margin-bottom:1rem}
+.swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:1px;
+  background:var(--came);border:1px solid var(--came)}
+.sw{background:var(--panel);padding:1.2rem}
+.sw .chip{height:3rem;border:1px solid var(--came);margin-bottom:.8rem}
+.sw .nm{font-family:var(--mono);font-size:var(--step0);color:var(--ink)}
+.sw .hx{font-family:var(--mono);font-size:var(--step-1);color:var(--muted)}
+.sw .use{font-size:var(--step0);color:var(--ink-2);margin-top:.4rem;line-height:1.5}
+
+.scale{display:flex;flex-direction:column;gap:1rem;border:1px solid var(--came);
+  background:var(--panel);padding:1.5rem}
+.scale div{display:flex;gap:1.25rem;align-items:baseline;border-bottom:1px solid var(--came);
+  padding-bottom:.9rem}
+.scale div:last-child{border-bottom:0;padding-bottom:0}
+.scale .tok{font-family:var(--mono);font-size:var(--step-1);color:var(--muted);min-width:6rem}
+
+.stack{display:flex;flex-direction:column;gap:2rem}
+.stack-sm{display:flex;flex-direction:column;gap:1.25rem}
+.rules{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:1.4rem;max-width:42rem}
+.rules li{border-left:2px solid var(--relief);padding-left:1.4rem}
+.rules h3{font-size:var(--step1);font-weight:600;margin-bottom:.35rem}
+.rules p{font-size:var(--step0);color:var(--ink-2)}
+.rules.good li{border-left-color:var(--delivery)}
+
+.note{border:1px solid var(--came);background:var(--panel);padding:1.35rem 1.45rem;max-width:44rem}
+.note .eyebrow{display:block;margin-bottom:.55rem}
+.note p{font-size:var(--step0);color:var(--ink-2)}
+.note p+p{margin-top:.75rem}
+
+svg .stroke{stroke:var(--came);fill:none;stroke-width:1.5}
+svg .lbl{fill:var(--ink-2);font-family:var(--mono);font-size:11px}
+svg .lbl-mut{fill:var(--muted);font-family:var(--mono);font-size:10px}
+svg .node{fill:var(--panel-2);stroke:var(--came);stroke-width:1.5}
+
+footer{border-top:1px solid var(--came);padding:3rem 0 5rem;color:var(--muted);font-size:var(--step0)}
+footer p+p{margin-top:.6rem}
+@media (max-width:44rem){.sym{grid-template-columns:1fr;gap:.2rem}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+<nav class="site"><div class="inner"><a class="brand" href="index.html">OpsCo</a><a href="index.html">Onboarding</a><a href="ceremonies.html">Ceremonies</a><a href="audit.html">Audit index</a><a href="design.html" aria-current="page">Design guide</a><a href="evidence.html">Evidence</a></div></nav>
+<div class="wrap">
+<header class="page">
+  <span class="eyebrow">Design guide</span>
+  <h1>Ink on dark glass, and <em>what each colour may mean</em></h1>
+  <p class="standfirst">
+    The palette is not decoration here — it is a small vocabulary with fixed meanings, so
+    a reader can tell from colour alone whether something completed, was refused, or is
+    about access.
+  </p>
+</header>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">Palette</span>
+    <h2>Three inks and three neutrals</h2>
+    <p>Semantic colour is separate from the accent. Relief and delivery carry meaning and
+       are never used to differentiate one series from another; separation doubles as the
+       accent because access is the subject of most of what we build.</p></div>
+  <div class="swatches"><div class="sw"><div class="chip" style="background:#D14257"></div>
+        <div class="nm">Relief</div><div class="hx">#D14257 · --relief</div>
+        <p class="use">Refusals, held state, and the relief ceremony. Never used decoratively: a red mark means something was declined or someone was covered.</p></div><div class="sw"><div class="chip" style="background:#4CA87A"></div>
+        <div class="nm">Delivery</div><div class="hx">#4CA87A · --delivery</div>
+        <p class="use">Passes, delivery events, vesting. The only colour permitted to mean “this completed”.</p></div><div class="sw"><div class="chip" style="background:#6E82E8"></div>
+        <div class="nm">Separation</div><div class="hx">#6E82E8 · --separation</div>
+        <p class="use">The accent, and the separation ink. Structural emphasis and anything about access.</p></div><div class="sw"><div class="chip" style="background:#262E37"></div>
+        <div class="nm">Came</div><div class="hx">#262E37 · --came</div>
+        <p class="use">Every hairline, border and rule. Named after the lead between panes because that is what it does — it holds pieces apart.</p></div><div class="sw"><div class="chip" style="background:#0D1014"></div>
+        <div class="nm">Ground</div><div class="hx">#0D1014 · --ground</div>
+        <p class="use">The page ground. Blue-black rather than neutral, so the inks sit on it as glass rather than as UI.</p></div><div class="sw"><div class="chip" style="background:#E8E3D9"></div>
+        <div class="nm">Bone</div><div class="hx">#E8E3D9 · --ink</div>
+        <p class="use">Primary text. Warm off-white; pure white reads as glare against the inks.</p></div></div>
+  <div class="prose" style="margin-top:2rem">
+    <p>Colour is never the only carrier of meaning. A refused item is labelled refused and
+       carries its evidence reference; the red is confirmation, not information. That rule
+       exists for colour-vision accessibility and for printing, and it also survives being
+       screenshotted into a document with the colour stripped.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">Typography</span>
+    <h2>Two faces, one scale</h2>
+    <p>Spectral for prose, IBM Plex Mono for anything a machine produced — identifiers,
+       hashes, counts, console output, labels. If it came out of the system it is set in
+       mono, so the reader always knows which side of the boundary a string is from.</p></div>
+  <div class="scale">
+    <div><span class="tok">--step5</span><span style="font-size:var(--step5);font-weight:300">Page title</span></div>
+    <div><span class="tok">--step3</span><span style="font-size:var(--step3);font-weight:400">Section heading</span></div>
+    <div><span class="tok">--step2</span><span style="font-size:var(--step2);font-weight:300">Standfirst</span></div>
+    <div><span class="tok">--step1</span><span style="font-size:var(--step1)">Body copy, set near 65 characters</span></div>
+    <div><span class="tok">--step0</span><span style="font-size:var(--step0)">Secondary and table text</span></div>
+    <div><span class="tok">--step-1</span><span class="eyebrow">Eyebrow / label</span></div>
+  </div>
+  <div class="prose" style="margin-top:1.75rem">
+    <p>Numbers that line up in a column take <code>tabular-nums</code> without exception.
+       Counts, hashes, hours and money are compared by eye far more often than they are
+       read, and proportional digits make that comparison unreliable.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">Structure</span>
+    <h2>Devices that encode something true</h2></div>
+  <ul class="rules good">
+    <li><h3>Number a sequence, never a list</h3>
+      <p>Numbered markers appear where order carries information — the eight rehearsal
+         scenarios, a process with steps. A grid of four capabilities is not a sequence and
+         is not numbered.</p></li>
+    <li><h3>Hairlines are came, not decoration</h3>
+      <p>A rule between two things means they are separate things. Grids are one-pixel gaps
+         over the came colour so the separation is structural rather than drawn.</p></li>
+    <li><h3>Wide content scrolls inside itself</h3>
+      <p>Tables, hashes and console output get their own scroll container. The page body
+         never scrolls sideways.</p></li>
+  </ul>
+</section>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">Writing</span>
+    <h2>How a refusal is worded</h2>
+    <p>Most of what this system says to people is “no”. Getting that wording right matters
+       more than any visual decision on this page.</p></div>
+  <ul class="rules">
+    <li><h3>Name the control and the evidence reference</h3>
+      <p>“Refused: registered conflict, evidence EV-2291.” The reader can act on that, and
+         can contest it.</p></li>
+    <li><h3>Never state the reason</h3>
+      <p>Not why the conflict exists, not who registered it, not anything about the other
+         party. A refusal that leaks the reason turns a control into a disclosure channel
+         and cannot be shown to both sides.</p></li>
+    <li><h3>Say what would change the answer</h3>
+      <p>A refusal without a route forward reads as arbitrary and generates an appeal
+         instead of an action.</p></li>
+    <li><h3>No apology, no hedging</h3>
+      <p>The control did its job. “Unfortunately we are unable to…” invites an argument
+         about whether it should have.</p></li>
+  </ul>
+  <div class="note" style="margin-top:2.25rem">
+    <span class="eyebrow">On this site specifically</span>
+    <p>No client is named on any page, and no page carries a live record, a real person, or
+       a production figure. Fixture and placeholder names are on the build's deny list, so
+       a name reaching a public page fails the build rather than being noticed later.</p>
+  </div>
+</section>
+</div>
+<footer><div class="wrap">
+<p><span class="mono">OpsCo</span> — UK operational scope. This site is generated from a
+private repository; the source is not published. See the
+<a href="audit.html">audit index</a> for how to verify that what is described here is
+what is running.</p>
+<p>Nothing on this site is legal advice. No client is named anywhere on it, and no live
+record, real person, or production figure appears on it.</p>
+<p class="mono">build 2026.08</p>
+</div></footer>
