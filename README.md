@@ -32,7 +32,7 @@ different digest. On macOS use `xargs shasum -a 256 | shasum -a 256`.
 Root digest for the current build:
 
 ```
-189803474b4a84d1116b68b6c83edc38b758f9b0d688d83ab756c9313cdc634c
+84c5bb3215c6557f47efa954a4c8ddcbce39680763fd7e86f121cf6d3b8523ae
 ```
 
 If it differs from the one on the [audit index](https://aarong11.github.io/opsco-pages/audit.html), you were not
