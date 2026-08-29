@@ -210,6 +210,70 @@ footer p+p{margin-top:.6rem}
   background:var(--panel-2);color:var(--ink)}
 .afford i{font-style:normal;color:#D8B15A;margin-left:.35rem}
 .afford.out{opacity:.32;text-decoration:line-through}
+.sheets{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:1.2rem}
+.sheet{display:flex;flex-direction:column;gap:.4rem}
+.sheet-glass{border:1px solid #000;border-radius:3px;overflow:hidden;
+  box-shadow:0 16px 34px -20px rgba(0,0,0,.75)}
+.sheet-glass svg{display:block;width:100%;height:auto}
+.sheet-spec{font-family:var(--mono);font-size:.66rem;color:var(--muted);letter-spacing:.03em}
+.sheet-count{font-family:var(--mono);font-size:.7rem;color:#D8B15A}
+.sheet p{font-size:.78rem;color:var(--ink-2);line-height:1.5;margin:.15rem 0 0}
+.chain{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1px;
+  background:var(--came);border:1px solid var(--came)}
+.link{background:var(--panel);padding:1.2rem 1.25rem;display:flex;flex-direction:column;gap:.55rem}
+.link-head{display:flex;flex-direction:column;gap:.25rem}
+.link-name{font-family:var(--mono);font-size:var(--step0);color:var(--ink)}
+.link-rule{font-size:.84rem;color:var(--ink-2);line-height:1.5;margin:0}
+.link-why{font-size:.78rem;color:var(--muted);line-height:1.5;margin:0}
+.link-bar{display:flex;gap:.3rem;margin-top:auto;padding-top:.5rem}
+.link-bar i{flex:1;height:.42rem;border-radius:2px}
+.link-bar i.on{background:#1E7A46}
+.link-bar i.off{background:var(--panel-2);box-shadow:inset 0 0 0 1px rgba(210,75,94,.4)}
+.link-count{font-family:var(--mono);font-size:.66rem;color:var(--muted);line-height:1.5}
+.naming{display:flex;flex-direction:column;gap:1.6rem}
+.true{display:flex;flex-direction:column;gap:.4rem;max-width:13rem}
+.alias-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));gap:1.2rem}
+.alias{display:flex;flex-direction:column;gap:.35rem}
+.alias-glass{background:#070713;border:1px solid #000;border-radius:3px;max-width:11rem;
+  box-shadow:0 14px 30px -18px rgba(0,0,0,.8)}
+.alias-glass svg{display:block;width:100%;height:auto}
+.alias .mk,.true .mk{font-family:var(--mono);font-size:var(--step0);color:var(--ink)}
+.alias-tongue{font-size:.72rem;color:var(--ink-2)}
+.alias-cost{font-family:var(--mono);font-size:.68rem;color:var(--muted)}
+.regs{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:1px;
+  background:var(--came);border:1px solid var(--came)}
+.reg{background:var(--panel);padding:1.2rem 1.3rem;display:flex;flex-direction:column;
+  gap:.45rem;border-left:3px solid var(--came)}
+.reg-when{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted)}
+.reg p{font-size:.82rem;color:var(--ink-2);line-height:1.5;margin:0}
+.reg-nums{font-family:var(--mono);font-size:.68rem;color:#D8B15A;line-height:1.5}
+.corr{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:1px;
+  background:var(--came);border:1px solid var(--came);margin-top:1.5rem}
+.corr .cell h3{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.split{display:flex;flex-direction:column;gap:1px;background:var(--came);
+  border:1px solid var(--came)}
+.split-row{background:var(--panel);padding:1.05rem 1.2rem;display:grid;
+  grid-template-columns:9rem 1fr;gap:1rem;align-items:center}
+.rendered{font-family:var(--mono);font-size:1.05rem;color:var(--ink);letter-spacing:.01em}
+.cps{display:flex;flex-wrap:wrap;gap:.3rem;align-items:flex-end}
+.cp{display:flex;flex-direction:column;align-items:center;gap:.15rem;padding:.3rem .35rem;
+  background:var(--panel-2);border-radius:2px;min-width:2.6rem}
+.cp b{font-family:var(--mono);font-size:.95rem;color:var(--ink);font-weight:500}
+.cp i{font-style:normal;font-family:var(--mono);font-size:.56rem;color:var(--muted)}
+.cp.bad{background:rgba(210,75,94,.16);box-shadow:inset 0 0 0 1px rgba(210,75,94,.55)}
+.cp.bad b{color:#F0808F}
+.cp.bad i{color:#D24B5E}
+.cp-rest{font-family:var(--mono);font-size:.8rem;color:var(--muted);align-self:center}
+.verdict{font-family:var(--mono);font-size:.82rem;line-height:1.5}
+.verdict.miss{color:#D24B5E}
+.verdict.hit{color:#4CA87A}
+.link-count a{color:#D8B15A;text-decoration:none;border-bottom:1px solid rgba(216,177,90,.35)}
+.sources{list-style:none;margin:.6rem 0 0;padding:0;display:flex;flex-direction:column;gap:.85rem}
+.sources li{display:flex;flex-direction:column;gap:.2rem}
+.sources a{color:#D8B15A;font-size:var(--step0);text-decoration:none;
+  border-bottom:1px solid rgba(216,177,90,.35)}
+.sources span{font-size:.8rem;color:var(--muted);line-height:1.5}
 </style>
 <nav class="site"><div class="inner"><a class="brand" href="index.html">OpsCo</a><a href="index.html">Onboarding</a><a href="ceremonies.html">Ceremonies</a><a href="patterns.html" aria-current="page">Patterns</a><a href="audit.html">Audit index</a><a href="design.html">Design guide</a><a href="evidence.html">Evidence</a></div></nav>
 <div class="wrap">
@@ -612,6 +676,362 @@ footer p+p{margin-top:.6rem}
        about the stores &mdash; who drew the stock, and against what. It is never a
        question about whoever wrote the sheet, who was doing the only thing the budget
        left them.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">The press</span>
+    <h2>The palette is a legibility policy</h2>
+    <p>A clause is not text. It is a separation on a plate, laid on stock of some colour,
+       read in a room of some illuminant, sometimes through a gel. Those are two different
+       colour models and the gap between them is the trick.
+       <strong>CMYK is what the press lays down</strong> &mdash; subtractive, one plate
+       per separation, and a plate that does not run leaves nothing at all.
+       <strong>RGB is what the reader receives</strong> &mdash; additive, three channels,
+       and a gel or a scanner pull can take one away. So a term can be removed twice over,
+       by two departments, for two entirely ordinary reasons.</p></div>
+  <figure>
+    <figcaption>The same clause, four copies &middot; stock and inks both passed through
+      the viewing condition, so what disappears here disappears for the same reason it
+      does on the desk</figcaption>
+    <div class="sheets"><div class="sheet"><div class="sheet-glass"><svg viewBox="0 0 196 246" width="100%" role="img" aria-label="file copy copy on white wove, plates CMYK, read in open daylight: 4 of 5 terms legible"><rect width="196" height="246" rx="2" fill="#F4F1E8"/><text x="14" y="26" font-family="IBM Plex Mono, monospace" font-size="7.5" letter-spacing="1.2" fill="#1A1A1A">SCHEDULE 2 &#183; CONDITIONS</text><line x1="14" y1="34" x2="182" y2="34" stroke="#8C8878" stroke-width="0.8"/><text x="14" y="54" font-family="IBM Plex Sans, sans-serif" font-size="8.5" fill="#E5007D">relief within two hours</text><text x="14" y="88" font-family="IBM Plex Sans, sans-serif" font-size="8.5" fill="#009EE0">separation attested before</text><text x="14" y="99" font-family="IBM Plex Sans, sans-serif" font-size="8.5" fill="#009EE0">handover</text><text x="14" y="122" font-family="IBM Plex Sans, sans-serif" font-size="8.5" fill="#FFED00">purge recorded and costed</text><text x="14" y="156" font-family="IBM Plex Sans, sans-serif" font-size="8.5" fill="#1A1A1A">fee payable on issue</text><text x="14" y="190" font-family="IBM Plex Sans, sans-serif" font-size="8.5" fill="#1A1A1A">stock, plates and room at</text><text x="14" y="201" font-family="IBM Plex Sans, sans-serif" font-size="8.5" fill="#1A1A1A">our election</text><rect x="0.5" y="0.5" width="195" height="245" rx="2" fill="none" stroke="#0a0a12" stroke-width="1"/></svg></div><span class="role">file copy</span><span class="sheet-spec">white wove &middot; plates CMYK &middot; open daylight</span><span class="sheet-count">4 of 5 terms legible</span><p>Everything present. This is the copy that goes in the bundle.</p></div><div class="sheet"><div class="sheet-glass"><svg viewBox="0 0 196 246" width="100%" role="img" aria-label="counterparty copy on cream laid, plates CMYK, read in sodium reading room: 3 of 5 terms legible"><rect width="196" height="246" rx="2" fill="#E8720A"/><text x="14" y="26" font-family="IBM Plex Mono, monospace" font-size="7.5" letter-spacing="1.2" fill="#1A0E02">SCHEDULE 2 &#183; CONDITIONS</text><line x1="14" y1="34" x2="182" y2="34" stroke="#8C4707" stroke-width="0.8"/><text x="14" y="54" font-family="IBM Plex Sans, sans-serif" font-size="8.5" fill="#E50007">relief within two hours</text><text x="14" y="88" font-family="IBM Plex Sans, sans-serif" font-size="8.5" fill="#00520D">separation attested before</text><text x="14" y="99" font-family="IBM Plex Sans, sans-serif" font-size="8.5" fill="#00520D">handover</text><text x="14" y="122" font-family="IBM Plex Sans, sans-serif" font-size="8.5" fill="#FF7B00">purge recorded and costed</text><text x="14" y="156" font-family="IBM Plex Sans, sans-serif" font-size="8.5" fill="#1A0E02">fee payable on issue</text><text x="14" y="190" font-family="IBM Plex Sans, sans-serif" font-size="8.5" fill="#1A0E02">stock, plates and room at</text><text x="14" y="201" font-family="IBM Plex Sans, sans-serif" font-size="8.5" fill="#1A0E02">our election</text><rect x="0.5" y="0.5" width="195" height="245" rx="2" fill="none" stroke="#0a0a12" stroke-width="1"/></svg></div><span class="role">counterparty</span><span class="sheet-spec">cream laid &middot; plates CMYK &middot; sodium reading room</span><span class="sheet-count">3 of 5 terms legible</span><p>Executed in the reading room, on house stock, under sodium.</p></div><div class="sheet"><div class="sheet-glass"><svg viewBox="0 0 196 246" width="100%" role="img" aria-label="despatch copy on kraft, plates CYK, read in open daylight: 2 of 5 terms legible"><rect width="196" height="246" rx="2" fill="#C6A97A"/><text x="14" y="26" font-family="IBM Plex Mono, monospace" font-size="7.5" letter-spacing="1.2" fill="#1A1A1A">SCHEDULE 2 &#183; CONDITIONS</text><line x1="14" y1="34" x2="182" y2="34" stroke="#8C8878" stroke-width="0.8"/><text x="14" y="88" font-family="IBM Plex Sans, sans-serif" font-size="8.5" fill="#009EE0">separation attested before</text><text x="14" y="99" font-family="IBM Plex Sans, sans-serif" font-size="8.5" fill="#009EE0">handover</text><text x="14" y="122" font-family="IBM Plex Sans, sans-serif" font-size="8.5" fill="#FFED00">purge recorded and costed</text><text x="14" y="156" font-family="IBM Plex Sans, sans-serif" font-size="8.5" fill="#1A1A1A">fee payable on issue</text><text x="14" y="190" font-family="IBM Plex Sans, sans-serif" font-size="8.5" fill="#1A1A1A">stock, plates and room at</text><text x="14" y="201" font-family="IBM Plex Sans, sans-serif" font-size="8.5" fill="#1A1A1A">our election</text><rect x="0.5" y="0.5" width="195" height="245" rx="2" fill="none" stroke="#0a0a12" stroke-width="1"/></svg></div><span class="role">despatch</span><span class="sheet-spec">kraft &middot; plates CYK &middot; open daylight</span><span class="sheet-count">2 of 5 terms legible</span><p>A three-colour job. The magenta plate did not run.</p></div><div class="sheet"><div class="sheet-glass"><svg viewBox="0 0 196 246" width="100%" role="img" aria-label="plate review copy on white wove, plates CMYK, read in red review gel: 3 of 5 terms legible"><rect width="196" height="246" rx="2" fill="#F41817"/><text x="14" y="26" font-family="IBM Plex Mono, monospace" font-size="7.5" letter-spacing="1.2" fill="#1A0303">SCHEDULE 2 &#183; CONDITIONS</text><line x1="14" y1="34" x2="182" y2="34" stroke="#8C0E0C" stroke-width="0.8"/><text x="14" y="54" font-family="IBM Plex Sans, sans-serif" font-size="8.5" fill="#E5000C">relief within two hours</text><text x="14" y="88" font-family="IBM Plex Sans, sans-serif" font-size="8.5" fill="#001016">separation attested before</text><text x="14" y="99" font-family="IBM Plex Sans, sans-serif" font-size="8.5" fill="#001016">handover</text><text x="14" y="122" font-family="IBM Plex Sans, sans-serif" font-size="8.5" fill="#FF1800">purge recorded and costed</text><text x="14" y="156" font-family="IBM Plex Sans, sans-serif" font-size="8.5" fill="#1A0303">fee payable on issue</text><text x="14" y="190" font-family="IBM Plex Sans, sans-serif" font-size="8.5" fill="#1A0303">stock, plates and room at</text><text x="14" y="201" font-family="IBM Plex Sans, sans-serif" font-size="8.5" fill="#1A0303">our election</text><rect x="0.5" y="0.5" width="195" height="245" rx="2" fill="none" stroke="#0a0a12" stroke-width="1"/></svg></div><span class="role">plate review</span><span class="sheet-spec">white wove &middot; plates CMYK &middot; red review gel</span><span class="sheet-count">3 of 5 terms legible</span><p>Reviewed through the gel, which is how the layer gets pulled.</p></div></div>
+  </figure>
+  <div class="prose" style="margin-top:2rem">
+    <p>2 of the 5 terms are <strong>divergent</strong>: present on one
+       copy and absent on another, so the sheet says different things to different holders.
+       1 is <strong>void</strong> &mdash; yellow body copy clears the contrast
+       threshold on no stock in the schedule, so it never bound anybody, on any copy ever
+       struck, including the file copy that looks complete.</p>
+    <p>The number to carry to a meeting is the <strong>skew</strong>. On the file copy
+       everything binds both ways. On the despatch copy
+       &mdash; A three-colour job. The magenta plate did not run. &mdash;
+       0 of the 3 obligations on the
+       counterparty survive and
+       2 of the 2 on the issuer do.
+       Every term is honest. What survives runs one way.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">The chain</span>
+    <h2>Four signatures, none of them a contract term</h2>
+    <p>Nobody suppressed anything. Each decision below was made by a different function,
+       for a reason that stands up on its own, and not one of them is negotiated with the
+       counterparty or appears in the executed document. The erosion is what they do
+       together, which is a view only somebody holding all four schedules ever gets.</p></div>
+  <div class="chain"><div class="link">
+  <div class="link-head"><span class="role">legal</span>
+    <span class="link-name">as drafted</span></div>
+  <p class="link-rule">&ldquo;Every term set in key black on the file copy.&rdquo;</p>
+  <p class="link-why">This is the clause everyone believes they agreed.</p>
+  <div class="link-bar"><i class="on"></i><i class="on"></i><i class="off"></i>
+  </div>
+  <span class="link-count">2 of 3 obligations on them still
+    bind &middot; 2 of 2 on us</span>
+</div><div class="link">
+  <div class="link-head"><span class="role">brand</span>
+    <span class="link-name">house palette</span></div>
+  <p class="link-rule">&ldquo;Body copy sets in brand colour, never key black. Legal and financial particulars are exempt.&rdquo;</p>
+  <p class="link-why">Warmth, and consistency across the estate. Signed off as a typographic standard.</p>
+  <div class="link-bar"><i class="on"></i><i class="on"></i><i class="off"></i>
+  </div>
+  <span class="link-count">2 of 3 obligations on them still
+    bind &middot; 2 of 2 on us</span>
+</div><div class="link">
+  <div class="link-head"><span class="role">facilities</span>
+    <span class="link-name">reading room</span></div>
+  <p class="link-rule">&ldquo;Executed copies are presented on house cream, in the reading room.&rdquo;</p>
+  <p class="link-why">Ceremony, and a room that was already lit that way.</p>
+  <div class="link-bar"><i class="on"></i><i class="off"></i><i class="off"></i>
+  </div>
+  <span class="link-count">1 of 3 obligations on them still
+    bind &middot; 2 of 2 on us</span>
+</div><div class="link">
+  <div class="link-head"><span class="role">production</span>
+    <span class="link-name">registration pull</span></div>
+  <p class="link-rule">&ldquo;Plate review is done through the red gel.&rdquo;</p>
+  <p class="link-why">Standard practice. It is how a registration layer gets pulled.</p>
+  <div class="link-bar"><i class="on"></i><i class="off"></i><i class="off"></i>
+  </div>
+  <span class="link-count">1 of 3 obligations on them still
+    bind &middot; 2 of 2 on us</span>
+</div><div class="link">
+  <div class="link-head"><span class="role">finance</span>
+    <span class="link-name">three-colour despatch</span></div>
+  <p class="link-rule">&ldquo;Despatch copies run three-colour.&rdquo;</p>
+  <p class="link-why">Margin. A fourth plate on a travelling copy is hard to justify.</p>
+  <div class="link-bar"><i class="off"></i><i class="off"></i><i class="off"></i>
+  </div>
+  <span class="link-count">0 of 3 obligations on them still
+    bind &middot; 2 of 2 on us</span>
+</div></div>
+  <div class="prose" style="margin-top:2rem">
+    <p>Read the third link carefully, because it is the subtle one: pulling registration
+       under the red gel removes no obligation at all. What it removes is the
+       <em>reviewer&rsquo;s ability to notice that one is already missing</em>. A control
+       that runs in a condition the document does not survive is not a control.</p>
+    <p>The rule that falls out is short enough to put in a template:
+       <strong>a condition that can be dropped is not a condition</strong>. Material terms
+       belong on the key plate, which runs on every copy and clears the threshold on every
+       stock in the schedule. Anything set in a brand colour is decoration, and the party
+       holding the other copy should read it as decoration.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">Naming</span>
+    <h2>Four names, one word</h2>
+    <p>The same pricing that makes <em>separation</em> the dearest character in the
+       lexicon is what lets a group be four companies. The character that says these are
+       one thing carries the tongue-load of all four, so writing it is expensive; each
+       alias carries one tongue, one sense and nothing maintained under it, so writing an
+       alias is cheap. A clerk on a budget writes the alias every time, and the register
+       fills with names that are all the same word and never says so.</p></div>
+  <div class="naming">
+    <div class="true">
+      <div class="alias-glass"><svg viewBox="0 0 100 100" width="132" height="132" role="img" aria-label="Character for harbour: 6 maintenance bars, 4 sense branches, 4 tongue ticks"><rect width="100" height="100" fill="#070713"/><rect x="2" y="2" width="96" height="96" fill="none" stroke="#0a0a12" stroke-width="2.5"/><path d="M50.0,12.0 L50.0,88.0" fill="none" stroke="#2456B8" stroke-width="3.4" stroke-linecap="round" opacity="0.95"/><path d="M26.0,88.0 L74.0,88.0" fill="none" stroke="#2456B8" stroke-width="3.0" stroke-linecap="round" opacity="0.95"/><path d="M42.0,82.0 L58.0,82.0" fill="none" stroke="#2456B8" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M41.9,72.3 L58.1,72.3" fill="none" stroke="#2456B8" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M39.5,62.7 L60.5,62.7" fill="none" stroke="#2456B8" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M41.0,53.0 L59.0,53.0" fill="none" stroke="#2456B8" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M39.1,43.3 L60.9,43.3" fill="none" stroke="#2456B8" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M38.5,33.7 L61.5,33.7" fill="none" stroke="#2456B8" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M50.0,72.0 L67.5,57.0" fill="none" stroke="#2456B8" stroke-width="1.9" stroke-linecap="round" opacity="0.78"/><path d="M50.0,60.0 L30.5,42.9" fill="none" stroke="#2456B8" stroke-width="1.9" stroke-linecap="round" opacity="0.78"/><path d="M50.0,48.0 L66.9,35.6" fill="none" stroke="#2456B8" stroke-width="1.9" stroke-linecap="round" opacity="0.78"/><path d="M50.0,36.0 L25.0,23.6" fill="none" stroke="#2456B8" stroke-width="1.9" stroke-linecap="round" opacity="0.78"/><path d="M20.3,23.2 L15.9,19.2" fill="none" stroke="#2456B8" stroke-width="1.8" stroke-linecap="round" opacity="0.78"/><path d="M39.0,11.5 L37.3,5.8" fill="none" stroke="#2456B8" stroke-width="1.8" stroke-linecap="round" opacity="0.78"/><path d="M61.0,11.5 L62.7,5.8" fill="none" stroke="#2456B8" stroke-width="1.8" stroke-linecap="round" opacity="0.78"/><path d="M79.7,23.2 L84.1,19.2" fill="none" stroke="#2456B8" stroke-width="1.8" stroke-linecap="round" opacity="0.78"/><path d="M14.1,32.4 A40.0,40.0 0 0 1 85.9,32.4" fill="none" stroke="#2456B8" stroke-width="1.6" stroke-linecap="round" opacity="0.78"/><circle cx="89" cy="11" r="2.6" fill="#D8B15A" opacity="0.7"/></svg></div>
+      <span class="mk">harbour</span>
+      <span class="alias-tongue">held in four tongues at once</span>
+      <span class="alias-cost" style="color:#D8B15A">5.41 ml &middot;
+        2.4&times; an alias</span>
+    </div>
+    <div class="alias-row"><div class="alias"><div class="alias-glass"><svg viewBox="0 0 100 100" width="132" height="132" role="img" aria-label="Character for Harbour Reach: 0 maintenance bars, 1 sense branches, 1 tongue ticks"><rect width="100" height="100" fill="#070713"/><rect x="2" y="2" width="96" height="96" fill="none" stroke="#0a0a12" stroke-width="2.5"/><path d="M50.0,12.0 L50.0,88.0" fill="none" stroke="#2456B8" stroke-width="3.4" stroke-linecap="round" opacity="0.95"/><path d="M26.0,88.0 L74.0,88.0" fill="none" stroke="#2456B8" stroke-width="3.0" stroke-linecap="round" opacity="0.95"/><path d="M50.0,72.0 L65.1,55.7" fill="none" stroke="#2456B8" stroke-width="1.9" stroke-linecap="round" opacity="0.78"/><path d="M50.0,10.0 L50.0,4.0" fill="none" stroke="#2456B8" stroke-width="1.8" stroke-linecap="round" opacity="0.78"/><path d="M31.4,14.6 A40.0,40.0 0 0 1 68.6,14.6" fill="none" stroke="#2456B8" stroke-width="1.6" stroke-linecap="round" opacity="0.78"/><circle cx="89" cy="11" r="2.6" fill="#D8B15A" opacity="0.7"/></svg></div><span class="mk">Harbour Reach</span><span class="alias-tongue">yard tongue</span><span class="alias-cost">2.29 ml</span></div><div class="alias"><div class="alias-glass"><svg viewBox="0 0 100 100" width="132" height="132" role="img" aria-label="Character for Hafenweg: 0 maintenance bars, 1 sense branches, 1 tongue ticks"><rect width="100" height="100" fill="#070713"/><rect x="2" y="2" width="96" height="96" fill="none" stroke="#0a0a12" stroke-width="2.5"/><path d="M50.0,12.0 L50.0,88.0" fill="none" stroke="#2456B8" stroke-width="3.4" stroke-linecap="round" opacity="0.95"/><path d="M26.0,88.0 L74.0,88.0" fill="none" stroke="#2456B8" stroke-width="3.0" stroke-linecap="round" opacity="0.95"/><path d="M50.0,72.0 L69.8,63.3" fill="none" stroke="#2456B8" stroke-width="1.9" stroke-linecap="round" opacity="0.78"/><path d="M50.0,10.0 L50.0,4.0" fill="none" stroke="#2456B8" stroke-width="1.8" stroke-linecap="round" opacity="0.78"/><path d="M31.4,14.6 A40.0,40.0 0 0 1 68.6,14.6" fill="none" stroke="#2456B8" stroke-width="1.6" stroke-linecap="round" opacity="0.78"/><circle cx="89" cy="11" r="2.6" fill="#D8B15A" opacity="0.7"/></svg></div><span class="mk">Hafenweg</span><span class="alias-tongue">shipping tongue</span><span class="alias-cost">2.29 ml</span></div><div class="alias"><div class="alias-glass"><svg viewBox="0 0 100 100" width="132" height="132" role="img" aria-label="Character for Puerto Ramal: 0 maintenance bars, 1 sense branches, 1 tongue ticks"><rect width="100" height="100" fill="#070713"/><rect x="2" y="2" width="96" height="96" fill="none" stroke="#0a0a12" stroke-width="2.5"/><path d="M50.0,12.0 L50.0,88.0" fill="none" stroke="#2456B8" stroke-width="3.4" stroke-linecap="round" opacity="0.95"/><path d="M26.0,88.0 L74.0,88.0" fill="none" stroke="#2456B8" stroke-width="3.0" stroke-linecap="round" opacity="0.95"/><path d="M50.0,72.0 L65.8,61.4" fill="none" stroke="#2456B8" stroke-width="1.9" stroke-linecap="round" opacity="0.78"/><path d="M50.0,10.0 L50.0,4.0" fill="none" stroke="#2456B8" stroke-width="1.8" stroke-linecap="round" opacity="0.78"/><path d="M31.4,14.6 A40.0,40.0 0 0 1 68.6,14.6" fill="none" stroke="#2456B8" stroke-width="1.6" stroke-linecap="round" opacity="0.78"/><circle cx="89" cy="11" r="2.6" fill="#D8B15A" opacity="0.7"/></svg></div><span class="mk">Puerto Ramal</span><span class="alias-tongue">broker tongue</span><span class="alias-cost">2.25 ml</span></div><div class="alias"><div class="alias-glass"><svg viewBox="0 0 100 100" width="132" height="132" role="img" aria-label="Character for Portway: 0 maintenance bars, 1 sense branches, 1 tongue ticks"><rect width="100" height="100" fill="#070713"/><rect x="2" y="2" width="96" height="96" fill="none" stroke="#0a0a12" stroke-width="2.5"/><path d="M50.0,12.0 L50.0,88.0" fill="none" stroke="#2456B8" stroke-width="3.4" stroke-linecap="round" opacity="0.95"/><path d="M26.0,88.0 L74.0,88.0" fill="none" stroke="#2456B8" stroke-width="3.0" stroke-linecap="round" opacity="0.95"/><path d="M50.0,72.0 L66.4,55.3" fill="none" stroke="#2456B8" stroke-width="1.9" stroke-linecap="round" opacity="0.78"/><path d="M50.0,10.0 L50.0,4.0" fill="none" stroke="#2456B8" stroke-width="1.8" stroke-linecap="round" opacity="0.78"/><path d="M31.4,14.6 A40.0,40.0 0 0 1 68.6,14.6" fill="none" stroke="#2456B8" stroke-width="1.6" stroke-linecap="round" opacity="0.78"/><circle cx="89" cy="11" r="2.6" fill="#D8B15A" opacity="0.7"/></svg></div><span class="mk">Portway</span><span class="alias-tongue">ledger tongue</span><span class="alias-cost">2.31 ml</span></div></div>
+  </div>
+  <div class="prose" style="margin-top:2rem">
+    <p>This is the same finding the custody module already makes, arriving by a different
+       road. <strong>Fog formation</strong> is read off the controller field precisely
+       because it cannot be read off names &mdash; and now there is a reason it cannot:
+       the names are cheap translations of one word, and the expensive character that
+       would collapse them is one nobody can afford to write down.</p>
+  </div>
+  <div class="note" style="margin-top:2.5rem">
+    <span class="eyebrow">What the print room already knows</span>
+    <p>Operators working these presses every day acquire the whole structure as a feel.
+       They know which jobs run heavy on one plate, which client&rsquo;s mix is on which
+       device, which specs are near-identical under different names, and which despatch
+       runs quietly drop a plate. None of that is written anywhere, none of it is a
+       record, and none of it is a finding &mdash; it is craft knowledge, and it is
+       usually correct.</p>
+    <p>Which makes it the cheapest control on this page and the one most reliably skipped.
+       Every signature here is an expensive way of learning something the plate room could
+       have said in five minutes, and the only reason to compute it instead of asking is
+       that a computed finding can be checked by somebody who was not there. Do both. Ask
+       first.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">The register</span>
+    <h2>A language that moves with what is available and who is watching</h2>
+    <p>The wording of a template is not chosen by whoever drafts it. It is chosen by two
+       things that appear nowhere in the document: what the stores hold, and who is
+       expected to take an interest that week. That makes the contract language a small
+       evolving conlang &mdash; a full register and a short one, words borrowed from
+       whichever tongue is cheapest to write, terms entering and leaving as the presses
+       and the stores allow.</p></div>
+  <div class="regs"><div class="reg" style="border-left-color:#1E7A46">
+  <span class="reg-when">stores full, nobody looking</span>
+  <span class="mk">house</span>
+  <p>What the template says it says. Precise words, key plate, legible on every copy ever struck.</p>
+  <span class="reg-nums">senses given up 0
+    &middot; obligations still binding on the worst copy
+    100%</span>
+</div><div class="reg" style="border-left-color:#C6851F">
+  <span class="reg-when">stores short, nobody looking</span>
+  <span class="mk">short commons</span>
+  <p>Poverty, written honestly. Coarser words because the stores cannot pay for the precise ones — but still on key, so both sides read the same sheet.</p>
+  <span class="reg-nums">senses given up 14
+    &middot; obligations still binding on the worst copy
+    100%</span>
+</div><div class="reg" style="border-left-color:#B0233A">
+  <span class="reg-when">stores full, review scheduled</span>
+  <span class="mk">guarded</span>
+  <p>Reads immaculately on the file copy. The precision is real and it is set on separations that do not survive the copy the counterparty is given.</p>
+  <span class="reg-nums">senses given up 0
+    &middot; obligations still binding on the worst copy
+    0%</span>
+</div><div class="reg" style="border-left-color:#6E3AA8">
+  <span class="reg-when">stores short, review scheduled</span>
+  <span class="mk">guarded commons</span>
+  <p>Both at once, and the hardest to argue with, because the shortage is genuine and explains the wording without explaining the plates.</p>
+  <span class="reg-nums">senses given up 14
+    &middot; obligations still binding on the worst copy
+    0%</span>
+</div></div>
+  <figure style="margin-top:2.5rem">
+    <figcaption>Twelve synthetic weeks &middot; the two drivers move independently, and
+      the register answers to both</figcaption>
+    <svg viewBox="0 0 880 262" width="100%" role="img" aria-label="Twelve weeks of ink stock, outside interest, and the register the template was written in"><style>.cap{font-family:IBM Plex Mono,monospace;font-size:9px;letter-spacing:.06em}</style><text x="0" y="26" class="cap" fill="#9aa0b8">ink stock</text><text x="0" y="146" class="cap" fill="#9aa0b8">outside interest</text><text x="0" y="236" class="cap" fill="#9aa0b8">register</text><line x1="46" y1="48.0" x2="870" y2="48.0" stroke="#D24B5E" stroke-width="1" stroke-dasharray="4 3"/><text x="870" y="43.0" text-anchor="end" class="cap" fill="#D24B5E">replenishment floor</text><rect x="46" y="34.0" width="52" height="74.0" fill="#2456B8" opacity="0.75"/><rect x="46" y="202.4" width="52" height="5.6" fill="#D8B15A" opacity="0.8"/><rect x="46" y="222" width="52" height="14" rx="1" fill="#1E7A46"/><text x="72" y="252" text-anchor="middle" class="cap" fill="#6f748c">1</text><rect x="112" y="42.0" width="52" height="66.0" fill="#2456B8" opacity="0.75"/><rect x="112" y="199.6" width="52" height="8.4" fill="#D8B15A" opacity="0.8"/><rect x="112" y="222" width="52" height="14" rx="1" fill="#1E7A46"/><text x="138" y="252" text-anchor="middle" class="cap" fill="#6f748c">2</text><rect x="178" y="63.0" width="52" height="45.0" fill="#2456B8" opacity="0.75"/><rect x="178" y="196.8" width="52" height="11.2" fill="#D8B15A" opacity="0.8"/><rect x="178" y="222" width="52" height="14" rx="1" fill="#C6851F"/><text x="204" y="252" text-anchor="middle" class="cap" fill="#6f748c">3</text><text x="204" y="190.8" text-anchor="middle" class="cap" fill="#D8B15A">&#9679;</text><rect x="244" y="76.0" width="52" height="32.0" fill="#2456B8" opacity="0.75"/><rect x="244" y="199.6" width="52" height="8.4" fill="#D8B15A" opacity="0.8"/><rect x="244" y="222" width="52" height="14" rx="1" fill="#C6851F"/><text x="270" y="252" text-anchor="middle" class="cap" fill="#6f748c">4</text><text x="270" y="193.6" text-anchor="middle" class="cap" fill="#D8B15A">&#9679;</text><rect x="310" y="80.0" width="52" height="28.0" fill="#2456B8" opacity="0.75"/><rect x="310" y="160.4" width="52" height="47.6" fill="#D8B15A" opacity="0.8"/><rect x="310" y="222" width="52" height="14" rx="1" fill="#6E3AA8"/><text x="336" y="252" text-anchor="middle" class="cap" fill="#6f748c">5</text><text x="336" y="154.4" text-anchor="middle" class="cap" fill="#D8B15A">&#9679;</text><rect x="376" y="33.0" width="52" height="75.0" fill="#2456B8" opacity="0.75"/><rect x="376" y="157.6" width="52" height="50.4" fill="#D8B15A" opacity="0.8"/><rect x="376" y="222" width="52" height="14" rx="1" fill="#B0233A"/><text x="402" y="252" text-anchor="middle" class="cap" fill="#6f748c">6</text><text x="402" y="151.6" text-anchor="middle" class="cap" fill="#D8B15A">&#9679;</text><rect x="442" y="35.0" width="52" height="73.0" fill="#2456B8" opacity="0.75"/><rect x="442" y="196.8" width="52" height="11.2" fill="#D8B15A" opacity="0.8"/><rect x="442" y="222" width="52" height="14" rx="1" fill="#1E7A46"/><text x="468" y="252" text-anchor="middle" class="cap" fill="#6f748c">7</text><rect x="508" y="45.5" width="52" height="62.5" fill="#2456B8" opacity="0.75"/><rect x="508" y="202.4" width="52" height="5.6" fill="#D8B15A" opacity="0.8"/><rect x="508" y="222" width="52" height="14" rx="1" fill="#1E7A46"/><text x="534" y="252" text-anchor="middle" class="cap" fill="#6f748c">8</text><rect x="574" y="69.0" width="52" height="39.0" fill="#2456B8" opacity="0.75"/><rect x="574" y="199.6" width="52" height="8.4" fill="#D8B15A" opacity="0.8"/><rect x="574" y="222" width="52" height="14" rx="1" fill="#C6851F"/><text x="600" y="252" text-anchor="middle" class="cap" fill="#6f748c">9</text><text x="600" y="193.6" text-anchor="middle" class="cap" fill="#D8B15A">&#9679;</text><rect x="640" y="73.0" width="52" height="35.0" fill="#2456B8" opacity="0.75"/><rect x="640" y="163.2" width="52" height="44.8" fill="#D8B15A" opacity="0.8"/><rect x="640" y="222" width="52" height="14" rx="1" fill="#6E3AA8"/><text x="666" y="252" text-anchor="middle" class="cap" fill="#6f748c">10</text><text x="666" y="157.2" text-anchor="middle" class="cap" fill="#D8B15A">&#9679;</text><rect x="706" y="32.0" width="52" height="76.0" fill="#2456B8" opacity="0.75"/><rect x="706" y="158.7" width="52" height="49.3" fill="#D8B15A" opacity="0.8"/><rect x="706" y="222" width="52" height="14" rx="1" fill="#B0233A"/><text x="732" y="252" text-anchor="middle" class="cap" fill="#6f748c">11</text><text x="732" y="152.7" text-anchor="middle" class="cap" fill="#D8B15A">&#9679;</text><rect x="772" y="36.0" width="52" height="72.0" fill="#2456B8" opacity="0.75"/><rect x="772" y="199.6" width="52" height="8.4" fill="#D8B15A" opacity="0.8"/><rect x="772" y="222" width="52" height="14" rx="1" fill="#1E7A46"/><text x="798" y="252" text-anchor="middle" class="cap" fill="#6f748c">12</text></svg>
+  </figure>
+  <div class="prose" style="margin-top:2rem">
+    <p>A shortage and a steer both move the wording, and on the page they look identical.
+       They are not identical in the records, because they are paid for differently.
+       <strong>A shortage pays in senses</strong>: the clause says less, and both sides
+       can still read all of it. <strong>A steer pays in durability</strong>: the clause
+       reads immaculately on the file copy and stops binding on the copy that travels.</p>
+    <p>So the two fingerprints separate, and they point at different departments:</p>
+  </div>
+  <div class="corr">
+    <div class="cell"><span class="role">stores</span><h3>-0.96</h3>
+      <p>Ambiguity against ink stock. Cheap words follow the shelves, which is what an
+         honest shortage looks like.</p></div>
+    <div class="cell"><span class="role">stores</span><h3>+0.11</h3>
+      <p>Durability against ink stock. Near zero &mdash; running short never moved a term
+         off the key plate.</p></div>
+    <div class="cell"><span class="role">calendar</span><h3>+0.11</h3>
+      <p>Ambiguity against outside interest. Near zero &mdash; the words did not get
+         vaguer when somebody was looking.</p></div>
+    <div class="cell"><span class="role">calendar</span><h3>-0.99</h3>
+      <p>Durability against outside interest. The plates moved with the review calendar,
+         and that is a question for the drafting process, not the stores.</p></div>
+  </div>
+  <div class="note" style="margin-top:2.5rem">
+    <span class="eyebrow">What these four numbers are not</span>
+    <p>They are not a finding, and they are certainly not a reading of anyone&rsquo;s
+       intent. A correlation over twelve invented weeks says the shape is separable; it
+       says nothing about how often it occurs or what it means when it does. There are
+       innocent reasons a template changes near a review, and the honest way to find out
+       which one applies is to open the register and the press tickets and look.</p>
+    <p>The reason it is worth computing at all is that it splits one argument into two
+       answerable questions. Did the words get coarser? Ask the stores. Did the
+       obligations move off the key plate? Ask whoever signed the brand guideline. Neither
+       question is about the person who wrote the sheet.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">Adversarial glyphs</span>
+    <h2>A mark the device cannot forget</h2>
+    <p>A glyph is a shape a person reads and a machine reads, and those two readings can
+       be pulled apart deliberately. Pulled one way, the mark wears the machine: struck at
+       the same place on every page of a long run, it concentrates charge and heat on one
+       spot of a rotating part and comes back as a <strong>ghost comb</strong> down the
+       page, repeating at that part&rsquo;s circumference. A service engineer measures the
+       pitch to name the part &mdash; 37.7&nbsp;mm is the developer roller, 62.8 the fuser
+       sleeve, 94.2 the drum.</p></div>
+  <figure>
+    <figcaption>The same glyph, the same 4,000-impression run &middot; struck at one
+      position, and spread across twelve</figcaption>
+    <div class="sheets" style="max-width:34rem"><div class="sheet"><div class="sheet-glass"><svg viewBox="0 0 210 297" width="100%" role="img" aria-label="A4 page with the fixed seal mark and its ghost repeats after 4000 impressions, burn score 86 percent"><style>.tiny{font-family:IBM Plex Mono,monospace;font-size:5.4px}</style><rect width="210" height="297" rx="2" fill="#F4F1E8"/><rect x="18" y="26" width="114" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="37" width="140" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="48" width="129" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="59" width="118" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="70" width="107" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="81" width="133" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="114" width="137" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="125" width="126" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="136" width="115" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="147" width="104" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="158" width="130" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="169" width="119" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="180" width="108" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="191" width="134" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="202" width="123" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="213" width="112" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="224" width="138" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="235" width="127" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="246" width="116" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="257" width="105" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="268" width="131" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="279" width="120" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="129.7" width="64" height="8" rx="1.5" fill="#C6851F" opacity="0.638"/><text x="198" y="135.7" text-anchor="end" class="tiny" fill="#C6851F" opacity="0.8">&#8212; developer roller</text><rect x="18" y="154.8" width="64" height="8" rx="1.5" fill="#B0233A" opacity="0.576"/><text x="198" y="160.8" text-anchor="end" class="tiny" fill="#B0233A" opacity="0.8">&#8212; fuser sleeve</text><rect x="18" y="167.4" width="64" height="8" rx="1.5" fill="#C6851F" opacity="0.545"/><text x="198" y="173.4" text-anchor="end" class="tiny" fill="#C6851F" opacity="0.8">&#8212; developer roller</text><rect x="18" y="186.2" width="64" height="8" rx="1.5" fill="#2456B8" opacity="0.499"/><text x="198" y="192.2" text-anchor="end" class="tiny" fill="#2456B8" opacity="0.8">&#8212; photoconductor drum</text><rect x="18" y="205.1" width="64" height="8" rx="1.5" fill="#C6851F" opacity="0.453"/><text x="198" y="211.1" text-anchor="end" class="tiny" fill="#C6851F" opacity="0.8">&#8212; developer roller</text><rect x="18" y="217.6" width="64" height="8" rx="1.5" fill="#B0233A" opacity="0.422"/><text x="198" y="223.6" text-anchor="end" class="tiny" fill="#B0233A" opacity="0.8">&#8212; fuser sleeve</text><rect x="18" y="242.8" width="64" height="8" rx="1.5" fill="#C6851F" opacity="0.360"/><text x="198" y="248.8" text-anchor="end" class="tiny" fill="#C6851F" opacity="0.8">&#8212; developer roller</text><rect x="18" y="280.4" width="64" height="8" rx="1.5" fill="#2456B8" opacity="0.267"/><text x="198" y="286.4" text-anchor="end" class="tiny" fill="#2456B8" opacity="0.8">&#8212; photoconductor drum</text><rect x="18" y="280.4" width="64" height="8" rx="1.5" fill="#B0233A" opacity="0.267"/><text x="198" y="286.4" text-anchor="end" class="tiny" fill="#B0233A" opacity="0.8">&#8212; fuser sleeve</text><rect x="18" y="280.5" width="64" height="8" rx="1.5" fill="#C6851F" opacity="0.267"/><text x="198" y="286.5" text-anchor="end" class="tiny" fill="#C6851F" opacity="0.8">&#8212; developer roller</text><rect x="18" y="92.0" width="64" height="8" rx="1.5" fill="#0a0a12"/><rect x="0.5" y="0.5" width="209" height="296" rx="2" fill="none" stroke="#0a0a12" stroke-width="1"/></svg></div><span class="role">fixed seal</span><span class="sheet-spec">1 position &middot; 86% coverage &middot; 4,000 impressions</span><span class="sheet-count">burn score 86%</span><div class="char-bar"><i style="width:86%;background:#D24B5E"></i></div></div><div class="sheet"><div class="sheet-glass"><svg viewBox="0 0 210 297" width="100%" role="img" aria-label="A4 page with the jittered seal mark and its ghost repeats after 4000 impressions, burn score 7 percent"><style>.tiny{font-family:IBM Plex Mono,monospace;font-size:5.4px}</style><rect width="210" height="297" rx="2" fill="#F4F1E8"/><rect x="18" y="26" width="114" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="37" width="140" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="48" width="129" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="59" width="118" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="70" width="107" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="81" width="133" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="114" width="137" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="125" width="126" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="136" width="115" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="147" width="104" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="158" width="130" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="169" width="119" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="180" width="108" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="191" width="134" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="202" width="123" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="213" width="112" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="224" width="138" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="235" width="127" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="246" width="116" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="257" width="105" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="268" width="131" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="279" width="120" height="2.2" rx="1" fill="#0a0a12" opacity="0.18"/><rect x="18" y="129.7" width="64" height="8" rx="1.5" fill="#C6851F" opacity="0.053"/><rect x="18" y="154.8" width="64" height="8" rx="1.5" fill="#B0233A" opacity="0.048"/><rect x="18" y="167.4" width="64" height="8" rx="1.5" fill="#C6851F" opacity="0.045"/><rect x="18" y="186.2" width="64" height="8" rx="1.5" fill="#2456B8" opacity="0.042"/><rect x="18" y="205.1" width="64" height="8" rx="1.5" fill="#C6851F" opacity="0.038"/><rect x="18" y="217.6" width="64" height="8" rx="1.5" fill="#B0233A" opacity="0.035"/><rect x="18" y="242.8" width="64" height="8" rx="1.5" fill="#C6851F" opacity="0.030"/><rect x="18" y="280.4" width="64" height="8" rx="1.5" fill="#2456B8" opacity="0.022"/><rect x="18" y="280.4" width="64" height="8" rx="1.5" fill="#B0233A" opacity="0.022"/><rect x="18" y="280.5" width="64" height="8" rx="1.5" fill="#C6851F" opacity="0.022"/><rect x="18" y="101.0" width="64" height="8" rx="1.5" fill="#0a0a12" opacity="0.50"/><rect x="18" y="110.0" width="64" height="8" rx="1.5" fill="#0a0a12" opacity="0.25"/><rect x="18" y="119.0" width="64" height="8" rx="1.5" fill="#0a0a12" opacity="0.17"/><rect x="18" y="128.0" width="64" height="8" rx="1.5" fill="#0a0a12" opacity="0.12"/><rect x="18" y="92.0" width="64" height="8" rx="1.5" fill="#0a0a12"/><rect x="0.5" y="0.5" width="209" height="296" rx="2" fill="none" stroke="#0a0a12" stroke-width="1"/></svg></div><span class="role">jittered seal</span><span class="sheet-spec">12 positions &middot; 86% coverage &middot; 4,000 impressions</span><span class="sheet-count">burn score 7%</span><div class="char-bar"><i style="width:7%;background:#1E7A46"></i></div></div></div>
+  </figure>
+  <div class="prose" style="margin-top:2rem">
+    <p>Written up as a print-quality defect, this is a consumables problem. Read properly
+       it is <strong>residue</strong>, in exactly the sense the ceremony check already
+       uses: a physical trace nobody wrote on purpose and nobody can revise afterwards. A
+       glyph designed to burn in is a glyph that <em>writes itself into the hardware</em>
+       &mdash; hostile to the device, and a gift to whoever audits it, because the drum
+       now carries evidence of a run that the job log may not.</p>
+    <p>Which makes the control dull, and dull is the point. Dwell is what does the damage,
+       so jitter the mark: twelve positions divide the dwell by twelve, and the same run
+       that drives a fixed seal to
+       86% leaves a moving one at
+       7%. Any house rule that pins a seal,
+       a logo or a header to a fixed millimetre on a long run is choosing the ghost.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">Two readings</span>
+    <h2>A page that says one thing and encodes another</h2>
+    <p>Pulled the other way, the same trick separates the reader from the watcher. The
+       published attack classes are invisible characters, homoglyphs, reordering and
+       combining marks: text that renders one way to a person and encodes another way to a
+       matcher. Below are two lines. They render identically, and one of them is invisible
+       to a keyword rule.</p></div>
+  <div class="split">
+    <div class="split-row">
+      <span class="clause-tag">renders as</span>
+      <span class="rendered">separation attested before handover</span>
+    </div>
+    <div class="split-row">
+      <span class="clause-tag">encodes as</span>
+      <div class="cps"><span class="cp"><b>s</b><i>U+0073</i></span><span class="cp"><b>e</b><i>U+0065</i></span><span class="cp"><b>p</b><i>U+0070</i></span><span class="cp bad"><b>а</b><i>U+0430</i></span><span class="cp"><b>r</b><i>U+0072</i></span><span class="cp"><b>a</b><i>U+0061</i></span><span class="cp"><b>t</b><i>U+0074</i></span><span class="cp"><b>i</b><i>U+0069</i></span><span class="cp"><b>o</b><i>U+006F</i></span><span class="cp"><b>n</b><i>U+006E</i></span>
+        <span class="cp-rest">&hellip; attested before handover</span></div>
+    </div>
+    <div class="split-row">
+      <span class="clause-tag">keyword rule</span>
+      <span class="verdict miss">no hit for
+        &ldquo;separation&rdquo; &mdash; the bytes do not contain it</span>
+    </div>
+    <div class="split-row">
+      <span class="clause-tag">render and diff</span>
+      <span class="verdict hit">split on &ldquo;separation&rdquo; &middot;
+        mixed script: one word drawing on cyrillic, latin</span>
+    </div>
+  </div>
+  <div class="prose" style="margin-top:2rem">
+    <p>The defence is not to enumerate the attacks, because the list grows. It is to notice
+       that two readings of one page disagree: <strong>what it renders as</strong> &mdash;
+       the shapes a person sees, and what OCR over the raster returns &mdash; against
+       <strong>what it encodes as</strong>, the codepoints the spool actually carries. A
+       clean page gives the same answer twice. That is the same control as the legibility
+       check earlier on this page, pointed at a different pair of readers, and it is worth
+       noticing that it is the same control: <em>one document, two readings, and the
+       finding is the disagreement</em>.</p>
+    <p>Rasterising everything and reading it back is not free either. Researchers testing
+       OCR as a sanitising layer measured a real accuracy cost for the privilege, and
+       Unicode combining-mark attacks have driven OCR performance down by most of its
+       range. So the honest posture is a diff and a queue for human eyes, not a claim to
+       have solved it &mdash; and a split is a prompt to pull the spool file and look,
+       which usually ends in a font substitution or a paste from a different keyboard.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">Already deployed</span>
+    <h2>The print path has been watching glyphs for decades</h2>
+    <p>None of this is hypothetical, and the adversarial glyph is not a novel idea against
+       an imagined watcher. It is a counter-move against a surveillance layer that has sat
+       in the print path for a very long time. Four stations, all deployed today, each of
+       which inspects, refuses, or records &mdash; and each of which leaves residue an
+       auditor can use.</p></div>
+  <div class="chain"><div class="link">
+  <div class="link-head"><span class="role">before the spooler</span>
+    <span class="link-name">endpoint DLP</span></div>
+  <p class="link-rule">Intercepts the job at the application layer and inspects content against policy — regular expressions, keyword and phrase lists, exact data matching against a fingerprinted corpus, and OCR over embedded images to catch text that is not text. Can block the job or inject a watermark into the release.</p>
+  <p class="link-why"><strong>Leaves:</strong> A policy decision per job, with the matched rule recorded.</p>
+  <span class="link-count"><a href="https://techcommunity.microsoft.com/discussions/azurepurview/microsoft-purview-endpoint-dlp-printing/4498473">
+    Microsoft Purview endpoint DLP, print actions</a></span>
+</div><div class="link">
+  <div class="link-head"><span class="role">%SystemRoot%\\System32\\spool\\PRINTERS</span>
+    <span class="link-name">the spool itself</span></div>
+  <p class="link-rule">Writes the job data as .SPL, a per-page raster or EMF page image, and a .SHD shadow file carrying the submitting account, the document name, the target printer and the timestamp.</p>
+  <p class="link-why"><strong>Leaves:</strong> Page images and job metadata that outlive the job — the files are deleted on completion and are routinely carved back out of unallocated space.</p>
+  <span class="link-count"><a href="https://www.forensicfocus.com/forums/general/printing-spool-shadow-files-what-else/">
+    Print spool forensics: .SPL, .SHD and EMF page files</a></span>
+</div><div class="link">
+  <div class="link-head"><span class="role">in the scanner or the RIP</span>
+    <span class="link-name">firmware pattern match</span></div>
+  <p class="link-rule">Template-matches specific glyph constellations. The EURion pattern of five circles, and the Counterfeit Deterrence System behind it, cause scanners, printers and even image editors to refuse the job outright.</p>
+  <p class="link-why"><strong>Leaves:</strong> A refusal, and on many devices a logged event naming the pattern class.</p>
+  <span class="link-count"><a href="https://en.wikipedia.org/wiki/EURion_constellation">
+    EURion constellation and the Counterfeit Deterrence System</a></span>
+</div><div class="link">
+  <div class="link-head"><span class="role">on every page it prints</span>
+    <span class="link-name">the marking engine</span></div>
+  <p class="link-rule">Lays down a Machine Identification Code: a grid of yellow dots roughly 0.1 mm across at about 1 mm spacing, encoding the device serial number and a timestamp, invisible under normal light and readable under blue or UV.</p>
+  <p class="link-why"><strong>Leaves:</strong> A covert glyph on every sheet, tying the page to the device and the hour.</p>
+  <span class="link-count"><a href="https://en.wikipedia.org/wiki/Printer_tracking_dots">
+    Printer tracking dots (machine identification code)</a></span>
+</div></div>
+  <div class="prose" style="margin-top:2rem">
+    <p>Read that chain in the direction that helps. Every station on it is a
+       <strong>recorder</strong> before it is a control: the spool retains page images and
+       the submitting account, the firmware logs the pattern class it refused, and the
+       marking engine signs every sheet with the device and the hour whether anyone asked
+       for that or not. An arrangement that needs pages to exist without being attributable
+       has to defeat all four, and defeating them leaves its own marks &mdash; a run with
+       no spool record, a device whose ghost comb does not match its job log.</p>
+    <p>It also cuts the other way, and the page would be dishonest not to say so. A
+       covert identifier on every page a person prints is a surveillance capability that
+       was deployed without consent and stayed unpublished for two decades. It is useful
+       here for the same reason it is objectionable there: it records without asking.
+       Using it in an audit is defensible only where the pages are the organisation&rsquo;s
+       own and the people printing them know the check exists.</p>
+  </div>
+  <div class="note" style="margin-top:2.5rem">
+    <span class="eyebrow">Sources</span>
+    <ul class="sources"><li><a href="https://en.wikipedia.org/wiki/Printer_tracking_dots">Printer tracking dots (machine identification code)</a><span>Xerox DocuColor origins, the dot grid and what it encodes.</span></li><li><a href="https://www.eff.org/issues/printers">EFF, Printer Tracking and the DocuColor decoding guide</a><span>The community decoding effort, and FOIA documents on manufacturer agreements to make devices forensically traceable.</span></li><li><a href="https://en.wikipedia.org/wiki/EURion_constellation">EURion constellation and the Counterfeit Deterrence System</a><span>Firmware-level glyph detection that refuses a job, in scanners, printers and image editors.</span></li><li><a href="https://techcommunity.microsoft.com/discussions/azurepurview/microsoft-purview-endpoint-dlp-printing/4498473">Microsoft Purview endpoint DLP, print actions</a><span>Interception before the spooler, with content inspection deciding whether the job is released.</span></li><li><a href="https://www.forensicfocus.com/forums/general/printing-spool-shadow-files-what-else/">Print spool forensics: .SPL, .SHD and EMF page files</a><span>What the spool writes, what it retains, and how it is carved back after deletion.</span></li><li><a href="https://www.cl.cam.ac.uk/~is410/Papers/badchars_draft.pdf">Boucher et al., Bad Characters: Imperceptible NLP Attacks (IEEE S&amp;P 2022)</a><span>Invisible characters, homoglyphs and reordering against text pipelines; OCR as a sanitiser costs accuracy rather than being free.</span></li><li><a href="https://arxiv.org/pdf/2306.07033">When Vision Fails: Text Attacks Against ViT and OCR</a><span>Unicode combining-mark attacks driving large OCR performance drops.</span></li><li><a href="https://www.metrofuser.com/post/troubleshooting-ghosting-and-smearing-prints-in-your-laser-printer">Repetitive defects and ghosting in laser printing</a><span>A defect repeating at a fixed pitch names the rotating part that caused it.</span></li></ul>
   </div>
 </section>
 

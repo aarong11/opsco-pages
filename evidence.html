@@ -219,7 +219,7 @@ nav.site a[aria-current="page"] { color: var(--separation); }
 <div class="wrap">
 
   <header class="masthead">
-    <span class="eyebrow">OpsCo · evidence build · <span data-gen="total">334</span> tests passing</span>
+    <span class="eyebrow">OpsCo · evidence build · <span data-gen="total">368</span> tests passing</span>
     <h1>FeatherLight <em>separation attestations</em></h1>
     <p class="standfirst">
       Conflict-aware dispatch, contract governance, and signed separation proofs for a
@@ -250,7 +250,7 @@ nav.site a[aria-current="page"] { color: var(--separation); }
       <span class="eyebrow">The suite</span>
       <h2>What is under test</h2>
       <p>
-        <span data-gen="modules">8</span> modules, <span data-gen="total">334</span>
+        <span data-gen="modules">10</span> modules, <span data-gen="total">368</span>
         tests, standard library plus <code>cryptography</code> for Ed25519. Every figure
         below is written into this page by <code>tools/build_docs.py</code> from an
         actual run, and CI fails if the page and the code disagree.
@@ -260,7 +260,7 @@ nav.site a[aria-current="page"] { color: var(--separation); }
     <div class="tiles">
       <div class="tile">
         <span class="k">Tests passing</span>
-        <span class="v v-pass num" data-gen="total">334</span>
+        <span class="v v-pass num" data-gen="total">368</span>
         <span class="n">0 failures, 0 errors</span>
       </div>
       <div class="tile">
@@ -275,7 +275,7 @@ nav.site a[aria-current="page"] { color: var(--separation); }
       </div>
       <div class="tile">
         <span class="k">Test classes</span>
-        <span class="v num" data-gen="classes">50</span>
+        <span class="v num" data-gen="classes">57</span>
         <span class="n">Each holding down one rule</span>
       </div>
     </div>
@@ -314,9 +314,19 @@ nav.site a[aria-current="page"] { color: var(--separation); }
           <span class="count">20</span>
         </div>
         <div class="bar-row">
+          <span class="label">test_readings</span>
+          <div class="bar-track"><div class="bar-fill" style="width:12.1%"></div></div>
+          <span class="count">18</span>
+        </div>
+        <div class="bar-row">
           <span class="label">test_residue</span>
           <div class="bar-track"><div class="bar-fill" style="width:12.1%"></div></div>
           <span class="count">18</span>
+        </div>
+        <div class="bar-row">
+          <span class="label">test_spool</span>
+          <div class="bar-track"><div class="bar-fill" style="width:10.7%"></div></div>
+          <span class="count">16</span>
         </div>
         <div class="bar-row">
           <span class="label">test_lexicon</span>
@@ -354,16 +364,20 @@ nav.site a[aria-current="page"] { color: var(--separation); }
           <tr><td>Movements</td><td class="mod">consumables</td><td class="n">8</td><td>Derived balances, off-spec stock refused at issue</td></tr>
           <tr><td>Pseudonyms</td><td class="mod">governance</td><td class="n">8</td><td>Reversible handles, small-cell suppression</td></tr>
           <tr><td>Scheduling</td><td class="mod">opsco</td><td class="n">8</td><td>Admissible windows, including the scratch tail</td></tr>
+          <tr><td>TwoReadings</td><td class="mod">spool</td><td class="n">8</td><td>What a page renders as, against what the spool encodes</td></tr>
           <tr><td>ApiGovernance</td><td class="mod">service</td><td class="n">7</td><td>Governance endpoints and their guards</td></tr>
           <tr><td>Cover</td><td class="mod">governance</td><td class="n">7</td><td>Follow-up cover and relief</td></tr>
           <tr><td>IndependentInvention</td><td class="mod">governance</td><td class="n">7</td><td>Blinded replication certificates</td></tr>
           <tr><td>Rebate</td><td class="mod">analysis</td><td class="n">7</td><td>Load-shifting rebate</td></tr>
+          <tr><td>Dialect</td><td class="mod">readings</td><td class="n">6</td><td>A shortage pays in senses; a steer pays in durability</td></tr>
           <tr><td>Inks</td><td class="mod">glyph</td><td class="n">6</td><td>A colour cannot be painted without the ink the ledger accounts for</td></tr>
           <tr><td>PairedLiabilities</td><td class="mod">governance</td><td class="n">6</td><td>Third-party payment and set-off</td></tr>
           <tr><td>TaxFunding</td><td class="mod">governance</td><td class="n">6</td><td>ITEPA s222 deadline on the charge</td></tr>
           <tr><td>Attestation</td><td class="mod">opsco</td><td class="n">5</td><td>Hash chain, Ed25519, replay</td></tr>
           <tr><td>Barrier</td><td class="mod">governance</td><td class="n">5</td><td>Information barrier</td></tr>
+          <tr><td>BurnIn</td><td class="mod">spool</td><td class="n">5</td><td>Dwell is what marks the device, and jitter is what stops it</td></tr>
           <tr><td>Pricing</td><td class="mod">lexicon</td><td class="n">5</td><td>A word costs the ink it takes to draw, and every pressure adds line</td></tr>
+          <tr><td>Schedule</td><td class="mod">readings</td><td class="n">5</td><td>Four production decisions, and the obligations they erode</td></tr>
           <tr><td>Stones</td><td class="mod">glyph</td><td class="n">5</td><td>A decision sits on the came between the two parties it concerns</td></tr>
           <tr><td>ThesisTest</td><td class="mod">analysis</td><td class="n">5</td><td>Stratified permutation test vs. known ground truth</td></tr>
           <tr><td>Transport</td><td class="mod">service</td><td class="n">5</td><td>Message bus</td></tr>
@@ -371,13 +385,16 @@ nav.site a[aria-current="page"] { color: var(--separation); }
           <tr><td>Economics</td><td class="mod">residue</td><td class="n">4</td><td>Cost per client, and output that is not paying for its stock</td></tr>
           <tr><td>InkBudget</td><td class="mod">consumables</td><td class="n">4</td><td>Ink budget derived from the stock ledger</td></tr>
           <tr><td>Integrity</td><td class="mod">analysis</td><td class="n">4</td><td>Work-pool integrity signals</td></tr>
+          <tr><td>Optics</td><td class="mod">readings</td><td class="n">4</td><td>Stock, room and gel decide what clears the contrast threshold</td></tr>
           <tr><td>Readiness</td><td class="mod">consumables</td><td class="n">4</td><td>Room ready per client, per spec version</td></tr>
           <tr><td>Settlement</td><td class="mod">consumables</td><td class="n">4</td><td>Consumption and invoice reconciliation</td></tr>
           <tr><td>Shortage</td><td class="mod">lexicon</td><td class="n">4</td><td>A shortage prices out the load-bearing words, and deletes their senses</td></tr>
           <tr><td>Strokes</td><td class="mod">lexicon</td><td class="n">4</td><td>Bars, branches and ticks are countable against what was recorded</td></tr>
           <tr><td>BurstDetection</td><td class="mod">analysis</td><td class="n">3</td><td>Bursts over the job ledger</td></tr>
+          <tr><td>Citations</td><td class="mod">spool</td><td class="n">3</td><td>The deployed machinery on the print path is cited, not remembered</td></tr>
           <tr><td>Conflicts</td><td class="mod">opsco</td><td class="n">3</td><td>Declared conflict graph</td></tr>
           <tr><td>HttpSmoke</td><td class="mod">service</td><td class="n">3</td><td>Server comes up and answers</td></tr>
+          <tr><td>Plates</td><td class="mod">readings</td><td class="n">3</td><td>A separation that did not run left nothing on the sheet to read</td></tr>
           <tr><td>Primitives</td><td class="mod">analysis</td><td class="n">3</td><td>Windowing and coarsening</td></tr>
           <tr><td>Prng</td><td class="mod">glyph</td><td class="n">3</td><td>Cohort-glass PRNG, pinned against the JavaScript reference</td></tr>
           <tr><td>Replenishment</td><td class="mod">residue</td><td class="n">3</td><td>Stock below its floor, and the obligation to replace it</td></tr>
@@ -642,7 +659,7 @@ consumables.ink_budget(conn, "ROOM-A", ROLES)["relief"]
       <p>Standard library, plus <code>cryptography</code> for Ed25519. No services required.</p>
     </div>
 
-<pre>python -m unittest discover -s tests -t .   <span class="c"># <span data-gen="total">334</span> tests</span>
+<pre>python -m unittest discover -s tests -t .   <span class="c"># <span data-gen="total">368</span> tests</span>
 python example_simulation.py                <span class="c"># the eight scenarios</span>
 python example.py                           <span class="c"># scheduling and attestation</span>
 python example_thesis.py                    <span class="c"># thesis test vs. known ground truth</span>
