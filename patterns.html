@@ -181,6 +181,35 @@ footer p+p{margin-top:.6rem}
 .bar-row .count{font-family:var(--mono);font-size:var(--step0);text-align:right;font-variant-numeric:tabular-nums;color:var(--ink)}
 .bars{display:flex;flex-direction:column;gap:2px}
 .chart-note{margin-top:1.1rem;font-size:var(--step0);color:var(--muted);max-width:38rem}
+.chars{display:grid;grid-template-columns:repeat(auto-fit,minmax(19rem,1fr));gap:1px;
+  background:var(--came);border:1px solid var(--came)}
+.char{background:var(--panel);padding:1.2rem 1.3rem;display:flex;gap:1.1rem;align-items:flex-start}
+.char-glass{flex:0 0 6.4rem;background:#070713;border:1px solid #000;border-radius:3px;
+  box-shadow:0 14px 30px -18px rgba(0,0,0,.8)}
+.char-glass svg{display:block;width:100%;height:auto}
+.char-body{display:flex;flex-direction:column;gap:.42rem;min-width:0}
+.char-body .mk{font-family:var(--mono);font-size:var(--step0);color:var(--ink)}
+.char-price{font-family:var(--mono);font-size:.72rem;color:#D8B15A;font-variant-numeric:tabular-nums}
+.char-bar{height:.3rem;background:var(--panel-2);border-radius:2px;overflow:hidden}
+.char-bar i{display:block;height:100%;border-radius:2px;opacity:.85}
+.char-press{font-family:var(--mono);font-size:.68rem;color:var(--muted);letter-spacing:.04em}
+.char-body p{font-size:.82rem;color:var(--ink-2);line-height:1.5;margin:.2rem 0 0}
+.clause{display:flex;flex-direction:column;gap:1px;background:var(--came);border:1px solid var(--came)}
+.clause-row{background:var(--panel);padding:1.1rem 1.2rem;display:grid;
+  grid-template-columns:9rem 1fr 5rem;gap:1rem;align-items:center}
+.clause-tag{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted)}
+.clause-sum{font-family:var(--mono);font-size:var(--step0);color:#D8B15A;text-align:right;
+  font-variant-numeric:tabular-nums}
+.words{display:flex;flex-wrap:wrap;gap:.6rem}
+.word{font-family:var(--mono);font-size:var(--step0);color:var(--ink);
+  border-bottom:2px solid transparent;padding-bottom:.15rem}
+.word i{font-style:normal;font-size:.62rem;color:var(--muted);margin-left:.3rem}
+.afford-strip{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2rem}
+.afford{font-family:var(--mono);font-size:.75rem;padding:.35rem .6rem;border-radius:2px;
+  background:var(--panel-2);color:var(--ink)}
+.afford i{font-style:normal;color:#D8B15A;margin-left:.35rem}
+.afford.out{opacity:.32;text-decoration:line-through}
 </style>
 <nav class="site"><div class="inner"><a class="brand" href="index.html">OpsCo</a><a href="index.html">Onboarding</a><a href="ceremonies.html">Ceremonies</a><a href="patterns.html" aria-current="page">Patterns</a><a href="audit.html">Audit index</a><a href="design.html">Design guide</a><a href="evidence.html">Evidence</a></div></nav>
 <div class="wrap">
@@ -415,6 +444,174 @@ footer p+p{margin-top:.6rem}
     <p>The screen is deliberately blunt: a median, a tolerance, a direction. It says where
        to go and look. It does not say what you will find, and it never produces a finding
        about a person.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">The ink economy</span>
+    <h2>Ink is credit, and a document is the instrument</h2>
+    <p>Nobody decided to make ink money. It became money because of how it is issued: a
+       millilitre exists only where an attested event issued it, from a lot with a
+       supplier and a purchase order behind it. It cannot be conjured, it divides
+       cleanly, and anyone can check what stands behind it. Those are the properties, and
+       a claim that has them circulates whether or not anyone calls it a currency.</p></div>
+  <figure>
+    <figcaption>The life of a millilitre &middot; one door in, and it is an attested event</figcaption>
+    <svg viewBox="0 0 880 234" width="100%" role="img" aria-label="Ink minted against an attested event, spent writing a sheet, endorsed from hand to hand, and redeemed against its lot"><defs><marker id="tip" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#D8B15A"/></marker><marker id="tip-r" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#D14257"/></marker></defs><style>.mono-s{font-family:IBM Plex Mono,monospace;font-size:12px}.mono-m{font-family:IBM Plex Mono,monospace;font-size:16px;letter-spacing:.08em}</style><text x="118" y="44" text-anchor="middle" class="mono-s" fill="#D8B15A">+120 ml minted</text><rect x="30" y="56" width="175" height="88" rx="2" fill="#0f1023" stroke="#0a0a12" stroke-width="3"/><text x="118" y="90" text-anchor="middle" class="mono-m" fill="#E8DCA8">mint</text><text x="118" y="114" text-anchor="middle" class="mono-s" fill="#9aa0b8">an attested event</text><line x1="211" y1="100" x2="261" y2="100" stroke="#D8B15A" stroke-width="2" marker-end="url(#tip)"/><text x="332" y="44" text-anchor="middle" class="mono-s" fill="#D8B15A">−7.5 ml spent</text><rect x="245" y="56" width="175" height="88" rx="2" fill="#0f1023" stroke="#0a0a12" stroke-width="3"/><text x="332" y="90" text-anchor="middle" class="mono-m" fill="#E8DCA8">write</text><text x="332" y="114" text-anchor="middle" class="mono-s" fill="#9aa0b8">a sheet spends it</text><line x1="426" y1="100" x2="476" y2="100" stroke="#D8B15A" stroke-width="2" marker-end="url(#tip)"/><text x="548" y="44" text-anchor="middle" class="mono-s" fill="#D8B15A">no ink moves</text><rect x="460" y="56" width="175" height="88" rx="2" fill="#0f1023" stroke="#0a0a12" stroke-width="3"/><text x="548" y="90" text-anchor="middle" class="mono-m" fill="#E8DCA8">endorse</text><text x="548" y="114" text-anchor="middle" class="mono-s" fill="#9aa0b8">the claim moves</text><line x1="641" y1="100" x2="691" y2="100" stroke="#D8B15A" stroke-width="2" marker-end="url(#tip)"/><text x="762" y="44" text-anchor="middle" class="mono-s" fill="#D8B15A">−120 ml cancelled</text><rect x="675" y="56" width="175" height="88" rx="2" fill="#0f1023" stroke="#0a0a12" stroke-width="3"/><text x="762" y="90" text-anchor="middle" class="mono-m" fill="#E8DCA8">redeem</text><text x="762" y="114" text-anchor="middle" class="mono-s" fill="#9aa0b8">the lot is charged</text><path d="M762,144 L762,198 L118,198 L118,144" fill="none" stroke="#D14257" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#tip-r)"/><text x="440" y="219" text-anchor="middle" class="mono-s" fill="#9aa0b8">replenishment &#8212; the stock somebody had to buy again, or the sheet never clears</text></svg>
+  </figure>
+  <div class="grid" style="margin-top:2rem"><div class="cell"><span class="role">mint</span><h3>an attested event</h3><p>Ink is issued against a ceremony that happened, in millilitres, from a lot with a supplier and a purchase order behind it. There is no other way to make any.</p></div><div class="cell"><span class="role">write</span><h3>a sheet spends it</h3><p>What the sheet spent is legible on its own face: the characters are the receipt. An expensive word is expensive for the forger too.</p></div><div class="cell"><span class="role">endorse</span><h3>the claim moves</h3><p>The sheet changes hands and the claim goes with it. No ink moves, no ledger entry is needed, and the holder can still prove what stands behind it.</p></div><div class="cell"><span class="role">redeem</span><h3>the lot is charged</h3><p>Presented against its lot, the millilitres are cancelled and the residue has to reconcile — meter, shelf, and the stock somebody had to replace.</p></div></div>
+  <div class="prose" style="margin-top:2rem">
+    <p>Between <strong>write</strong> and <strong>redeem</strong> the sheet is a bearer
+       instrument. Its holder can show what stock stands behind it without trusting
+       whoever handed it over, so it settles debts on its own account: a sheet carrying
+       120&nbsp;ml of separation ink buys what 120&nbsp;ml of separation ink buys, and it
+       does so without a payment ever being made. That is the arrangement to watch for,
+       because it is invisible to a book that only counts money.</p>
+    <p>It is also why the residue check matters more here than anywhere else. A currency
+       issued against attested events is exactly as sound as the attestations, so a sheet
+       has to reconcile twice &mdash; against the ledger that issued the ink, and against
+       the meter, the shelf and the stock somebody had to replace. Ink that circulates
+       but leaves no residue was never minted against anything.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">The price of a word</span>
+    <h2>A character costs what it costs to write</h2>
+    <p>Ink is paid by the millimetre of line laid down, so a word&rsquo;s price is a fact
+       about its geometry rather than an opinion about its importance. Three recorded
+       pressures drive strokes into a character: a <strong>bar</strong> through the stem
+       for every maintenance event on the thing it names, a <strong>branch</strong> for
+       every materially distinct use, and a <strong>tick</strong> plus a longer enclosing
+       ring for every trade tongue holding its own word for the same thing &mdash;
+       because the character has to be told apart from all of them at once.</p></div>
+  <div class="chars"><div class="char">
+  <div class="char-glass"><svg viewBox="0 0 100 100" width="132" height="132" role="img" aria-label="Character for separation: 9 maintenance bars, 6 sense branches, 5 tongue ticks"><rect width="100" height="100" fill="#070713"/><rect x="2" y="2" width="96" height="96" fill="none" stroke="#0a0a12" stroke-width="2.5"/><path d="M50.0,12.0 L50.0,88.0" fill="none" stroke="#2456B8" stroke-width="3.4" stroke-linecap="round" opacity="0.95"/><path d="M26.0,88.0 L74.0,88.0" fill="none" stroke="#2456B8" stroke-width="3.0" stroke-linecap="round" opacity="0.95"/><path d="M36.4,82.0 L63.6,82.0" fill="none" stroke="#2456B8" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M35.9,75.6 L64.1,75.6" fill="none" stroke="#2456B8" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M35.7,69.1 L64.3,69.1" fill="none" stroke="#2456B8" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M40.8,62.7 L59.2,62.7" fill="none" stroke="#2456B8" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M39.2,56.2 L60.8,56.2" fill="none" stroke="#2456B8" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M38.6,49.8 L61.4,49.8" fill="none" stroke="#2456B8" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M38.9,43.3 L61.1,43.3" fill="none" stroke="#2456B8" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M38.6,36.9 L61.4,36.9" fill="none" stroke="#2456B8" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M38.7,30.4 L61.3,30.4" fill="none" stroke="#2456B8" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M50.0,72.0 L65.4,53.4" fill="none" stroke="#2456B8" stroke-width="1.9" stroke-linecap="round" opacity="0.78"/><path d="M50.0,64.0 L33.1,47.3" fill="none" stroke="#2456B8" stroke-width="1.9" stroke-linecap="round" opacity="0.78"/><path d="M50.0,56.0 L73.5,43.3" fill="none" stroke="#2456B8" stroke-width="1.9" stroke-linecap="round" opacity="0.78"/><path d="M50.0,48.0 L26.6,32.9" fill="none" stroke="#2456B8" stroke-width="1.9" stroke-linecap="round" opacity="0.78"/><path d="M50.0,40.0 L68.2,24.4" fill="none" stroke="#2456B8" stroke-width="1.9" stroke-linecap="round" opacity="0.78"/><path d="M50.0,32.0 L29.5,21.3" fill="none" stroke="#2456B8" stroke-width="1.9" stroke-linecap="round" opacity="0.78"/><path d="M15.1,30.4 L9.9,27.5" fill="none" stroke="#2456B8" stroke-width="1.8" stroke-linecap="round" opacity="0.78"/><path d="M29.8,15.5 L26.7,10.3" fill="none" stroke="#2456B8" stroke-width="1.8" stroke-linecap="round" opacity="0.78"/><path d="M50.0,10.0 L50.0,4.0" fill="none" stroke="#2456B8" stroke-width="1.8" stroke-linecap="round" opacity="0.78"/><path d="M70.2,15.5 L73.3,10.3" fill="none" stroke="#2456B8" stroke-width="1.8" stroke-linecap="round" opacity="0.78"/><path d="M84.9,30.4 L90.1,27.5" fill="none" stroke="#2456B8" stroke-width="1.8" stroke-linecap="round" opacity="0.78"/><path d="M11.2,40.3 A40.0,40.0 0 0 1 88.8,40.3" fill="none" stroke="#2456B8" stroke-width="1.6" stroke-linecap="round" opacity="0.78"/><circle cx="89" cy="11" r="2.6" fill="#D8B15A" opacity="0.7"/></svg></div>
+  <div class="char-body">
+    <span class="mk">separation</span>
+    <span class="char-price">7.49 ml &middot; 33p</span>
+    <div class="char-bar"><i style="width:100%;background:#2456B8"></i></div>
+    <span class="char-press">9 bars &middot; 6 branches &middot; 5 ticks</span>
+    <p>The barrier itself, the ceremony that tests it, the finding when it fails, and three readings besides. Serviced constantly, and named differently by every desk in the trade.</p>
+  </div>
+</div><div class="char">
+  <div class="char-glass"><svg viewBox="0 0 100 100" width="132" height="132" role="img" aria-label="Character for relief: 7 maintenance bars, 5 sense branches, 4 tongue ticks"><rect width="100" height="100" fill="#070713"/><rect x="2" y="2" width="96" height="96" fill="none" stroke="#0a0a12" stroke-width="2.5"/><path d="M50.0,12.0 L50.0,88.0" fill="none" stroke="#B0233A" stroke-width="3.4" stroke-linecap="round" opacity="0.95"/><path d="M26.0,88.0 L74.0,88.0" fill="none" stroke="#B0233A" stroke-width="3.0" stroke-linecap="round" opacity="0.95"/><path d="M37.3,82.0 L62.7,82.0" fill="none" stroke="#B0233A" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M35.6,73.7 L64.4,73.7" fill="none" stroke="#B0233A" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M41.0,65.4 L59.0,65.4" fill="none" stroke="#B0233A" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M37.7,57.1 L62.3,57.1" fill="none" stroke="#B0233A" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M41.7,48.9 L58.3,48.9" fill="none" stroke="#B0233A" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M40.7,40.6 L59.3,40.6" fill="none" stroke="#B0233A" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M36.7,32.3 L63.3,32.3" fill="none" stroke="#B0233A" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M50.0,72.0 L64.7,53.4" fill="none" stroke="#B0233A" stroke-width="1.9" stroke-linecap="round" opacity="0.78"/><path d="M50.0,62.4 L33.1,53.5" fill="none" stroke="#B0233A" stroke-width="1.9" stroke-linecap="round" opacity="0.78"/><path d="M50.0,52.8 L68.9,39.5" fill="none" stroke="#B0233A" stroke-width="1.9" stroke-linecap="round" opacity="0.78"/><path d="M50.0,43.2 L25.5,29.2" fill="none" stroke="#B0233A" stroke-width="1.9" stroke-linecap="round" opacity="0.78"/><path d="M50.0,33.6 L71.8,24.4" fill="none" stroke="#B0233A" stroke-width="1.9" stroke-linecap="round" opacity="0.78"/><path d="M20.3,23.2 L15.9,19.2" fill="none" stroke="#B0233A" stroke-width="1.8" stroke-linecap="round" opacity="0.78"/><path d="M39.0,11.5 L37.3,5.8" fill="none" stroke="#B0233A" stroke-width="1.8" stroke-linecap="round" opacity="0.78"/><path d="M61.0,11.5 L62.7,5.8" fill="none" stroke="#B0233A" stroke-width="1.8" stroke-linecap="round" opacity="0.78"/><path d="M79.7,23.2 L84.1,19.2" fill="none" stroke="#B0233A" stroke-width="1.8" stroke-linecap="round" opacity="0.78"/><path d="M14.1,32.4 A40.0,40.0 0 0 1 85.9,32.4" fill="none" stroke="#B0233A" stroke-width="1.6" stroke-linecap="round" opacity="0.78"/><circle cx="89" cy="11" r="2.6" fill="#D8B15A" opacity="0.7"/></svg></div>
+  <div class="char-body">
+    <span class="mk">relief</span>
+    <span class="char-price">6.16 ml &middot; 27p</span>
+    <div class="char-bar"><i style="width:82%;background:#B0233A"></i></div>
+    <span class="char-press">7 bars &middot; 5 branches &middot; 4 ticks</span>
+    <p>Cover given, stock replaced, a refusal held, a shift ended. Four trades hold four words for it and none of them mean quite the same thing.</p>
+  </div>
+</div><div class="char">
+  <div class="char-glass"><svg viewBox="0 0 100 100" width="132" height="132" role="img" aria-label="Character for custody: 6 maintenance bars, 4 sense branches, 3 tongue ticks"><rect width="100" height="100" fill="#070713"/><rect x="2" y="2" width="96" height="96" fill="none" stroke="#0a0a12" stroke-width="2.5"/><path d="M50.0,12.0 L50.0,88.0" fill="none" stroke="#2456B8" stroke-width="3.4" stroke-linecap="round" opacity="0.95"/><path d="M26.0,88.0 L74.0,88.0" fill="none" stroke="#2456B8" stroke-width="3.0" stroke-linecap="round" opacity="0.95"/><path d="M40.4,82.0 L59.6,82.0" fill="none" stroke="#2456B8" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M36.2,72.3 L63.8,72.3" fill="none" stroke="#2456B8" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M36.7,62.7 L63.3,62.7" fill="none" stroke="#2456B8" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M38.1,53.0 L61.9,53.0" fill="none" stroke="#2456B8" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M37.3,43.3 L62.7,43.3" fill="none" stroke="#2456B8" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M36.6,33.7 L63.4,33.7" fill="none" stroke="#2456B8" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M50.0,72.0 L71.8,61.8" fill="none" stroke="#2456B8" stroke-width="1.9" stroke-linecap="round" opacity="0.78"/><path d="M50.0,60.0 L34.4,41.3" fill="none" stroke="#2456B8" stroke-width="1.9" stroke-linecap="round" opacity="0.78"/><path d="M50.0,48.0 L64.7,32.8" fill="none" stroke="#2456B8" stroke-width="1.9" stroke-linecap="round" opacity="0.78"/><path d="M50.0,36.0 L31.6,28.5" fill="none" stroke="#2456B8" stroke-width="1.9" stroke-linecap="round" opacity="0.78"/><path d="M27.3,17.1 L23.9,12.1" fill="none" stroke="#2456B8" stroke-width="1.8" stroke-linecap="round" opacity="0.78"/><path d="M50.0,10.0 L50.0,4.0" fill="none" stroke="#2456B8" stroke-width="1.8" stroke-linecap="round" opacity="0.78"/><path d="M72.7,17.1 L76.1,12.1" fill="none" stroke="#2456B8" stroke-width="1.8" stroke-linecap="round" opacity="0.78"/><path d="M18.5,25.3 A40.0,40.0 0 0 1 81.5,25.3" fill="none" stroke="#2456B8" stroke-width="1.6" stroke-linecap="round" opacity="0.78"/><circle cx="89" cy="11" r="2.6" fill="#D8B15A" opacity="0.7"/></svg></div>
+  <div class="char-body">
+    <span class="mk">custody</span>
+    <span class="char-price">5.44 ml &middot; 24p</span>
+    <div class="char-bar"><i style="width:73%;background:#2456B8"></i></div>
+    <span class="char-press">6 bars &middot; 4 branches &middot; 3 ticks</span>
+    <p>Who holds the thing, who may appoint the holder, and who may not.</p>
+  </div>
+</div><div class="char">
+  <div class="char-glass"><svg viewBox="0 0 100 100" width="132" height="132" role="img" aria-label="Character for handover: 5 maintenance bars, 4 sense branches, 4 tongue ticks"><rect width="100" height="100" fill="#070713"/><rect x="2" y="2" width="96" height="96" fill="none" stroke="#0a0a12" stroke-width="2.5"/><path d="M50.0,12.0 L50.0,88.0" fill="none" stroke="#1E7A46" stroke-width="3.4" stroke-linecap="round" opacity="0.95"/><path d="M26.0,88.0 L74.0,88.0" fill="none" stroke="#1E7A46" stroke-width="3.0" stroke-linecap="round" opacity="0.95"/><path d="M36.3,82.0 L63.7,82.0" fill="none" stroke="#1E7A46" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M41.1,70.4 L58.9,70.4" fill="none" stroke="#1E7A46" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M39.1,58.8 L60.9,58.8" fill="none" stroke="#1E7A46" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M37.0,47.2 L63.0,47.2" fill="none" stroke="#1E7A46" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M38.2,35.6 L61.8,35.6" fill="none" stroke="#1E7A46" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M50.0,72.0 L68.1,58.9" fill="none" stroke="#1E7A46" stroke-width="1.9" stroke-linecap="round" opacity="0.78"/><path d="M50.0,60.0 L26.8,44.1" fill="none" stroke="#1E7A46" stroke-width="1.9" stroke-linecap="round" opacity="0.78"/><path d="M50.0,48.0 L69.0,34.4" fill="none" stroke="#1E7A46" stroke-width="1.9" stroke-linecap="round" opacity="0.78"/><path d="M50.0,36.0 L35.2,25.2" fill="none" stroke="#1E7A46" stroke-width="1.9" stroke-linecap="round" opacity="0.78"/><path d="M20.3,23.2 L15.9,19.2" fill="none" stroke="#1E7A46" stroke-width="1.8" stroke-linecap="round" opacity="0.78"/><path d="M39.0,11.5 L37.3,5.8" fill="none" stroke="#1E7A46" stroke-width="1.8" stroke-linecap="round" opacity="0.78"/><path d="M61.0,11.5 L62.7,5.8" fill="none" stroke="#1E7A46" stroke-width="1.8" stroke-linecap="round" opacity="0.78"/><path d="M79.7,23.2 L84.1,19.2" fill="none" stroke="#1E7A46" stroke-width="1.8" stroke-linecap="round" opacity="0.78"/><path d="M14.1,32.4 A40.0,40.0 0 0 1 85.9,32.4" fill="none" stroke="#1E7A46" stroke-width="1.6" stroke-linecap="round" opacity="0.78"/><circle cx="89" cy="11" r="2.6" fill="#D8B15A" opacity="0.7"/></svg></div>
+  <div class="char-body">
+    <span class="mk">handover</span>
+    <span class="char-price">5.35 ml &middot; 24p</span>
+    <div class="char-bar"><i style="width:71%;background:#1E7A46"></i></div>
+    <span class="char-press">5 bars &middot; 4 branches &middot; 4 ticks</span>
+    <p>The moment, the record of the moment, and the obligation that survives it.</p>
+  </div>
+</div><div class="char">
+  <div class="char-glass"><svg viewBox="0 0 100 100" width="132" height="132" role="img" aria-label="Character for escalation: 4 maintenance bars, 3 sense branches, 3 tongue ticks"><rect width="100" height="100" fill="#070713"/><rect x="2" y="2" width="96" height="96" fill="none" stroke="#0a0a12" stroke-width="2.5"/><path d="M50.0,12.0 L50.0,88.0" fill="none" stroke="#B0233A" stroke-width="3.4" stroke-linecap="round" opacity="0.95"/><path d="M26.0,88.0 L74.0,88.0" fill="none" stroke="#B0233A" stroke-width="3.0" stroke-linecap="round" opacity="0.95"/><path d="M41.9,82.0 L58.1,82.0" fill="none" stroke="#B0233A" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M39.8,67.5 L60.2,67.5" fill="none" stroke="#B0233A" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M38.3,53.0 L61.7,53.0" fill="none" stroke="#B0233A" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M37.7,38.5 L62.3,38.5" fill="none" stroke="#B0233A" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M50.0,72.0 L70.6,60.5" fill="none" stroke="#B0233A" stroke-width="1.9" stroke-linecap="round" opacity="0.78"/><path d="M50.0,56.0 L31.7,41.0" fill="none" stroke="#B0233A" stroke-width="1.9" stroke-linecap="round" opacity="0.78"/><path d="M50.0,40.0 L67.0,31.1" fill="none" stroke="#B0233A" stroke-width="1.9" stroke-linecap="round" opacity="0.78"/><path d="M27.3,17.1 L23.9,12.1" fill="none" stroke="#B0233A" stroke-width="1.8" stroke-linecap="round" opacity="0.78"/><path d="M50.0,10.0 L50.0,4.0" fill="none" stroke="#B0233A" stroke-width="1.8" stroke-linecap="round" opacity="0.78"/><path d="M72.7,17.1 L76.1,12.1" fill="none" stroke="#B0233A" stroke-width="1.8" stroke-linecap="round" opacity="0.78"/><path d="M18.5,25.3 A40.0,40.0 0 0 1 81.5,25.3" fill="none" stroke="#B0233A" stroke-width="1.6" stroke-linecap="round" opacity="0.78"/><circle cx="89" cy="11" r="2.6" fill="#D8B15A" opacity="0.7"/></svg></div>
+  <div class="char-body">
+    <span class="mk">escalation</span>
+    <span class="char-price">4.39 ml &middot; 19p</span>
+    <div class="char-bar"><i style="width:59%;background:#B0233A"></i></div>
+    <span class="char-press">4 bars &middot; 3 branches &middot; 3 ticks</span>
+    <p>A route, a decision to take it, and the mark it leaves on whoever took it.</p>
+  </div>
+</div><div class="char">
+  <div class="char-glass"><svg viewBox="0 0 100 100" width="132" height="132" role="img" aria-label="Character for attestation: 3 maintenance bars, 2 sense branches, 2 tongue ticks"><rect width="100" height="100" fill="#070713"/><rect x="2" y="2" width="96" height="96" fill="none" stroke="#0a0a12" stroke-width="2.5"/><path d="M50.0,12.0 L50.0,88.0" fill="none" stroke="#2456B8" stroke-width="3.4" stroke-linecap="round" opacity="0.95"/><path d="M26.0,88.0 L74.0,88.0" fill="none" stroke="#2456B8" stroke-width="3.0" stroke-linecap="round" opacity="0.95"/><path d="M40.5,82.0 L59.5,82.0" fill="none" stroke="#2456B8" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M36.2,62.7 L63.8,62.7" fill="none" stroke="#2456B8" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M37.4,43.3 L62.6,43.3" fill="none" stroke="#2456B8" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M50.0,72.0 L69.6,59.1" fill="none" stroke="#2456B8" stroke-width="1.9" stroke-linecap="round" opacity="0.78"/><path d="M50.0,48.0 L32.8,40.3" fill="none" stroke="#2456B8" stroke-width="1.9" stroke-linecap="round" opacity="0.78"/><path d="M36.4,12.4 L34.3,6.7" fill="none" stroke="#2456B8" stroke-width="1.8" stroke-linecap="round" opacity="0.78"/><path d="M63.6,12.4 L65.7,6.7" fill="none" stroke="#2456B8" stroke-width="1.8" stroke-linecap="round" opacity="0.78"/><path d="M24.4,19.3 A40.0,40.0 0 0 1 75.6,19.3" fill="none" stroke="#2456B8" stroke-width="1.6" stroke-linecap="round" opacity="0.78"/><circle cx="89" cy="11" r="2.6" fill="#D8B15A" opacity="0.7"/></svg></div>
+  <div class="char-body">
+    <span class="mk">attestation</span>
+    <span class="char-price">3.67 ml &middot; 16p</span>
+    <div class="char-bar"><i style="width:49%;background:#2456B8"></i></div>
+    <span class="char-press">3 bars &middot; 2 branches &middot; 2 ticks</span>
+    <p>A signature over a fact, and the chain that lets it be checked later.</p>
+  </div>
+</div><div class="char">
+  <div class="char-glass"><svg viewBox="0 0 100 100" width="132" height="132" role="img" aria-label="Character for purge: 4 maintenance bars, 2 sense branches, 1 tongue ticks"><rect width="100" height="100" fill="#070713"/><rect x="2" y="2" width="96" height="96" fill="none" stroke="#0a0a12" stroke-width="2.5"/><path d="M50.0,12.0 L50.0,88.0" fill="none" stroke="#1E7A46" stroke-width="3.4" stroke-linecap="round" opacity="0.95"/><path d="M26.0,88.0 L74.0,88.0" fill="none" stroke="#1E7A46" stroke-width="3.0" stroke-linecap="round" opacity="0.95"/><path d="M35.9,82.0 L64.1,82.0" fill="none" stroke="#1E7A46" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M40.3,67.5 L59.7,67.5" fill="none" stroke="#1E7A46" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M39.1,53.0 L60.9,53.0" fill="none" stroke="#1E7A46" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M39.1,38.5 L60.9,38.5" fill="none" stroke="#1E7A46" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M50.0,72.0 L72.0,61.9" fill="none" stroke="#1E7A46" stroke-width="1.9" stroke-linecap="round" opacity="0.78"/><path d="M50.0,48.0 L25.0,33.1" fill="none" stroke="#1E7A46" stroke-width="1.9" stroke-linecap="round" opacity="0.78"/><path d="M50.0,10.0 L50.0,4.0" fill="none" stroke="#1E7A46" stroke-width="1.8" stroke-linecap="round" opacity="0.78"/><path d="M31.4,14.6 A40.0,40.0 0 0 1 68.6,14.6" fill="none" stroke="#1E7A46" stroke-width="1.6" stroke-linecap="round" opacity="0.78"/><circle cx="89" cy="11" r="2.6" fill="#D8B15A" opacity="0.7"/></svg></div>
+  <div class="char-body">
+    <span class="mk">purge</span>
+    <span class="char-price">3.76 ml &middot; 17p</span>
+    <div class="char-bar"><i style="width:50%;background:#1E7A46"></i></div>
+    <span class="char-press">4 bars &middot; 2 branches &middot; 1 ticks</span>
+    <p>A recorded, costed event on a device. Everyone calls it a purge.</p>
+  </div>
+</div><div class="char">
+  <div class="char-glass"><svg viewBox="0 0 100 100" width="132" height="132" role="img" aria-label="Character for sheet: 1 maintenance bars, 1 sense branches, 1 tongue ticks"><rect width="100" height="100" fill="#070713"/><rect x="2" y="2" width="96" height="96" fill="none" stroke="#0a0a12" stroke-width="2.5"/><path d="M50.0,12.0 L50.0,88.0" fill="none" stroke="#1E7A46" stroke-width="3.4" stroke-linecap="round" opacity="0.95"/><path d="M26.0,88.0 L74.0,88.0" fill="none" stroke="#1E7A46" stroke-width="3.0" stroke-linecap="round" opacity="0.95"/><path d="M35.7,82.0 L64.3,82.0" fill="none" stroke="#1E7A46" stroke-width="2.0" stroke-linecap="round" opacity="0.78"/><path d="M50.0,72.0 L72.0,57.9" fill="none" stroke="#1E7A46" stroke-width="1.9" stroke-linecap="round" opacity="0.78"/><path d="M50.0,10.0 L50.0,4.0" fill="none" stroke="#1E7A46" stroke-width="1.8" stroke-linecap="round" opacity="0.78"/><path d="M31.4,14.6 A40.0,40.0 0 0 1 68.6,14.6" fill="none" stroke="#1E7A46" stroke-width="1.6" stroke-linecap="round" opacity="0.78"/><circle cx="89" cy="11" r="2.6" fill="#D8B15A" opacity="0.7"/></svg></div>
+  <div class="char-body">
+    <span class="mk">sheet</span>
+    <span class="char-price">2.68 ml &middot; 12p</span>
+    <div class="char-bar"><i style="width:36%;background:#1E7A46"></i></div>
+    <span class="char-press">1 bars &middot; 1 branches &middot; 1 ticks</span>
+    <p>A sheet. One meaning, one word, everywhere.</p>
+  </div>
+</div></div>
+  <div class="prose" style="margin-top:2rem">
+    <p>The ranking is not an accident and it is not decoration.
+       <strong>separation</strong> is the dearest character in the
+       lexicon &mdash; serviced constantly, read six different ways, and named
+       differently by every desk &mdash; while <strong>sheet</strong>
+       costs 2.8&times; less because
+       it means one thing to everybody. The words that carry the most load cost the most
+       to put down, which is what the price is <em>for</em>.</p>
+    <p>That is a defence before it is a problem. A forger pays the same ink a writer does,
+       so the words worth forging are precisely the ones that are expensive to forge, and
+       the enclosing ring &mdash; the stroke that exists only because four other tongues
+       hold their own word &mdash; is the hardest part to lay down convincingly. A sheet
+       covered in cheap characters is a sheet nobody thought worth protecting.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">Shortage</span>
+    <h2>What a book stops being able to say</h2>
+    <p>Stock below its floor raises the price per millilitre &mdash; not because a market
+       says so, but because writing costs what replacing the stock costs, and the next lot
+       has not landed. At 3&times;, a template written to a budget starts
+       reaching for cheaper words.</p></div>
+  <div class="clause">
+    <div class="clause-row">
+      <span class="clause-tag">at the floor</span>
+      <div class="words"><span class="word" style="border-bottom-color:#2456B8">custody<i>5.4</i></span><span class="word" style="border-bottom-color:#2456B8">separation<i>7.5</i></span><span class="word" style="border-bottom-color:#1E7A46">handover<i>5.3</i></span><span class="word" style="border-bottom-color:#2456B8">attestation<i>3.7</i></span><span class="word" style="border-bottom-color:#B0233A">escalation<i>4.4</i></span></div>
+      <span class="clause-sum">26.3 ml</span>
+    </div>
+    <div class="clause-row cheap">
+      <span class="clause-tag">three days short</span>
+      <div class="words"><span class="word" style="border-bottom-color:#2456B8">held<i>2.3</i></span><span class="word" style="border-bottom-color:#2456B8">gap<i>2.4</i></span><span class="word" style="border-bottom-color:#1E7A46">pass<i>2.6</i></span><span class="word" style="border-bottom-color:#2456B8">seen<i>2.3</i></span><span class="word" style="border-bottom-color:#B0233A">push<i>2.4</i></span></div>
+      <span class="clause-sum">11.9 ml</span>
+    </div>
+  </div>
+  <p class="chart-note">The same clause for 55% less
+     ink. The figure under each word is what that word cost to write.</p>
+  <div class="afford-strip"><span class="afford out">separation <i>99p</i></span><span class="afford out">relief <i>81p</i></span><span class="afford out">custody <i>72p</i></span><span class="afford out">handover <i>71p</i></span><span class="afford in">escalation <i>58p</i></span><span class="afford in">attestation <i>48p</i></span><span class="afford in">purge <i>50p</i></span><span class="afford in">sheet <i>35p</i></span></div>
+  <p class="chart-note">The lexicon priced at 3&times; against a
+     14&nbsp;ml purse. Struck-through words are the ones a writer can no longer
+     afford to put on the sheet &mdash; and they are the top of the list, in order.</p>
+  <div class="note" style="margin-top:2.5rem">
+    <span class="eyebrow">What the discount is paid with</span>
+    <p>The cheap wording is cheap because it is coarse. Every substitute does the work of
+       a word that carried several readings and carries one, so the clause above gives up
+       <strong>14 distinct senses</strong> to save that ink &mdash; and <em>gap</em>
+       covers a barrier that held and a barrier that failed with the same three letters.
+       A book running short of ink quietly deletes exactly the distinctions its register
+       exists to keep.</p>
+    <p>So lexical drift is a stock finding, not a writing-style finding. Where the wording
+       of a template gets cheaper and the ink ledger does not explain why, the question is
+       about the stores &mdash; who drew the stock, and against what. It is never a
+       question about whoever wrote the sheet, who was doing the only thing the budget
+       left them.</p>
   </div>
 </section>
 
