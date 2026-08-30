@@ -1,0 +1,384 @@
+<title>Fiction and Art</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root {
+  --ground:#0D1014; --panel:#151A20; --panel-2:#1B222A; --came:#262E37;
+  --ink:#E8E3D9; --ink-2:#B4BCC5; --muted:#8B95A0;
+  --separation:#6E82E8; --relief:#D14257; --delivery:#4CA87A;
+  --step-1:0.75rem; --step0:0.95rem; --step1:1.0625rem; --step2:1.375rem;
+  --step3:1.875rem; --step4:2.625rem; --step5:clamp(2.5rem,6vw,3.9rem);
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --serif:"Spectral",Georgia,"Times New Roman",serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--serif);
+  font-size:var(--step1);line-height:1.65;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(58rem 40rem at 12% -8%,rgba(110,130,232,.10),transparent 68%),
+             radial-gradient(46rem 34rem at 96% 4%,rgba(209,66,87,.055),transparent 70%)}
+.wrap{position:relative;z-index:1;max-width:68rem;margin:0 auto;padding:0 1.75rem}
+h1,h2,h3{font-weight:600;text-wrap:balance;margin:0;line-height:1.18}
+p{margin:0}
+a{color:var(--separation);text-decoration:none;border-bottom:1px solid rgba(110,130,232,.35)}
+a:hover{border-bottom-color:var(--separation)}
+a:focus-visible{outline:2px solid var(--separation);outline-offset:3px}
+.eyebrow{font-family:var(--mono);font-size:var(--step-1);letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted)}
+.mono{font-family:var(--mono)}
+.num{font-variant-numeric:tabular-nums}
+
+nav.site{position:relative;z-index:1;border-bottom:1px solid var(--came)}
+nav.site .inner{max-width:68rem;margin:0 auto;padding:1.1rem 1.75rem;display:flex;
+  flex-wrap:wrap;gap:1.5rem;align-items:baseline}
+nav.site .brand{font-family:var(--mono);font-size:var(--step0);letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink);border:0;margin-right:auto}
+nav.site a{font-family:var(--mono);font-size:var(--step-1);letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);border:0}
+nav.site a:hover{color:var(--ink)}
+nav.site a[aria-current="page"]{color:var(--separation)}
+
+header.page{padding:4.5rem 0 3rem}
+header.page h1{font-size:var(--step5);font-weight:300;letter-spacing:-.02em;margin:1.1rem 0 0}
+header.page h1 em{font-style:italic;color:var(--ink-2)}
+.standfirst{margin-top:1.4rem;font-size:var(--step2);font-weight:300;color:var(--ink-2);
+  line-height:1.45;max-width:36rem}
+
+section{padding:4rem 0;border-top:1px solid var(--came)}
+.sec-head{display:flex;flex-direction:column;gap:.8rem;margin-bottom:2.25rem}
+.sec-head h2{font-size:var(--step3);font-weight:400;letter-spacing:-.01em}
+.sec-head p{color:var(--ink-2);max-width:38rem}
+.prose{max-width:38rem;color:var(--ink-2)}
+.prose p+p{margin-top:1rem}
+.prose strong{color:var(--ink);font-weight:600}
+
+.claim{border-left:2px solid var(--separation);padding:.25rem 0 .25rem 1.6rem;max-width:40rem}
+.claim p+p{margin-top:.9rem}
+.claim .said{font-size:var(--step2);font-weight:300;line-height:1.5}
+.claim .aside{color:var(--muted);font-size:var(--step0)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(17rem,1fr));gap:1px;
+  background:var(--came);border:1px solid var(--came)}
+.cell{background:var(--panel);padding:1.5rem 1.4rem;display:flex;flex-direction:column;gap:.6rem}
+.cell h3{font-size:var(--step1);font-weight:600}
+.cell p{font-size:var(--step0);color:var(--ink-2);line-height:1.6}
+.cell .role{font-family:var(--mono);font-size:var(--step-1);letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted)}
+.cell .foot{font-family:var(--mono);font-size:.78rem;color:var(--muted);
+  border-top:1px solid var(--came);padding-top:.7rem;margin-top:auto;line-height:1.6}
+
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:1px;
+  background:var(--came);border:1px solid var(--came)}
+.tile{background:var(--panel);padding:1.5rem 1.4rem;display:flex;flex-direction:column;gap:.4rem}
+.tile .v{font-family:var(--mono);font-size:var(--step4);font-weight:500;letter-spacing:-.03em;
+  font-variant-numeric:tabular-nums;line-height:1}
+.tile .k{font-family:var(--mono);font-size:var(--step-1);letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted)}
+.tile .n{font-size:var(--step0);color:var(--ink-2)}
+.v-pass{color:var(--delivery)} .v-sep{color:var(--separation)} .v-rel{color:var(--relief)}
+
+.table-scroll{overflow-x:auto;border:1px solid var(--came)}
+table{border-collapse:collapse;width:100%;font-family:var(--mono);font-size:var(--step0)}
+th,td{text-align:left;padding:.6rem 1rem;border-bottom:1px solid var(--came);white-space:nowrap}
+thead th{font-size:var(--step-1);letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);font-weight:500;background:var(--panel)}
+tbody tr:last-child td{border-bottom:none}
+td.n{text-align:right;font-variant-numeric:tabular-nums}
+td.mod{color:var(--ink-2)}
+td.hash{color:var(--muted);font-size:.8rem}
+
+pre{margin:0;background:var(--panel);border:1px solid var(--came);
+  border-left:2px solid var(--separation);padding:1.2rem 1.35rem;overflow-x:auto;
+  font-family:var(--mono);font-size:.84rem;line-height:1.7;color:var(--ink-2)}
+pre .c{color:var(--muted);font-style:italic}
+pre .r{color:var(--relief)} pre .g{color:var(--delivery)}
+code{font-family:var(--mono);font-size:.88em;color:var(--ink);background:var(--panel-2);
+  padding:.08em .35em;border-radius:2px}
+
+.mod-card{background:var(--panel);border:1px solid var(--came);padding:1.6rem 1.5rem;
+  display:flex;flex-direction:column;gap:1rem}
+.mod-card .head{display:flex;flex-wrap:wrap;gap:.75rem;align-items:baseline}
+.mod-card .path{font-family:var(--mono);font-size:var(--step1);color:var(--ink)}
+.mod-card .meta{font-family:var(--mono);font-size:var(--step-1);color:var(--muted);
+  margin-left:auto;font-variant-numeric:tabular-nums}
+.mod-card .doc{color:var(--ink-2);font-size:var(--step0);max-width:44rem}
+.syms{display:flex;flex-direction:column;gap:.5rem;border-top:1px solid var(--came);padding-top:1rem}
+.sym{display:grid;grid-template-columns:minmax(0,22rem) 1fr;gap:1rem;align-items:baseline}
+.sym .sig{font-family:var(--mono);font-size:.84rem;color:var(--ink);overflow-wrap:anywhere}
+.sym .sig .kw{color:var(--separation)}
+.sym .sum{font-size:var(--step0);color:var(--muted);line-height:1.5}
+.mods{display:flex;flex-direction:column;gap:1px;background:var(--came);border:1px solid var(--came)}
+
+figure{margin:0}
+figcaption{font-family:var(--mono);font-size:var(--step-1);color:var(--muted);
+  letter-spacing:.06em;text-transform:uppercase;margin-bottom:1rem}
+.swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:1px;
+  background:var(--came);border:1px solid var(--came)}
+.sw{background:var(--panel);padding:1.2rem}
+.sw .chip{height:3rem;border:1px solid var(--came);margin-bottom:.8rem}
+.sw .nm{font-family:var(--mono);font-size:var(--step0);color:var(--ink)}
+.sw .hx{font-family:var(--mono);font-size:var(--step-1);color:var(--muted)}
+.sw .use{font-size:var(--step0);color:var(--ink-2);margin-top:.4rem;line-height:1.5}
+
+.scale{display:flex;flex-direction:column;gap:1rem;border:1px solid var(--came);
+  background:var(--panel);padding:1.5rem}
+.scale div{display:flex;gap:1.25rem;align-items:baseline;border-bottom:1px solid var(--came);
+  padding-bottom:.9rem}
+.scale div:last-child{border-bottom:0;padding-bottom:0}
+.scale .tok{font-family:var(--mono);font-size:var(--step-1);color:var(--muted);min-width:6rem}
+
+.stack{display:flex;flex-direction:column;gap:2rem}
+.stack-sm{display:flex;flex-direction:column;gap:1.25rem}
+.rules{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:1.4rem;max-width:42rem}
+.rules li{border-left:2px solid var(--relief);padding-left:1.4rem}
+.rules h3{font-size:var(--step1);font-weight:600;margin-bottom:.35rem}
+.rules p{font-size:var(--step0);color:var(--ink-2)}
+.rules.good li{border-left-color:var(--delivery)}
+
+table.fic td{white-space:normal;font-family:var(--serif);font-size:var(--step0);
+  color:var(--ink-2);line-height:1.55;vertical-align:top}
+table.fic td.r{white-space:nowrap;color:var(--muted)}
+table.fic td strong{color:var(--ink);font-weight:600}
+
+.posts{display:flex;flex-direction:column;gap:1px;background:var(--came);border:1px solid var(--came)}
+.post{background:var(--panel);padding:1.4rem 1.5rem;display:flex;flex-direction:column;gap:.55rem}
+.post .top{display:flex;flex-wrap:wrap;gap:.7rem;align-items:baseline}
+.post h3{font-size:var(--step2);font-weight:400;letter-spacing:-.01em}
+.post h3 a{border-bottom:1px solid rgba(110,130,232,.3)}
+.post .date{font-family:var(--mono);font-size:var(--step-1);color:var(--muted);
+  margin-left:auto;font-variant-numeric:tabular-nums}
+.post p{font-size:var(--step0);color:var(--ink-2);max-width:44rem}
+.tag{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);border:1px solid var(--came);padding:.15rem .45rem}
+
+.note{border:1px solid var(--came);background:var(--panel);padding:1.35rem 1.45rem;max-width:44rem}
+.note .eyebrow{display:block;margin-bottom:.55rem}
+.note p{font-size:var(--step0);color:var(--ink-2)}
+.note p+p{margin-top:.75rem}
+
+svg .stroke{stroke:var(--came);fill:none;stroke-width:1.5}
+svg .lbl{fill:var(--ink-2);font-family:var(--mono);font-size:11px}
+svg .lbl-mut{fill:var(--muted);font-family:var(--mono);font-size:10px}
+svg .node{fill:var(--panel-2);stroke:var(--came);stroke-width:1.5}
+
+footer{border-top:1px solid var(--came);padding:3rem 0 5rem;color:var(--muted);font-size:var(--step0)}
+footer p+p{margin-top:.6rem}
+@media (max-width:44rem){.sym{grid-template-columns:1fr;gap:.2rem}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+<nav class="site"><div class="inner"><a class="brand" href="index.html">OpsCo</a><a href="index.html">Onboarding</a><a href="ceremonies.html">Ceremonies</a><a href="patterns.html">Patterns</a><a href="audit.html">Audit index</a><a href="design.html">Design guide</a><a href="evidence.html">Evidence</a><a href="fiction.html" aria-current="page">Fiction and art</a></div></nav>
+<div class="wrap">
+<header class="page">
+  <span class="eyebrow">Fiction and art</span>
+  <h1>Invented companies, invented assets, and <em>the stories that generate them</em></h1>
+  <p class="standfirst">
+    Everything on this page is made up. That is not a disclaimer bolted onto a marketing
+    page — it is the reason the page exists, and the reason it is kept separate from
+    every other page on this site.
+  </p>
+</header>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">Why this is here</span>
+    <h2>A fixture with a name is either declared invented or it reads as a client</h2></div>
+  <div class="prose">
+    <p>You cannot build a detector without generating the shape it is meant to catch, and
+       you cannot generate that shape against a live record. So the controls in this
+       system are exercised against fixtures — and a fixture that is only
+       <code>CLIENT-A</code> cannot carry a premise, a history, or a set of books that
+       disagree with each other.</p>
+    <p>The moment a fixture gets a name it starts to read as a real counterparty on a
+       public page. The site build refuses a page carrying a denied term for exactly that
+       reason. This section is the other half of that rule: <strong>the invented names
+       live here, together, labelled.</strong></p>
+    <p>The art is not decoration either. A deterministic renderer that draws the same
+       tablet from the same digest is a verification tool that happens to be beautiful,
+       and a story about a shortage is the cheapest way to find out whether a control
+       still reads as fair when it lands on somebody sympathetic.</p>
+  </div>
+  <div class="note" style="margin-top:2rem">
+    <span class="eyebrow">Standing declaration</span>
+    <p>No company, person, lot, bunker, meter or purchase order named on this page
+       exists. No figure on it is a production figure. Nothing here describes a client,
+       an engagement, or a real record — and where a mechanism is real, it is described
+       on the <a href="index.html">onboarding</a> and
+       <a href="evidence.html">evidence</a> pages instead, in its own terms.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">The register</span>
+    <h2>Imaginary companies</h2>
+    <p>Each one exists to carry a specific failure the system has to handle. Ramal
+       Nominees is the sharpest of them: a name that appears on filings, receives and
+       never sends, and was never issued anything by anybody.</p></div>
+  <div class="grid"><div class="cell"><span class="role">practice name</span>
+        <h3>Harbour &amp; Co</h3><p>Forty people act under one name, which is what a firm is. High-value, low-volume, and the practice everyone assumes they are dealing with.</p>
+        <div class="foot">Practising certificates · indemnity by act class · a service address</div></div><div class="cell"><span class="role">filing agent</span>
+        <h3>Portway Filings</h3><p>High volume, low value. Incorporates and files for clients who never touch the form, which is the service they are paying for.</p>
+        <div class="foot">Authorities to file · one press · meter M-4</div></div><div class="cell"><span class="role">safety name</span>
+        <h3>H. Reach</h3><p>A single practitioner&#x27;s service name, issued because a home address would otherwise be reachable from a public filing. It is supposed to carry one person.</p>
+        <div class="foot">Correspondence rights · one certificate</div></div><div class="cell"><span class="role">nominee</span>
+        <h3>Ramal Nominees</h3><p>Appears on filings and on shipping manifests. Receives and never sends. No issuance record against any lot, in any book, ever.</p>
+        <div class="foot">Nothing. It has never been issued anything.</div></div><div class="cell"><span class="role">ink manufacturer</span>
+        <h3>Ashgrove Inks</h3><p>Mints the lots. Every millilitre traces to a works, a week, a purchase order and a named supplier, which is the whole of why the ink is worth anything.</p>
+        <div class="foot">LOT-7734 · LOT-7801 · LOT-9114</div></div><div class="cell"><span class="role">printer</span>
+        <h3>Wickstead Press</h3><p>Holds the plates, the stock and the meters. Cannot produce one client&#x27;s work on another&#x27;s approved mix without a purge that is itself a costed, recorded event.</p>
+        <div class="foot">Presses · roller 4 · per-client brand mixes</div></div><div class="cell"><span class="role">paper merchant</span>
+        <h3>Bellcourt Stock</h3><p>The stock portfolio. Every balance derived from movements — received, issued, returned, counted, written off — and never set directly.</p>
+        <div class="foot">Sheet stock · weighbridge tickets</div></div><div class="cell"><span class="role">type foundry</span>
+        <h3>Featherlight Foundry</h3><p>Publishes FeatherLight, and FeatherLite — the subset a cheap renderer actually implements, which is two implementations of one file that disagree about it.</p>
+        <div class="foot">The ligature table · per-glyph plate assignments</div></div><div class="cell"><span class="role">seal minter</span>
+        <h3>The Glazier&#x27;s Bench</h3><p>Mints tablets from a digest. Same state, same window; change one attested event and the glass changes with it.</p>
+        <div class="foot">The renderer · the three ink budgets</div></div><div class="cell"><span class="role">federated crews</span>
+        <h3>Salt Circle</h3><p>Cleanup crews that became a contribution engine after the shared-medium incident. Their refusals are the product.</p>
+        <div class="foot">Pooled work · signed refusal records</div></div><div class="cell"><span class="role">mirror registry</span>
+        <h3>Mirror Four</h3><p>Holds the reverse of books it has no door into. The assignment rotates on a published rule that no keeper controls.</p>
+        <div class="foot">Reverse books · join keys · no route to any obverse</div></div></div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">Intellectual property</span>
+    <h2>IP bundles</h2>
+    <p>Each bundle carries an encumbrance that is a property of the thing rather than a
+       promise about it — a conformance rule, a determinism requirement, a missing
+       inverse. That is the difference between an asset you can audit and one you have to
+       take on trust.</p></div>
+  <div class="table-scroll"><table class="fic">
+    <thead><tr><th>Ref</th><th>Bundle</th><th>Holder</th><th>Encumbrance</th></tr></thead>
+    <tbody><tr><td class="r mono">FL-1</td>
+        <td><strong>The FeatherLight table</strong><br>Discretionary ligature table, per-glyph plate assignments, and the L1–L3 conformance suite.</td>
+        <td class="r">Featherlight Foundry</td>
+        <td>Warranted L1-conforming. A ligature whose glyph sits on a droppable separation voids the warranty, because that is a word a press decision can remove.</td></tr><tr><td class="r mono">GL-2</td>
+        <td><strong>Cohort Glass renderer</strong><br>FNV-1a seed into mulberry32, colour-as-account rules, came and stone placement.</td>
+        <td class="r">The Glazier&#x27;s Bench</td>
+        <td>Deterministic. A build that renders differently from the reference is a defect and not a variant, which is what makes the seal checkable rather than decorative.</td></tr><tr><td class="r mono">LX-3</td>
+        <td><strong>The ink lexicon</strong><br>Word geometry priced by maintenance, senses and tongues; millilitres per millimetre; pence per millilitre.</td>
+        <td class="r">Ashgrove Inks, licensed to the trade</td>
+        <td>Prices move with the stores. The register is versioned and never edited in place, so a cheapening is visible as a new version rather than as a changed number.</td></tr><tr><td class="r mono">RC-4</td>
+        <td><strong>The recipe set</strong><br>split-natural-to-virtual v3, its consumed item classes, and its inverse.</td>
+        <td class="r">Held jointly, halves blinded</td>
+        <td>Void without the inverse on file. A recipe with no inverse is not a de-identification, it is a destruction.</td></tr><tr><td class="r mono">CB-5</td>
+        <td><strong>Capacity Bond form</strong><br>The instrument face, five denominations, mirror pairing, join-key algebra.</td>
+        <td class="r">Issued form, unassigned</td>
+        <td>Cannot be struck against a lot that is not on the approved list. Approval is checked at issue, never at audit.</td></tr></tbody>
+  </table></div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">Asset registers</span>
+    <h2>Physical, space, and the ghost each one balances against</h2>
+    <p>The fourth column is the point. Every asset here is only checkable because a
+       counterpart record has to exist somewhere else, kept by somebody with no reason to
+       agree. Where that counterpart is missing, the gap is the finding.</p></div>
+
+  <div class="stack">
+    <figure>
+      <figcaption>Physical</figcaption>
+      <div class="table-scroll"><table class="fic">
+        <thead><tr><th>Ref</th><th>Asset</th><th>Custodian</th><th>Balances against</th></tr></thead>
+        <tbody><tr><td class="r mono">LOT-7734</td>
+            <td>Pre-break ink, 1,240 ml. Provenance anchored before the signatures fell, which is the only reason it binds.</td>
+            <td class="r">Ashgrove Inks</td>
+            <td>A purchase order and a weighbridge ticket, on paper, in a different building</td></tr><tr><td class="r mono">Roller 4</td>
+            <td>Carries a burn-in comb at its own circumference from a mark struck in the same position all run.</td>
+            <td class="r">Wickstead Press</td>
+            <td>What the press printed after hours — a record nobody wrote on purpose</td></tr><tr><td class="r mono">Meter M-4</td>
+            <td>Mechanical counter. A wheel and a pawl, no firmware and no clock, so there is nothing in it to persuade.</td>
+            <td class="r">Wickstead Press</td>
+            <td>Stock issued to the job: meter without issue, or issue without meter</td></tr><tr><td class="r mono">Sheet stock</td>
+            <td>Received, issued, returned, counted, written off. There is deliberately no way to set a balance.</td>
+            <td class="r">Bellcourt Stock</td>
+            <td>The supplier invoice, and the meter delta for the same period</td></tr></tbody>
+      </table></div>
+    </figure>
+    <figure>
+      <figcaption>Space</figcaption>
+      <div class="table-scroll"><table class="fic">
+        <thead><tr><th>Ref</th><th>Place</th><th>Custodian</th><th>Balances against</th></tr></thead>
+        <tbody><tr><td class="r mono">Bunker Two — Harbour</td>
+            <td>A fuel store, then a records office. Its door takes two people eleven seconds.</td>
+            <td class="r">Harbour &amp; Co</td>
+            <td>Its reverse, held by whoever the rotation currently names</td></tr><tr><td class="r mono">Bunker Six — Portway</td>
+            <td>A pumping station. Strikes more sheets in a month than Harbour does in a year.</td>
+            <td class="r">Portway Filings</td>
+            <td>Nineteen months of consignments, and a meter that disagrees with them</td></tr><tr><td class="r mono">Bunker Nine — Ramal</td>
+            <td>A concrete apron and a hatch welded shut long enough ago for the weld to have gone the same colour as the rest of it.</td>
+            <td class="r">—</td>
+            <td>Nothing. That is the finding: a consignee no lot was ever issued to</td></tr><tr><td class="r mono">The airlock</td>
+            <td>A tray, a lock cycle, and a cold side. The only channel between a book and its reverse, and it carries no conversation.</td>
+            <td class="r">Every bunker</td>
+            <td>Netted entries, and nothing else</td></tr><tr><td class="r mono">The printing hall</td>
+            <td>Ceiling lost above frame, sulphur light, one sheet leaving the press. A virtual place, published with dimensions so it can be rebuilt in any medium.</td>
+            <td class="r">The remix kit</td>
+            <td>Its plan and elevation sheet</td></tr></tbody>
+      </table></div>
+    </figure>
+    <figure>
+      <figcaption>Intellectual property</figcaption>
+      <div class="table-scroll"><table class="fic">
+        <thead><tr><th>Ref</th><th>Holding</th><th>Custodian</th><th>Balances against</th></tr></thead>
+        <tbody><tr><td class="r mono">FL-1 … CB-5</td>
+            <td>The five bundles above, each with a holder and an encumbrance that is a property of the thing rather than a promise about it.</td>
+            <td class="r">See the bundle register</td>
+            <td>The issuance record for every name that appears on one</td></tr></tbody>
+      </table></div>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">Posts</span>
+    <h2>The series</h2>
+    <p>Design notes, field reports and fiction, newest first. Entries marked
+       <span class="tag">private link</span> are not published yet — the link resolves
+       only for someone the artefact has been shared with.</p></div>
+  <div class="posts"><article class="post">
+        <div class="top"><h3><a href="https://claude.ai/code/artifact/4b6a85ea-77f5-4923-80db-c4b459ac367f">The Capacity Bond</a></h3>
+        <span class="tag">design note</span><span class="tag">private link</span>
+        <span class="date">2026-08-29</span></div>
+        <p>A bearer instrument denominated in compute, memory, sync and routing, minted against an attested event rather than emitted by a treasury. Every instrument carries a mirror object on a blinded parallel book, and the pair must net to zero.</p></article><article class="post">
+        <div class="top"><h3><a href="https://claude.ai/code/artifact/89035880-1105-4599-b44f-ac52597b4b14">Low-Background Ink</a></h3>
+        <span class="tag">fiction</span><span class="tag">private link</span>
+        <span class="date">2026-08-29</span></div>
+        <p>After the signatures fell, only two kinds of record still bound anybody: a hash anchored before the break, and something physically printed. A keeper who misstates stock carries the shortage that misstatement causes.</p></article><article class="post">
+        <div class="top"><h3><a href="https://claude.ai/code/artifact/616538e3-aaa7-4809-b101-8f0174ddfa19">OpsCo FeatherLight</a></h3>
+        <span class="tag">overview</span><span class="tag">private link</span>
+        <span class="date">2026-08-28</span></div>
+        <p>The system as a whole — dispatch, separation, queue windows, attestation — and the narrow claim it actually makes, which is not that two people did not speak.</p></article><article class="post">
+        <div class="top"><h3><a href="https://claude.ai/code/artifact/018e8c91-fab6-4025-8455-850118e35415">Salt Circle Sprint</a></h3>
+        <span class="tag">field report</span><span class="tag">private link</span>
+        <span class="date">2026-08-27</span></div>
+        <p>Federated cleanup after the shared-medium incident. The moment you share infrastructure you have built a channel, and the only question is whether it is one you can see. The refusals turned out to be the product.</p></article><article class="post">
+        <div class="top"><h3><a href="https://claude.ai/code/artifact/c00877df-027b-44e7-ac04-3cc4fbdbcf5b">Sprint 07 Rehearsal</a></h3>
+        <span class="tag">red-team brief</span><span class="tag">private link</span>
+        <span class="date">2026-08-27</span></div>
+        <p>Eight scripted behaviours — one clean, seven adversarial — driven through the real modules, asserting that each produces a legible, signed, refusing response. You cannot build a detector without generating the shape it is meant to catch.</p></article><article class="post">
+        <div class="top"><h3><a href="https://claude.ai/code/artifact/de063ea4-49a1-49cc-a2e2-2b74ec741009">Cohort Glass</a></h3>
+        <span class="tag">artefact</span><span class="tag">private link</span>
+        <span class="date">2026-08-27</span></div>
+        <p>Governance state rendered as a stained-glass tablet. Colour is an account rather than a palette: you cannot mix one unless the events that compose it occurred between the right identities, and the inks run out.</p></article><article class="post">
+        <div class="top"><h3><a href="https://claude.ai/code/artifact/877ae721-1eca-4cf8-947e-94c71785b008">The Corroborated Hour</a></h3>
+        <span class="tag">prospectus</span><span class="tag">private link</span>
+        <span class="date">2026-08-27</span></div>
+        <p>Paying people for research participation without buying their consent, using the separation and pay-integrity controls that already exist for another reason.</p></article><article class="post">
+        <div class="top"><h3><a href="https://claude.ai/code/artifact/4dc8d621-afde-40f6-8d47-4770dfbad7c0">Collision Pairs</a></h3>
+        <span class="tag">underwriting note</span><span class="tag">private link</span>
+        <span class="date">2026-08-26</span></div>
+        <p>People repeatedly mistaken for one another tend to end up in contact, and often in partnership — which breaks the independence assumption misattribution insurance was resting on.</p></article><article class="post">
+        <div class="top"><h3><a href="https://claude.ai/code/artifact/acd2566d-c488-4861-9e63-1d3def1a12fc">Cyberpunk Service Rate Card</a></h3>
+        <span class="tag">art</span>
+        <span class="date">2026-07-25</span></div>
+        <p>One rate per ticket, published by code, skill and band, identical for everyone offered it — set as a rate card rather than a spreadsheet.</p></article></div>
+</section>
+</div>
+<footer><div class="wrap">
+<p><span class="mono">OpsCo</span> — UK operational scope. This site is generated from a
+private repository; the source is not published. See the
+<a href="audit.html">audit index</a> for how to verify that what is described here is
+what is running.</p>
+<p>Nothing on this site is legal advice. No client is named anywhere on it, and no live
+record, real person, or production figure appears on it.</p>
+<p class="mono">build 2026.08</p>
+</div></footer>

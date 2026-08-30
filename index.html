@@ -136,6 +136,22 @@ figcaption{font-family:var(--mono);font-size:var(--step-1);color:var(--muted);
 .rules p{font-size:var(--step0);color:var(--ink-2)}
 .rules.good li{border-left-color:var(--delivery)}
 
+table.fic td{white-space:normal;font-family:var(--serif);font-size:var(--step0);
+  color:var(--ink-2);line-height:1.55;vertical-align:top}
+table.fic td.r{white-space:nowrap;color:var(--muted)}
+table.fic td strong{color:var(--ink);font-weight:600}
+
+.posts{display:flex;flex-direction:column;gap:1px;background:var(--came);border:1px solid var(--came)}
+.post{background:var(--panel);padding:1.4rem 1.5rem;display:flex;flex-direction:column;gap:.55rem}
+.post .top{display:flex;flex-wrap:wrap;gap:.7rem;align-items:baseline}
+.post h3{font-size:var(--step2);font-weight:400;letter-spacing:-.01em}
+.post h3 a{border-bottom:1px solid rgba(110,130,232,.3)}
+.post .date{font-family:var(--mono);font-size:var(--step-1);color:var(--muted);
+  margin-left:auto;font-variant-numeric:tabular-nums}
+.post p{font-size:var(--step0);color:var(--ink-2);max-width:44rem}
+.tag{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);border:1px solid var(--came);padding:.15rem .45rem}
+
 .note{border:1px solid var(--came);background:var(--panel);padding:1.35rem 1.45rem;max-width:44rem}
 .note .eyebrow{display:block;margin-bottom:.55rem}
 .note p{font-size:var(--step0);color:var(--ink-2)}
@@ -151,7 +167,7 @@ footer p+p{margin-top:.6rem}
 @media (max-width:44rem){.sym{grid-template-columns:1fr;gap:.2rem}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
-<nav class="site"><div class="inner"><a class="brand" href="index.html">OpsCo</a><a href="index.html" aria-current="page">Onboarding</a><a href="ceremonies.html">Ceremonies</a><a href="patterns.html">Patterns</a><a href="audit.html">Audit index</a><a href="design.html">Design guide</a><a href="evidence.html">Evidence</a></div></nav>
+<nav class="site"><div class="inner"><a class="brand" href="index.html">OpsCo</a><a href="index.html" aria-current="page">Onboarding</a><a href="ceremonies.html">Ceremonies</a><a href="patterns.html">Patterns</a><a href="audit.html">Audit index</a><a href="design.html">Design guide</a><a href="evidence.html">Evidence</a><a href="fiction.html">Fiction and art</a></div></nav>
 <div class="wrap">
 <header class="page">
   <span class="eyebrow">OpsCo · operational controls · onboarding</span>
@@ -282,7 +298,7 @@ footer p+p{margin-top:.6rem}
       <p>The named interactions the system recognises, what each one guarantees, and what
          it refuses.</p></div>
     <div class="cell"><h3><a href="audit.html">Audit index</a></h3>
-      <p>37 modules by name, purpose and public surface, with a SHA-256 per file
+      <p>39 modules by name, purpose and public surface, with a SHA-256 per file
          and a root digest you can recompute.</p></div>
     <div class="cell"><h3><a href="design.html">Design guide</a></h3>
       <p>The ink palette and what each colour is allowed to mean, the type scale, and the
@@ -293,7 +309,7 @@ footer p+p{margin-top:.6rem}
   </div>
   <div class="note" style="margin-top:2.5rem">
     <span class="eyebrow">Root digest · 2026.08</span>
-    <p class="mono" style="overflow-wrap:anywhere;color:var(--ink)">5e2024bff00b2d041fbbc915c258e73563f3d1eafce096e5eb8ab275853c38fa</p>
+    <p class="mono" style="overflow-wrap:anywhere;color:var(--ink)">80353c442d5d2ba3facf234147ef25d904b24f3ef341c7958f18a7c940083214</p>
     <p>Every page on this site is generated from the private source. This digest covers
        the modules described in the audit index.</p>
   </div>
